@@ -262,10 +262,20 @@
   .c-vis figcaption{font-size:.73rem; color:var(--faint); line-height:1.45}
   .v2d{color:var(--ink)}
   .mol2d{width:100%; height:auto; max-width:300px; background:transparent}
-  .v3d img{
-    width:100%; height:auto; display:block; border:1px solid var(--hair);
-    border-radius:3px; background:var(--sunk);
+  .v3d-host{
+    position:relative; border:1px solid var(--hair); border-radius:3px;
+    background:var(--sunk); min-height:260px; display:flex; align-items:center; justify-content:center;
   }
+  .v3d-canvas{display:block; width:100%; touch-action:none; cursor:grab; border-radius:3px}
+  .v3d-canvas.grabbing{cursor:grabbing}
+  .v3d-canvas:focus-visible{outline:2px solid var(--accent); outline-offset:2px}
+  .v3d-msg{font-size:.78rem; color:var(--faint)}
+  .v3d-poster{width:100%; height:auto; display:block; border:1px solid var(--hair); border-radius:3px}
+  .v3d-help{display:block; padding:3px 0; color:var(--muted)}
+  .ctrl .c-id{color:var(--posc)}
+  .ctrl[open]{border-color:var(--posc)}
+  .ref .c-id{color:var(--cross)}
+  .ref[open]{border-color:var(--cross)}
   .sw-c,.sw-p,.sw-l{display:inline-block; width:8px; height:8px; border-radius:2px; vertical-align:middle}
   .sw-c{background:#12695E}
   .sw-p{background:#3A579C}
@@ -1166,7 +1176,7 @@ Q 48.1 134.2, 49.2 134.2
 ' fill='#FF0000'/>
 </svg><figcaption>2D structure, drawn from the exact
         SMILES that was docked.</figcaption></figure>
-      <figure class="v3d"><img src="img/RW_708.png" width="620" height="460" loading="lazy" decoding="async" alt="Rank-1 ternary model of RW_708: CRBN in teal, PPIL4 in indigo, the ligand in ochre at the interface."><figcaption>Rank-1 ternary model. CRBN <span class="sw-c"></span>, PPIL4 <span class="sw-p"></span>, ligand <span class="sw-l"></span>. All 20 renders share one camera after superposition on CRBN, so PPIL4&rsquo;s position is comparable between molecules.</figcaption></figure>
+      <figure class="v3d"><div class="v3d-host" data-structure="RW_708"><p class="v3d-msg">Loading 3D model&hellip;</p></div><noscript><img class="v3d-poster" src="img/RW_708.png" width="620" height="460" alt="Rank-1 ternary model of RW_708: CRBN in teal, PPIL4 in indigo, ligand in ochre at the interface."></noscript><figcaption><b>Rank-1 ternary model.</b> CRBN <span class="sw-c"></span>, PPIL4 <span class="sw-p"></span>, ligand <span class="sw-l"></span>. <span class="v3d-help">Drag to rotate &middot; scroll to zoom &middot; double-click to reset &middot; arrow keys when focused.</span> Every structure is superposed on CRBN, so PPIL4&rsquo;s position is comparable between them.</figcaption></figure>
     </div>
     <div class="c-data">
       <div class="dgroup"><h4>Ternary docking</h4><div class="dgrid"><div class="d"><span class="dl">Mean, best 10</span><b>-132.101</b><span class="dn">rank #1 &middot; z 1.47</span></div><div class="d"><span class="dl">Best single model</span><b>-163.314</b></div><div class="d"><span class="dl">Spread (sd)</span><b>12.02</b><span class="dn">lower is a tighter funnel</span></div><div class="d"><span class="dl">Models scored</span><b>160</b></div></div></div>
@@ -1469,7 +1479,7 @@ Q 175.2 86.4, 176.2 86.4
 ' fill='#FF0000'/>
 </svg><figcaption>2D structure, drawn from the exact
         SMILES that was docked.</figcaption></figure>
-      <figure class="v3d"><img src="img/RW_491.png" width="620" height="460" loading="lazy" decoding="async" alt="Rank-1 ternary model of RW_491: CRBN in teal, PPIL4 in indigo, the ligand in ochre at the interface."><figcaption>Rank-1 ternary model. CRBN <span class="sw-c"></span>, PPIL4 <span class="sw-p"></span>, ligand <span class="sw-l"></span>. All 20 renders share one camera after superposition on CRBN, so PPIL4&rsquo;s position is comparable between molecules.</figcaption></figure>
+      <figure class="v3d"><div class="v3d-host" data-structure="RW_491"><p class="v3d-msg">Loading 3D model&hellip;</p></div><noscript><img class="v3d-poster" src="img/RW_491.png" width="620" height="460" alt="Rank-1 ternary model of RW_491: CRBN in teal, PPIL4 in indigo, ligand in ochre at the interface."></noscript><figcaption><b>Rank-1 ternary model.</b> CRBN <span class="sw-c"></span>, PPIL4 <span class="sw-p"></span>, ligand <span class="sw-l"></span>. <span class="v3d-help">Drag to rotate &middot; scroll to zoom &middot; double-click to reset &middot; arrow keys when focused.</span> Every structure is superposed on CRBN, so PPIL4&rsquo;s position is comparable between them.</figcaption></figure>
     </div>
     <div class="c-data">
       <div class="dgroup"><h4>Ternary docking</h4><div class="dgrid"><div class="d"><span class="dl">Mean, best 10</span><b>-132.082</b><span class="dn">rank #2 &middot; z 1.47</span></div><div class="d"><span class="dl">Best single model</span><b>-148.067</b></div><div class="d"><span class="dl">Spread (sd)</span><b>7.55</b><span class="dn">lower is a tighter funnel</span></div><div class="d"><span class="dl">Models scored</span><b>163</b></div></div></div>
@@ -1748,7 +1758,7 @@ Q 45.0 96.2, 45.9 96.2
 ' fill='#FF0000'/>
 </svg><figcaption>2D structure, drawn from the exact
         SMILES that was docked.</figcaption></figure>
-      <figure class="v3d"><img src="img/RW_1987.png" width="620" height="460" loading="lazy" decoding="async" alt="Rank-1 ternary model of RW_1987: CRBN in teal, PPIL4 in indigo, the ligand in ochre at the interface."><figcaption>Rank-1 ternary model. CRBN <span class="sw-c"></span>, PPIL4 <span class="sw-p"></span>, ligand <span class="sw-l"></span>. All 20 renders share one camera after superposition on CRBN, so PPIL4&rsquo;s position is comparable between molecules.</figcaption></figure>
+      <figure class="v3d"><div class="v3d-host" data-structure="RW_1987"><p class="v3d-msg">Loading 3D model&hellip;</p></div><noscript><img class="v3d-poster" src="img/RW_1987.png" width="620" height="460" alt="Rank-1 ternary model of RW_1987: CRBN in teal, PPIL4 in indigo, ligand in ochre at the interface."></noscript><figcaption><b>Rank-1 ternary model.</b> CRBN <span class="sw-c"></span>, PPIL4 <span class="sw-p"></span>, ligand <span class="sw-l"></span>. <span class="v3d-help">Drag to rotate &middot; scroll to zoom &middot; double-click to reset &middot; arrow keys when focused.</span> Every structure is superposed on CRBN, so PPIL4&rsquo;s position is comparable between them.</figcaption></figure>
     </div>
     <div class="c-data">
       <div class="dgroup"><h4>Ternary docking</h4><div class="dgrid"><div class="d"><span class="dl">Mean, best 10</span><b>-129.905</b><span class="dn">rank #3 &middot; z 1.01</span></div><div class="d"><span class="dl">Best single model</span><b>-144.398</b></div><div class="d"><span class="dl">Spread (sd)</span><b>6.39</b><span class="dn">lower is a tighter funnel</span></div><div class="d"><span class="dl">Models scored</span><b>174</b></div></div></div>
@@ -2040,7 +2050,7 @@ L 39.8 53.3
 ' fill='#0000FF'/>
 </svg><figcaption>2D structure, drawn from the exact
         SMILES that was docked.</figcaption></figure>
-      <figure class="v3d"><img src="img/RW_1959.png" width="620" height="460" loading="lazy" decoding="async" alt="Rank-1 ternary model of RW_1959: CRBN in teal, PPIL4 in indigo, the ligand in ochre at the interface."><figcaption>Rank-1 ternary model. CRBN <span class="sw-c"></span>, PPIL4 <span class="sw-p"></span>, ligand <span class="sw-l"></span>. All 20 renders share one camera after superposition on CRBN, so PPIL4&rsquo;s position is comparable between molecules.</figcaption></figure>
+      <figure class="v3d"><div class="v3d-host" data-structure="RW_1959"><p class="v3d-msg">Loading 3D model&hellip;</p></div><noscript><img class="v3d-poster" src="img/RW_1959.png" width="620" height="460" alt="Rank-1 ternary model of RW_1959: CRBN in teal, PPIL4 in indigo, ligand in ochre at the interface."></noscript><figcaption><b>Rank-1 ternary model.</b> CRBN <span class="sw-c"></span>, PPIL4 <span class="sw-p"></span>, ligand <span class="sw-l"></span>. <span class="v3d-help">Drag to rotate &middot; scroll to zoom &middot; double-click to reset &middot; arrow keys when focused.</span> Every structure is superposed on CRBN, so PPIL4&rsquo;s position is comparable between them.</figcaption></figure>
     </div>
     <div class="c-data">
       <div class="dgroup"><h4>Ternary docking</h4><div class="dgrid"><div class="d"><span class="dl">Mean, best 10</span><b>-128.409</b><span class="dn">rank #4 &middot; z 0.70</span></div><div class="d"><span class="dl">Best single model</span><b>-140.851</b></div><div class="d"><span class="dl">Spread (sd)</span><b>6.04</b><span class="dn">lower is a tighter funnel</span></div><div class="d"><span class="dl">Models scored</span><b>171</b></div></div></div>
@@ -2339,7 +2349,7 @@ L 39.7 53.3
 ' fill='#0000FF'/>
 </svg><figcaption>2D structure, drawn from the exact
         SMILES that was docked.</figcaption></figure>
-      <figure class="v3d"><img src="img/RW_465.png" width="620" height="460" loading="lazy" decoding="async" alt="Rank-1 ternary model of RW_465: CRBN in teal, PPIL4 in indigo, the ligand in ochre at the interface."><figcaption>Rank-1 ternary model. CRBN <span class="sw-c"></span>, PPIL4 <span class="sw-p"></span>, ligand <span class="sw-l"></span>. All 20 renders share one camera after superposition on CRBN, so PPIL4&rsquo;s position is comparable between molecules.</figcaption></figure>
+      <figure class="v3d"><div class="v3d-host" data-structure="RW_465"><p class="v3d-msg">Loading 3D model&hellip;</p></div><noscript><img class="v3d-poster" src="img/RW_465.png" width="620" height="460" alt="Rank-1 ternary model of RW_465: CRBN in teal, PPIL4 in indigo, ligand in ochre at the interface."></noscript><figcaption><b>Rank-1 ternary model.</b> CRBN <span class="sw-c"></span>, PPIL4 <span class="sw-p"></span>, ligand <span class="sw-l"></span>. <span class="v3d-help">Drag to rotate &middot; scroll to zoom &middot; double-click to reset &middot; arrow keys when focused.</span> Every structure is superposed on CRBN, so PPIL4&rsquo;s position is comparable between them.</figcaption></figure>
     </div>
     <div class="c-data">
       <div class="dgroup"><h4>Ternary docking</h4><div class="dgrid"><div class="d"><span class="dl">Mean, best 10</span><b>-127.583</b><span class="dn">rank #5 &middot; z 0.53</span></div><div class="d"><span class="dl">Best single model</span><b>-132.816</b></div><div class="d"><span class="dl">Spread (sd)</span><b>3.47</b><span class="dn">lower is a tighter funnel</span></div><div class="d"><span class="dl">Models scored</span><b>179</b></div></div></div>
@@ -2639,7 +2649,7 @@ L 52.2 48.7
 ' fill='#0000FF'/>
 </svg><figcaption>2D structure, drawn from the exact
         SMILES that was docked.</figcaption></figure>
-      <figure class="v3d"><img src="img/RW_1992.png" width="620" height="460" loading="lazy" decoding="async" alt="Rank-1 ternary model of RW_1992: CRBN in teal, PPIL4 in indigo, the ligand in ochre at the interface."><figcaption>Rank-1 ternary model. CRBN <span class="sw-c"></span>, PPIL4 <span class="sw-p"></span>, ligand <span class="sw-l"></span>. All 20 renders share one camera after superposition on CRBN, so PPIL4&rsquo;s position is comparable between molecules.</figcaption></figure>
+      <figure class="v3d"><div class="v3d-host" data-structure="RW_1992"><p class="v3d-msg">Loading 3D model&hellip;</p></div><noscript><img class="v3d-poster" src="img/RW_1992.png" width="620" height="460" alt="Rank-1 ternary model of RW_1992: CRBN in teal, PPIL4 in indigo, ligand in ochre at the interface."></noscript><figcaption><b>Rank-1 ternary model.</b> CRBN <span class="sw-c"></span>, PPIL4 <span class="sw-p"></span>, ligand <span class="sw-l"></span>. <span class="v3d-help">Drag to rotate &middot; scroll to zoom &middot; double-click to reset &middot; arrow keys when focused.</span> Every structure is superposed on CRBN, so PPIL4&rsquo;s position is comparable between them.</figcaption></figure>
     </div>
     <div class="c-data">
       <div class="dgroup"><h4>Ternary docking</h4><div class="dgrid"><div class="d"><span class="dl">Mean, best 10</span><b>-127.205</b><span class="dn">rank #6 &middot; z 0.45</span></div><div class="d"><span class="dl">Best single model</span><b>-132.650</b></div><div class="d"><span class="dl">Spread (sd)</span><b>3.71</b><span class="dn">lower is a tighter funnel</span></div><div class="d"><span class="dl">Models scored</span><b>165</b></div></div></div>
@@ -2956,7 +2966,7 @@ L 39.8 53.3
 ' fill='#0000FF'/>
 </svg><figcaption>2D structure, drawn from the exact
         SMILES that was docked.</figcaption></figure>
-      <figure class="v3d"><img src="img/RW_2392.png" width="620" height="460" loading="lazy" decoding="async" alt="Rank-1 ternary model of RW_2392: CRBN in teal, PPIL4 in indigo, the ligand in ochre at the interface."><figcaption>Rank-1 ternary model. CRBN <span class="sw-c"></span>, PPIL4 <span class="sw-p"></span>, ligand <span class="sw-l"></span>. All 20 renders share one camera after superposition on CRBN, so PPIL4&rsquo;s position is comparable between molecules.</figcaption></figure>
+      <figure class="v3d"><div class="v3d-host" data-structure="RW_2392"><p class="v3d-msg">Loading 3D model&hellip;</p></div><noscript><img class="v3d-poster" src="img/RW_2392.png" width="620" height="460" alt="Rank-1 ternary model of RW_2392: CRBN in teal, PPIL4 in indigo, ligand in ochre at the interface."></noscript><figcaption><b>Rank-1 ternary model.</b> CRBN <span class="sw-c"></span>, PPIL4 <span class="sw-p"></span>, ligand <span class="sw-l"></span>. <span class="v3d-help">Drag to rotate &middot; scroll to zoom &middot; double-click to reset &middot; arrow keys when focused.</span> Every structure is superposed on CRBN, so PPIL4&rsquo;s position is comparable between them.</figcaption></figure>
     </div>
     <div class="c-data">
       <div class="dgroup"><h4>Ternary docking</h4><div class="dgrid"><div class="d"><span class="dl">Mean, best 10</span><b>-126.909</b><span class="dn">rank #7 &middot; z 0.39</span></div><div class="d"><span class="dl">Best single model</span><b>-141.788</b></div><div class="d"><span class="dl">Spread (sd)</span><b>7.06</b><span class="dn">lower is a tighter funnel</span></div><div class="d"><span class="dl">Models scored</span><b>157</b></div></div></div>
@@ -3237,7 +3247,7 @@ Q 48.1 134.2, 49.2 134.2
 ' fill='#FF0000'/>
 </svg><figcaption>2D structure, drawn from the exact
         SMILES that was docked.</figcaption></figure>
-      <figure class="v3d"><img src="img/RW_234.png" width="620" height="460" loading="lazy" decoding="async" alt="Rank-1 ternary model of RW_234: CRBN in teal, PPIL4 in indigo, the ligand in ochre at the interface."><figcaption>Rank-1 ternary model. CRBN <span class="sw-c"></span>, PPIL4 <span class="sw-p"></span>, ligand <span class="sw-l"></span>. All 20 renders share one camera after superposition on CRBN, so PPIL4&rsquo;s position is comparable between molecules.</figcaption></figure>
+      <figure class="v3d"><div class="v3d-host" data-structure="RW_234"><p class="v3d-msg">Loading 3D model&hellip;</p></div><noscript><img class="v3d-poster" src="img/RW_234.png" width="620" height="460" alt="Rank-1 ternary model of RW_234: CRBN in teal, PPIL4 in indigo, ligand in ochre at the interface."></noscript><figcaption><b>Rank-1 ternary model.</b> CRBN <span class="sw-c"></span>, PPIL4 <span class="sw-p"></span>, ligand <span class="sw-l"></span>. <span class="v3d-help">Drag to rotate &middot; scroll to zoom &middot; double-click to reset &middot; arrow keys when focused.</span> Every structure is superposed on CRBN, so PPIL4&rsquo;s position is comparable between them.</figcaption></figure>
     </div>
     <div class="c-data">
       <div class="dgroup"><h4>Ternary docking</h4><div class="dgrid"><div class="d"><span class="dl">Mean, best 10</span><b>-125.588</b><span class="dn">rank #8 &middot; z 0.12</span></div><div class="d"><span class="dl">Best single model</span><b>-143.383</b></div><div class="d"><span class="dl">Spread (sd)</span><b>7.14</b><span class="dn">lower is a tighter funnel</span></div><div class="d"><span class="dl">Models scored</span><b>160</b></div></div></div>
@@ -3528,7 +3538,7 @@ Q 191.1 60.2, 192.1 60.2
 ' fill='#FF0000'/>
 </svg><figcaption>2D structure, drawn from the exact
         SMILES that was docked.</figcaption></figure>
-      <figure class="v3d"><img src="img/RW_2123.png" width="620" height="460" loading="lazy" decoding="async" alt="Rank-1 ternary model of RW_2123: CRBN in teal, PPIL4 in indigo, the ligand in ochre at the interface."><figcaption>Rank-1 ternary model. CRBN <span class="sw-c"></span>, PPIL4 <span class="sw-p"></span>, ligand <span class="sw-l"></span>. All 20 renders share one camera after superposition on CRBN, so PPIL4&rsquo;s position is comparable between molecules.</figcaption></figure>
+      <figure class="v3d"><div class="v3d-host" data-structure="RW_2123"><p class="v3d-msg">Loading 3D model&hellip;</p></div><noscript><img class="v3d-poster" src="img/RW_2123.png" width="620" height="460" alt="Rank-1 ternary model of RW_2123: CRBN in teal, PPIL4 in indigo, ligand in ochre at the interface."></noscript><figcaption><b>Rank-1 ternary model.</b> CRBN <span class="sw-c"></span>, PPIL4 <span class="sw-p"></span>, ligand <span class="sw-l"></span>. <span class="v3d-help">Drag to rotate &middot; scroll to zoom &middot; double-click to reset &middot; arrow keys when focused.</span> Every structure is superposed on CRBN, so PPIL4&rsquo;s position is comparable between them.</figcaption></figure>
     </div>
     <div class="c-data">
       <div class="dgroup"><h4>Ternary docking</h4><div class="dgrid"><div class="d"><span class="dl">Mean, best 10</span><b>-125.387</b><span class="dn">rank #9 &middot; z 0.07</span></div><div class="d"><span class="dl">Best single model</span><b>-133.144</b></div><div class="d"><span class="dl">Spread (sd)</span><b>6.96</b><span class="dn">lower is a tighter funnel</span></div><div class="d"><span class="dl">Models scored</span><b>169</b></div></div></div>
@@ -3819,7 +3829,7 @@ Q 45.0 96.2, 45.9 96.2
 ' fill='#FF0000'/>
 </svg><figcaption>2D structure, drawn from the exact
         SMILES that was docked.</figcaption></figure>
-      <figure class="v3d"><img src="img/RW_1668.png" width="620" height="460" loading="lazy" decoding="async" alt="Rank-1 ternary model of RW_1668: CRBN in teal, PPIL4 in indigo, the ligand in ochre at the interface."><figcaption>Rank-1 ternary model. CRBN <span class="sw-c"></span>, PPIL4 <span class="sw-p"></span>, ligand <span class="sw-l"></span>. All 20 renders share one camera after superposition on CRBN, so PPIL4&rsquo;s position is comparable between molecules.</figcaption></figure>
+      <figure class="v3d"><div class="v3d-host" data-structure="RW_1668"><p class="v3d-msg">Loading 3D model&hellip;</p></div><noscript><img class="v3d-poster" src="img/RW_1668.png" width="620" height="460" alt="Rank-1 ternary model of RW_1668: CRBN in teal, PPIL4 in indigo, ligand in ochre at the interface."></noscript><figcaption><b>Rank-1 ternary model.</b> CRBN <span class="sw-c"></span>, PPIL4 <span class="sw-p"></span>, ligand <span class="sw-l"></span>. <span class="v3d-help">Drag to rotate &middot; scroll to zoom &middot; double-click to reset &middot; arrow keys when focused.</span> Every structure is superposed on CRBN, so PPIL4&rsquo;s position is comparable between them.</figcaption></figure>
     </div>
     <div class="c-data">
       <div class="dgroup"><h4>Ternary docking</h4><div class="dgrid"><div class="d"><span class="dl">Mean, best 10</span><b>-125.157</b><span class="dn">rank #10 &middot; z 0.03</span></div><div class="d"><span class="dl">Best single model</span><b>-130.225</b></div><div class="d"><span class="dl">Spread (sd)</span><b>1.99</b><span class="dn">lower is a tighter funnel</span></div><div class="d"><span class="dl">Models scored</span><b>167</b></div></div></div>
@@ -4124,7 +4134,7 @@ L 39.9 53.3
 ' fill='#0000FF'/>
 </svg><figcaption>2D structure, drawn from the exact
         SMILES that was docked.</figcaption></figure>
-      <figure class="v3d"><img src="img/RW_445.png" width="620" height="460" loading="lazy" decoding="async" alt="Rank-1 ternary model of RW_445: CRBN in teal, PPIL4 in indigo, the ligand in ochre at the interface."><figcaption>Rank-1 ternary model. CRBN <span class="sw-c"></span>, PPIL4 <span class="sw-p"></span>, ligand <span class="sw-l"></span>. All 20 renders share one camera after superposition on CRBN, so PPIL4&rsquo;s position is comparable between molecules.</figcaption></figure>
+      <figure class="v3d"><div class="v3d-host" data-structure="RW_445"><p class="v3d-msg">Loading 3D model&hellip;</p></div><noscript><img class="v3d-poster" src="img/RW_445.png" width="620" height="460" alt="Rank-1 ternary model of RW_445: CRBN in teal, PPIL4 in indigo, ligand in ochre at the interface."></noscript><figcaption><b>Rank-1 ternary model.</b> CRBN <span class="sw-c"></span>, PPIL4 <span class="sw-p"></span>, ligand <span class="sw-l"></span>. <span class="v3d-help">Drag to rotate &middot; scroll to zoom &middot; double-click to reset &middot; arrow keys when focused.</span> Every structure is superposed on CRBN, so PPIL4&rsquo;s position is comparable between them.</figcaption></figure>
     </div>
     <div class="c-data">
       <div class="dgroup"><h4>Ternary docking</h4><div class="dgrid"><div class="d"><span class="dl">Mean, best 10</span><b>-125.144</b><span class="dn">rank #11 &middot; z 0.02</span></div><div class="d"><span class="dl">Best single model</span><b>-132.738</b></div><div class="d"><span class="dl">Spread (sd)</span><b>4.04</b><span class="dn">lower is a tighter funnel</span></div><div class="d"><span class="dl">Models scored</span><b>156</b></div></div></div>
@@ -4446,7 +4456,7 @@ L 39.7 53.3
 ' fill='#0000FF'/>
 </svg><figcaption>2D structure, drawn from the exact
         SMILES that was docked.</figcaption></figure>
-      <figure class="v3d"><img src="img/RW_779.png" width="620" height="460" loading="lazy" decoding="async" alt="Rank-1 ternary model of RW_779: CRBN in teal, PPIL4 in indigo, the ligand in ochre at the interface."><figcaption>Rank-1 ternary model. CRBN <span class="sw-c"></span>, PPIL4 <span class="sw-p"></span>, ligand <span class="sw-l"></span>. All 20 renders share one camera after superposition on CRBN, so PPIL4&rsquo;s position is comparable between molecules.</figcaption></figure>
+      <figure class="v3d"><div class="v3d-host" data-structure="RW_779"><p class="v3d-msg">Loading 3D model&hellip;</p></div><noscript><img class="v3d-poster" src="img/RW_779.png" width="620" height="460" alt="Rank-1 ternary model of RW_779: CRBN in teal, PPIL4 in indigo, ligand in ochre at the interface."></noscript><figcaption><b>Rank-1 ternary model.</b> CRBN <span class="sw-c"></span>, PPIL4 <span class="sw-p"></span>, ligand <span class="sw-l"></span>. <span class="v3d-help">Drag to rotate &middot; scroll to zoom &middot; double-click to reset &middot; arrow keys when focused.</span> Every structure is superposed on CRBN, so PPIL4&rsquo;s position is comparable between them.</figcaption></figure>
     </div>
     <div class="c-data">
       <div class="dgroup"><h4>Ternary docking</h4><div class="dgrid"><div class="d"><span class="dl">Mean, best 10</span><b>-124.444</b><span class="dn">rank #12 &middot; z -0.12</span></div><div class="d"><span class="dl">Best single model</span><b>-132.824</b></div><div class="d"><span class="dl">Spread (sd)</span><b>4.66</b><span class="dn">lower is a tighter funnel</span></div><div class="d"><span class="dl">Models scored</span><b>163</b></div></div></div>
@@ -4728,7 +4738,7 @@ L 26.5 60.2
 ' fill='#0000FF'/>
 </svg><figcaption>2D structure, drawn from the exact
         SMILES that was docked.</figcaption></figure>
-      <figure class="v3d"><img src="img/RW_381.png" width="620" height="460" loading="lazy" decoding="async" alt="Rank-1 ternary model of RW_381: CRBN in teal, PPIL4 in indigo, the ligand in ochre at the interface."><figcaption>Rank-1 ternary model. CRBN <span class="sw-c"></span>, PPIL4 <span class="sw-p"></span>, ligand <span class="sw-l"></span>. All 20 renders share one camera after superposition on CRBN, so PPIL4&rsquo;s position is comparable between molecules.</figcaption></figure>
+      <figure class="v3d"><div class="v3d-host" data-structure="RW_381"><p class="v3d-msg">Loading 3D model&hellip;</p></div><noscript><img class="v3d-poster" src="img/RW_381.png" width="620" height="460" alt="Rank-1 ternary model of RW_381: CRBN in teal, PPIL4 in indigo, ligand in ochre at the interface."></noscript><figcaption><b>Rank-1 ternary model.</b> CRBN <span class="sw-c"></span>, PPIL4 <span class="sw-p"></span>, ligand <span class="sw-l"></span>. <span class="v3d-help">Drag to rotate &middot; scroll to zoom &middot; double-click to reset &middot; arrow keys when focused.</span> Every structure is superposed on CRBN, so PPIL4&rsquo;s position is comparable between them.</figcaption></figure>
     </div>
     <div class="c-data">
       <div class="dgroup"><h4>Ternary docking</h4><div class="dgrid"><div class="d"><span class="dl">Mean, best 10</span><b>-123.876</b><span class="dn">rank #13 &middot; z -0.24</span></div><div class="d"><span class="dl">Best single model</span><b>-134.257</b></div><div class="d"><span class="dl">Spread (sd)</span><b>6.29</b><span class="dn">lower is a tighter funnel</span></div><div class="d"><span class="dl">Models scored</span><b>162</b></div></div></div>
@@ -5010,7 +5020,7 @@ L 39.9 53.3
 ' fill='#0000FF'/>
 </svg><figcaption>2D structure, drawn from the exact
         SMILES that was docked.</figcaption></figure>
-      <figure class="v3d"><img src="img/RW_1092.png" width="620" height="460" loading="lazy" decoding="async" alt="Rank-1 ternary model of RW_1092: CRBN in teal, PPIL4 in indigo, the ligand in ochre at the interface."><figcaption>Rank-1 ternary model. CRBN <span class="sw-c"></span>, PPIL4 <span class="sw-p"></span>, ligand <span class="sw-l"></span>. All 20 renders share one camera after superposition on CRBN, so PPIL4&rsquo;s position is comparable between molecules.</figcaption></figure>
+      <figure class="v3d"><div class="v3d-host" data-structure="RW_1092"><p class="v3d-msg">Loading 3D model&hellip;</p></div><noscript><img class="v3d-poster" src="img/RW_1092.png" width="620" height="460" alt="Rank-1 ternary model of RW_1092: CRBN in teal, PPIL4 in indigo, ligand in ochre at the interface."></noscript><figcaption><b>Rank-1 ternary model.</b> CRBN <span class="sw-c"></span>, PPIL4 <span class="sw-p"></span>, ligand <span class="sw-l"></span>. <span class="v3d-help">Drag to rotate &middot; scroll to zoom &middot; double-click to reset &middot; arrow keys when focused.</span> Every structure is superposed on CRBN, so PPIL4&rsquo;s position is comparable between them.</figcaption></figure>
     </div>
     <div class="c-data">
       <div class="dgroup"><h4>Ternary docking</h4><div class="dgrid"><div class="d"><span class="dl">Mean, best 10</span><b>-123.289</b><span class="dn">rank #14 &middot; z -0.36</span></div><div class="d"><span class="dl">Best single model</span><b>-131.596</b></div><div class="d"><span class="dl">Spread (sd)</span><b>4.39</b><span class="dn">lower is a tighter funnel</span></div><div class="d"><span class="dl">Models scored</span><b>172</b></div></div></div>
@@ -5304,7 +5314,7 @@ L 39.7 53.3
 ' fill='#0000FF'/>
 </svg><figcaption>2D structure, drawn from the exact
         SMILES that was docked.</figcaption></figure>
-      <figure class="v3d"><img src="img/RW_1078.png" width="620" height="460" loading="lazy" decoding="async" alt="Rank-1 ternary model of RW_1078: CRBN in teal, PPIL4 in indigo, the ligand in ochre at the interface."><figcaption>Rank-1 ternary model. CRBN <span class="sw-c"></span>, PPIL4 <span class="sw-p"></span>, ligand <span class="sw-l"></span>. All 20 renders share one camera after superposition on CRBN, so PPIL4&rsquo;s position is comparable between molecules.</figcaption></figure>
+      <figure class="v3d"><div class="v3d-host" data-structure="RW_1078"><p class="v3d-msg">Loading 3D model&hellip;</p></div><noscript><img class="v3d-poster" src="img/RW_1078.png" width="620" height="460" alt="Rank-1 ternary model of RW_1078: CRBN in teal, PPIL4 in indigo, ligand in ochre at the interface."></noscript><figcaption><b>Rank-1 ternary model.</b> CRBN <span class="sw-c"></span>, PPIL4 <span class="sw-p"></span>, ligand <span class="sw-l"></span>. <span class="v3d-help">Drag to rotate &middot; scroll to zoom &middot; double-click to reset &middot; arrow keys when focused.</span> Every structure is superposed on CRBN, so PPIL4&rsquo;s position is comparable between them.</figcaption></figure>
     </div>
     <div class="c-data">
       <div class="dgroup"><h4>Ternary docking</h4><div class="dgrid"><div class="d"><span class="dl">Mean, best 10</span><b>-122.632</b><span class="dn">rank #15 &middot; z -0.50</span></div><div class="d"><span class="dl">Best single model</span><b>-130.648</b></div><div class="d"><span class="dl">Spread (sd)</span><b>4.92</b><span class="dn">lower is a tighter funnel</span></div><div class="d"><span class="dl">Models scored</span><b>166</b></div></div></div>
@@ -5598,7 +5608,7 @@ L 49.9 140.6
 ' fill='#0000FF'/>
 </svg><figcaption>2D structure, drawn from the exact
         SMILES that was docked.</figcaption></figure>
-      <figure class="v3d"><img src="img/RW_80.png" width="620" height="460" loading="lazy" decoding="async" alt="Rank-1 ternary model of RW_80: CRBN in teal, PPIL4 in indigo, the ligand in ochre at the interface."><figcaption>Rank-1 ternary model. CRBN <span class="sw-c"></span>, PPIL4 <span class="sw-p"></span>, ligand <span class="sw-l"></span>. All 20 renders share one camera after superposition on CRBN, so PPIL4&rsquo;s position is comparable between molecules.</figcaption></figure>
+      <figure class="v3d"><div class="v3d-host" data-structure="RW_80"><p class="v3d-msg">Loading 3D model&hellip;</p></div><noscript><img class="v3d-poster" src="img/RW_80.png" width="620" height="460" alt="Rank-1 ternary model of RW_80: CRBN in teal, PPIL4 in indigo, ligand in ochre at the interface."></noscript><figcaption><b>Rank-1 ternary model.</b> CRBN <span class="sw-c"></span>, PPIL4 <span class="sw-p"></span>, ligand <span class="sw-l"></span>. <span class="v3d-help">Drag to rotate &middot; scroll to zoom &middot; double-click to reset &middot; arrow keys when focused.</span> Every structure is superposed on CRBN, so PPIL4&rsquo;s position is comparable between them.</figcaption></figure>
     </div>
     <div class="c-data">
       <div class="dgroup"><h4>Ternary docking</h4><div class="dgrid"><div class="d"><span class="dl">Mean, best 10</span><b>-119.991</b><span class="dn">rank #16 &middot; z -1.05</span></div><div class="d"><span class="dl">Best single model</span><b>-140.112</b></div><div class="d"><span class="dl">Spread (sd)</span><b>10.65</b><span class="dn">lower is a tighter funnel</span></div><div class="d"><span class="dl">Models scored</span><b>153</b></div></div></div>
@@ -5856,7 +5866,7 @@ L 26.5 62.2
 ' fill='#0000FF'/>
 </svg><figcaption>2D structure, drawn from the exact
         SMILES that was docked.</figcaption></figure>
-      <figure class="v3d"><img src="img/RW_72.png" width="620" height="460" loading="lazy" decoding="async" alt="Rank-1 ternary model of RW_72: CRBN in teal, PPIL4 in indigo, the ligand in ochre at the interface."><figcaption>Rank-1 ternary model. CRBN <span class="sw-c"></span>, PPIL4 <span class="sw-p"></span>, ligand <span class="sw-l"></span>. All 20 renders share one camera after superposition on CRBN, so PPIL4&rsquo;s position is comparable between molecules.</figcaption></figure>
+      <figure class="v3d"><div class="v3d-host" data-structure="RW_72"><p class="v3d-msg">Loading 3D model&hellip;</p></div><noscript><img class="v3d-poster" src="img/RW_72.png" width="620" height="460" alt="Rank-1 ternary model of RW_72: CRBN in teal, PPIL4 in indigo, ligand in ochre at the interface."></noscript><figcaption><b>Rank-1 ternary model.</b> CRBN <span class="sw-c"></span>, PPIL4 <span class="sw-p"></span>, ligand <span class="sw-l"></span>. <span class="v3d-help">Drag to rotate &middot; scroll to zoom &middot; double-click to reset &middot; arrow keys when focused.</span> Every structure is superposed on CRBN, so PPIL4&rsquo;s position is comparable between them.</figcaption></figure>
     </div>
     <div class="c-data">
       <div class="dgroup"><h4>Ternary docking</h4><div class="dgrid"><div class="d"><span class="dl">Mean, best 10</span><b>-118.805</b><span class="dn">rank #17 &middot; z -1.30</span></div><div class="d"><span class="dl">Best single model</span><b>-126.820</b></div><div class="d"><span class="dl">Spread (sd)</span><b>6.09</b><span class="dn">lower is a tighter funnel</span></div><div class="d"><span class="dl">Models scored</span><b>146</b></div></div></div>
@@ -6114,7 +6124,7 @@ Q 80.8 163.7, 81.7 163.7
 ' fill='#FF0000'/>
 </svg><figcaption>2D structure, drawn from the exact
         SMILES that was docked.</figcaption></figure>
-      <figure class="v3d"><img src="img/RW_672.png" width="620" height="460" loading="lazy" decoding="async" alt="Rank-1 ternary model of RW_672: CRBN in teal, PPIL4 in indigo, the ligand in ochre at the interface."><figcaption>Rank-1 ternary model. CRBN <span class="sw-c"></span>, PPIL4 <span class="sw-p"></span>, ligand <span class="sw-l"></span>. All 20 renders share one camera after superposition on CRBN, so PPIL4&rsquo;s position is comparable between molecules.</figcaption></figure>
+      <figure class="v3d"><div class="v3d-host" data-structure="RW_672"><p class="v3d-msg">Loading 3D model&hellip;</p></div><noscript><img class="v3d-poster" src="img/RW_672.png" width="620" height="460" alt="Rank-1 ternary model of RW_672: CRBN in teal, PPIL4 in indigo, ligand in ochre at the interface."></noscript><figcaption><b>Rank-1 ternary model.</b> CRBN <span class="sw-c"></span>, PPIL4 <span class="sw-p"></span>, ligand <span class="sw-l"></span>. <span class="v3d-help">Drag to rotate &middot; scroll to zoom &middot; double-click to reset &middot; arrow keys when focused.</span> Every structure is superposed on CRBN, so PPIL4&rsquo;s position is comparable between them.</figcaption></figure>
     </div>
     <div class="c-data">
       <div class="dgroup"><h4>Ternary docking</h4><div class="dgrid"><div class="d"><span class="dl">Mean, best 10</span><b>-112.108</b><span class="dn">rank #18 &middot; z -2.69</span></div><div class="d"><span class="dl">Best single model</span><b>-120.765</b></div><div class="d"><span class="dl">Spread (sd)</span><b>5.06</b><span class="dn">lower is a tighter funnel</span></div><div class="d"><span class="dl">Models scored</span><b>157</b></div></div></div>
@@ -6322,7 +6332,7 @@ Q 123.2 35.3, 124.7 35.3
 ' fill='#FF0000'/>
 </svg><figcaption>2D structure, drawn from the exact
         SMILES that was docked.</figcaption></figure>
-      <figure class="v3d"><img src="img/TZ_6.png" width="620" height="460" loading="lazy" decoding="async" alt="Rank-1 ternary model of TZ_6: CRBN in teal, PPIL4 in indigo, the ligand in ochre at the interface."><figcaption>Rank-1 ternary model. CRBN <span class="sw-c"></span>, PPIL4 <span class="sw-p"></span>, ligand <span class="sw-l"></span>. All 20 renders share one camera after superposition on CRBN, so PPIL4&rsquo;s position is comparable between molecules.</figcaption></figure>
+      <figure class="v3d"><div class="v3d-host" data-structure="TZ_6"><p class="v3d-msg">Loading 3D model&hellip;</p></div><noscript><img class="v3d-poster" src="img/TZ_6.png" width="620" height="460" alt="Rank-1 ternary model of TZ_6: CRBN in teal, PPIL4 in indigo, ligand in ochre at the interface."></noscript><figcaption><b>Rank-1 ternary model.</b> CRBN <span class="sw-c"></span>, PPIL4 <span class="sw-p"></span>, ligand <span class="sw-l"></span>. <span class="v3d-help">Drag to rotate &middot; scroll to zoom &middot; double-click to reset &middot; arrow keys when focused.</span> Every structure is superposed on CRBN, so PPIL4&rsquo;s position is comparable between them.</figcaption></figure>
     </div>
     <div class="c-data">
       <div class="dgroup"><h4>Ternary docking</h4><div class="dgrid"><div class="d"><span class="dl">Mean, best 10</span><b>-108.564</b><span class="dn">rank #19 &middot; z -3.43</span></div><div class="d"><span class="dl">Best single model</span><b>-112.633</b></div><div class="d"><span class="dl">Spread (sd)</span><b>3.59</b><span class="dn">lower is a tighter funnel</span></div><div class="d"><span class="dl">Models scored</span><b>165</b></div></div></div>
@@ -6573,7 +6583,7 @@ Q 153.3 39.2, 154.6 39.2
 ' fill='#FF0000'/>
 </svg><figcaption>2D structure, drawn from the exact
         SMILES that was docked.</figcaption></figure>
-      <figure class="v3d"><img src="img/TZ_118.png" width="620" height="460" loading="lazy" decoding="async" alt="Rank-1 ternary model of TZ_118: CRBN in teal, PPIL4 in indigo, the ligand in ochre at the interface."><figcaption>Rank-1 ternary model. CRBN <span class="sw-c"></span>, PPIL4 <span class="sw-p"></span>, ligand <span class="sw-l"></span>. All 20 renders share one camera after superposition on CRBN, so PPIL4&rsquo;s position is comparable between molecules.</figcaption></figure>
+      <figure class="v3d"><div class="v3d-host" data-structure="TZ_118"><p class="v3d-msg">Loading 3D model&hellip;</p></div><noscript><img class="v3d-poster" src="img/TZ_118.png" width="620" height="460" alt="Rank-1 ternary model of TZ_118: CRBN in teal, PPIL4 in indigo, ligand in ochre at the interface."></noscript><figcaption><b>Rank-1 ternary model.</b> CRBN <span class="sw-c"></span>, PPIL4 <span class="sw-p"></span>, ligand <span class="sw-l"></span>. <span class="v3d-help">Drag to rotate &middot; scroll to zoom &middot; double-click to reset &middot; arrow keys when focused.</span> Every structure is superposed on CRBN, so PPIL4&rsquo;s position is comparable between them.</figcaption></figure>
     </div>
     <div class="c-data">
       <div class="dgroup"><h4>Ternary docking</h4><div class="dgrid"><div class="d"><span class="dl">Mean, best 10</span><b>-104.011</b><span class="dn">rank #19 &middot; z -4.38</span></div><div class="d"><span class="dl">Best single model</span><b>-111.448</b></div><div class="d"><span class="dl">Spread (sd)</span><b>3.30</b><span class="dn">lower is a tighter funnel</span></div><div class="d"><span class="dl">Models scored</span><b>161</b></div></div></div>
@@ -6609,6 +6619,1706 @@ Q 153.3 39.2, 154.6 39.2
             is why every row is pinned by InChIKey rather than by name or formula.
           </p>
         </details>
+      </div>
+
+      <div class="sec-head" style="padding-top:14px">
+        <h2 class="serif">The calibration set, and the structure it is all scored against</h2>
+        <p class="caption">
+          The controls are not an afterthought &mdash; they are what turns a docking score into a
+          statement. Three positives establish what a working glue looks like under this protocol;
+          three negatives, each missing a different functional handle, establish what an inert molecule
+          looks like. The experimental 9DWV structure is the ground truth every model is measured
+          against.
+        </p>
+      </div>
+      <div class="panels">
+<!-- CONTROL-PANELS:START (generated by 14_build_candidate_panels) -->
+<details class="cand ref" id="c-9DWV_reference">
+  <summary>
+    <span class="c-id">9DWV</span>
+    <span class="c-chem">Experimental reference &middot; not a prediction</span>
+    <span class="c-score mono">&mdash;</span>
+    <span class="c-rules mono"></span>
+  </summary>
+  <div class="c-body">
+    <p class="c-why">The experimental CRBN&ndash;FPFT-2216&ndash;PPIL4 ternary complex, PDB <strong>9DWV</strong>. This is not a prediction: it is the deposited structure, with the real FPFT-2216 taken from the deposited chemical component rather than from any docking run. It is what every model on this page is scored against, and it is superposed into the same CRBN frame as the rest, so it can be compared directly against them. Its PPIL4 chain is short because only the RRM domain was resolved experimentally, while the docked models carry a full AlphaFold PPIL4.</p>
+    <div class="c-vis">
+      <figure class="v2d"><svg class="mol2d" role="img" version='1.1' baseProfile='full'
+              xmlns='http://www.w3.org/2000/svg'
+                      xmlns:rdkit='http://www.rdkit.org/xml'
+                      xmlns:xlink='http://www.w3.org/1999/xlink'
+                  xml:space='preserve'
+width='300px' height='210px' viewBox='0 0 300 210'>
+<!-- END OF HEADER -->
+<path class='bond-0 atom-0 atom-1' d='M 51.4,44.0 L 59.1,54.6' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-0 atom-0 atom-1' d='M 59.1,54.6 L 66.9,65.2' style='fill:none;fill-rule:evenodd;stroke:#FF0000;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-1 atom-1 atom-2' d='M 68.5,77.3 L 63.0,89.6' style='fill:none;fill-rule:evenodd;stroke:#FF0000;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-1 atom-1 atom-2' d='M 63.0,89.6 L 57.5,101.9' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-2 atom-2 atom-3' d='M 57.5,101.9 L 24.6,108.9' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-2 atom-2 atom-3' d='M 55.1,107.2 L 28.9,112.8' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-3 atom-3 atom-4' d='M 24.6,108.9 L 23.1,122.7' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-3 atom-3 atom-4' d='M 23.1,122.7 L 21.7,136.5' style='fill:none;fill-rule:evenodd;stroke:#CCCC00;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-4 atom-4 atom-5' d='M 25.2,144.2 L 38.5,150.2' style='fill:none;fill-rule:evenodd;stroke:#CCCC00;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-4 atom-4 atom-5' d='M 38.5,150.2 L 51.8,156.1' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-5 atom-5 atom-6' d='M 51.8,156.1 L 74.3,131.1' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-5 atom-5 atom-6' d='M 50.6,150.4 L 68.5,130.5' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-6 atom-6 atom-7' d='M 74.3,131.1 L 107.8,134.6' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-7 atom-7 atom-8' d='M 107.8,134.6 L 130.3,109.6' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-7 atom-7 atom-8' d='M 113.6,135.2 L 131.5,115.3' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-8 atom-8 atom-9' d='M 130.3,109.6 L 143.3,115.4' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-8 atom-8 atom-9' d='M 143.3,115.4 L 156.3,121.2' style='fill:none;fill-rule:evenodd;stroke:#0000FF;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-9 atom-9 atom-10' d='M 160.4,129.1 L 158.1,150.9' style='fill:none;fill-rule:evenodd;stroke:#0000FF;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-10 atom-10 atom-11' d='M 152.8,157.7 L 129.3,162.7' style='fill:none;fill-rule:evenodd;stroke:#0000FF;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-10 atom-10 atom-11' d='M 151.8,153.1 L 128.4,158.1' style='fill:none;fill-rule:evenodd;stroke:#0000FF;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-11 atom-12 atom-9' d='M 187.1,107.8 L 187.4,108.4' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:0.8px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-11 atom-12 atom-9' d='M 184.0,109.2 L 184.7,110.4' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:0.8px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-11 atom-12 atom-9' d='M 181.0,110.6 L 182.0,112.3' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:0.8px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-11 atom-12 atom-9' d='M 177.9,112.0 L 179.2,114.3' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:0.8px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-11 atom-12 atom-9' d='M 174.8,113.4 L 176.5,116.3' style='fill:none;fill-rule:evenodd;stroke:#0000FF;stroke-width:0.8px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-11 atom-12 atom-9' d='M 171.7,114.8 L 173.7,118.3' style='fill:none;fill-rule:evenodd;stroke:#0000FF;stroke-width:0.8px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-11 atom-12 atom-9' d='M 168.6,116.2 L 171.0,120.2' style='fill:none;fill-rule:evenodd;stroke:#0000FF;stroke-width:0.8px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-12 atom-12 atom-13' d='M 190.2,106.4 L 219.3,123.3' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-13 atom-13 atom-14' d='M 219.3,123.3 L 248.5,106.4' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-14 atom-14 atom-15' d='M 248.5,106.4 L 248.5,72.8' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-15 atom-15 atom-16' d='M 248.5,75.5 L 260.9,68.3' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-15 atom-15 atom-16' d='M 260.9,68.3 L 273.3,61.2' style='fill:none;fill-rule:evenodd;stroke:#FF0000;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-15 atom-15 atom-16' d='M 246.1,71.4 L 258.5,64.3' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-15 atom-15 atom-16' d='M 258.5,64.3 L 271.0,57.1' style='fill:none;fill-rule:evenodd;stroke:#FF0000;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-16 atom-15 atom-17' d='M 248.5,72.8 L 236.3,65.7' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-16 atom-15 atom-17' d='M 236.3,65.7 L 224.1,58.7' style='fill:none;fill-rule:evenodd;stroke:#0000FF;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-17 atom-17 atom-18' d='M 214.6,58.7 L 202.4,65.7' style='fill:none;fill-rule:evenodd;stroke:#0000FF;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-17 atom-17 atom-18' d='M 202.4,65.7 L 190.2,72.8' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-18 atom-18 atom-19' d='M 192.5,71.4 L 180.1,64.3' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-18 atom-18 atom-19' d='M 180.1,64.3 L 167.7,57.1' style='fill:none;fill-rule:evenodd;stroke:#FF0000;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-18 atom-18 atom-19' d='M 190.2,75.5 L 177.8,68.3' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-18 atom-18 atom-19' d='M 177.8,68.3 L 165.4,61.2' style='fill:none;fill-rule:evenodd;stroke:#FF0000;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-19 atom-6 atom-2' d='M 74.3,131.1 L 57.5,101.9' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-20 atom-11 atom-7' d='M 121.2,157.9 L 114.5,146.2' style='fill:none;fill-rule:evenodd;stroke:#0000FF;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-20 atom-11 atom-7' d='M 114.5,146.2 L 107.8,134.6' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-21 atom-18 atom-12' d='M 190.2,72.8 L 190.2,106.4' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path d='M 26.2,108.6 L 24.6,108.9 L 24.5,109.6' style='fill:none;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-opacity:1;' />
+<path d='M 51.1,155.8 L 51.8,156.1 L 52.9,154.8' style='fill:none;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-opacity:1;' />
+<path d='M 129.2,110.8 L 130.3,109.6 L 131.0,109.9' style='fill:none;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-opacity:1;' />
+<path d='M 191.6,107.3 L 190.2,106.4 L 190.2,104.8' style='fill:none;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-opacity:1;' />
+<path d='M 217.9,122.4 L 219.3,123.3 L 220.8,122.4' style='fill:none;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-opacity:1;' />
+<path d='M 247.0,107.3 L 248.5,106.4 L 248.5,104.8' style='fill:none;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-opacity:1;' />
+<path d='M 248.5,74.5 L 248.5,72.8 L 247.9,72.4' style='fill:none;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-opacity:1;' />
+<path d='M 190.8,72.4 L 190.2,72.8 L 190.2,74.5' style='fill:none;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-opacity:1;' />
+<path class='atom-1' d='M 66.8 71.2
+Q 66.8 68.9, 67.9 67.6
+Q 69.1 66.4, 71.2 66.4
+Q 73.3 66.4, 74.4 67.6
+Q 75.6 68.9, 75.6 71.2
+Q 75.6 73.5, 74.4 74.8
+Q 73.3 76.1, 71.2 76.1
+Q 69.1 76.1, 67.9 74.8
+Q 66.8 73.5, 66.8 71.2
+M 71.2 75.1
+Q 72.6 75.1, 73.4 74.1
+Q 74.2 73.1, 74.2 71.2
+Q 74.2 69.3, 73.4 68.4
+Q 72.6 67.4, 71.2 67.4
+Q 69.7 67.4, 68.9 68.4
+Q 68.2 69.3, 68.2 71.2
+Q 68.2 73.1, 68.9 74.1
+Q 69.7 75.1, 71.2 75.1
+' fill='#FF0000'/>
+<path class='atom-4' d='M 18.4 145.7
+Q 18.5 145.7, 18.9 145.9
+Q 19.4 146.1, 19.8 146.2
+Q 20.3 146.3, 20.8 146.3
+Q 21.7 146.3, 22.3 145.9
+Q 22.8 145.4, 22.8 144.7
+Q 22.8 144.1, 22.5 143.8
+Q 22.3 143.5, 21.8 143.3
+Q 21.4 143.1, 20.8 142.9
+Q 19.9 142.7, 19.4 142.4
+Q 18.9 142.2, 18.6 141.7
+Q 18.2 141.2, 18.2 140.3
+Q 18.2 139.1, 19.0 138.4
+Q 19.8 137.6, 21.4 137.6
+Q 22.5 137.6, 23.8 138.2
+L 23.5 139.2
+Q 22.3 138.7, 21.5 138.7
+Q 20.6 138.7, 20.0 139.1
+Q 19.5 139.5, 19.5 140.2
+Q 19.5 140.7, 19.8 141.0
+Q 20.1 141.3, 20.4 141.5
+Q 20.8 141.6, 21.5 141.8
+Q 22.3 142.1, 22.9 142.4
+Q 23.4 142.6, 23.7 143.2
+Q 24.1 143.7, 24.1 144.7
+Q 24.1 146.0, 23.2 146.7
+Q 22.3 147.4, 20.9 147.4
+Q 20.0 147.4, 19.4 147.2
+Q 18.8 147.0, 18.0 146.7
+L 18.4 145.7
+' fill='#CCCC00'/>
+<path class='atom-9' d='M 158.9 118.5
+L 162.1 123.5
+Q 162.4 124.0, 162.9 124.9
+Q 163.4 125.8, 163.4 125.9
+L 163.4 118.5
+L 164.7 118.5
+L 164.7 128.0
+L 163.4 128.0
+L 160.0 122.5
+Q 159.6 121.9, 159.2 121.1
+Q 158.8 120.4, 158.7 120.2
+L 158.7 128.0
+L 157.4 128.0
+L 157.4 118.5
+L 158.9 118.5
+' fill='#0000FF'/>
+<path class='atom-10' d='M 155.4 152.0
+L 158.5 157.0
+Q 158.9 157.5, 159.4 158.4
+Q 159.9 159.3, 159.9 159.4
+L 159.9 152.0
+L 161.1 152.0
+L 161.1 161.5
+L 159.8 161.5
+L 156.5 156.0
+Q 156.1 155.3, 155.7 154.6
+Q 155.3 153.8, 155.2 153.6
+L 155.2 161.5
+L 153.9 161.5
+L 153.9 152.0
+L 155.4 152.0
+' fill='#0000FF'/>
+<path class='atom-11' d='M 122.5 159.0
+L 125.6 164.0
+Q 125.9 164.5, 126.4 165.4
+Q 126.9 166.3, 127.0 166.4
+L 127.0 159.0
+L 128.2 159.0
+L 128.2 168.5
+L 126.9 168.5
+L 123.6 163.0
+Q 123.2 162.3, 122.8 161.6
+Q 122.4 160.8, 122.2 160.6
+L 122.2 168.5
+L 121.0 168.5
+L 121.0 159.0
+L 122.5 159.0
+' fill='#0000FF'/>
+<path class='atom-16' d='M 273.3 56.0
+Q 273.3 53.7, 274.4 52.4
+Q 275.5 51.1, 277.6 51.1
+Q 279.7 51.1, 280.9 52.4
+Q 282.0 53.7, 282.0 56.0
+Q 282.0 58.3, 280.9 59.6
+Q 279.7 60.9, 277.6 60.9
+Q 275.5 60.9, 274.4 59.6
+Q 273.3 58.3, 273.3 56.0
+M 277.6 59.8
+Q 279.1 59.8, 279.9 58.9
+Q 280.7 57.9, 280.7 56.0
+Q 280.7 54.1, 279.9 53.2
+Q 279.1 52.2, 277.6 52.2
+Q 276.2 52.2, 275.4 53.2
+Q 274.6 54.1, 274.6 56.0
+Q 274.6 57.9, 275.4 58.9
+Q 276.2 59.8, 277.6 59.8
+' fill='#FF0000'/>
+<path class='atom-17' d='M 217.2 51.2
+L 220.4 56.2
+Q 220.7 56.7, 221.2 57.6
+Q 221.7 58.5, 221.7 58.6
+L 221.7 51.2
+L 223.0 51.2
+L 223.0 60.7
+L 221.6 60.7
+L 218.3 55.2
+Q 217.9 54.6, 217.5 53.8
+Q 217.1 53.1, 217.0 52.8
+L 217.0 60.7
+L 215.7 60.7
+L 215.7 51.2
+L 217.2 51.2
+' fill='#0000FF'/>
+<path class='atom-17' d='M 215.6 40.7
+L 216.9 40.7
+L 216.9 44.8
+L 221.8 44.8
+L 221.8 40.7
+L 223.1 40.7
+L 223.1 50.2
+L 221.8 50.2
+L 221.8 45.8
+L 216.9 45.8
+L 216.9 50.2
+L 215.6 50.2
+L 215.6 40.7
+' fill='#0000FF'/>
+<path class='atom-19' d='M 156.7 56.0
+Q 156.7 53.7, 157.8 52.4
+Q 158.9 51.1, 161.0 51.1
+Q 163.2 51.1, 164.3 52.4
+Q 165.4 53.7, 165.4 56.0
+Q 165.4 58.3, 164.3 59.6
+Q 163.1 60.9, 161.0 60.9
+Q 158.9 60.9, 157.8 59.6
+Q 156.7 58.3, 156.7 56.0
+M 161.0 59.8
+Q 162.5 59.8, 163.3 58.9
+Q 164.1 57.9, 164.1 56.0
+Q 164.1 54.1, 163.3 53.2
+Q 162.5 52.2, 161.0 52.2
+Q 159.6 52.2, 158.8 53.2
+Q 158.0 54.1, 158.0 56.0
+Q 158.0 57.9, 158.8 58.9
+Q 159.6 59.8, 161.0 59.8
+' fill='#FF0000'/>
+</svg>
+        <figcaption>FPFT-2216, the ligand in the deposited structure.</figcaption></figure>
+      <figure class="v3d"><div class="v3d-host" data-structure="9DWV_reference"><p class="v3d-msg">Loading 3D model&hellip;</p></div><figcaption><b>Experimental structure (PDB 9DWV).</b> CRBN <span class="sw-c"></span>, PPIL4 <span class="sw-p"></span>, ligand <span class="sw-l"></span>. <span class="v3d-help">Drag to rotate &middot; scroll to zoom &middot; double-click to reset &middot; arrow keys when focused.</span> Every structure is superposed on CRBN, so PPIL4&rsquo;s position is comparable between them.</figcaption></figure>
+    </div>
+  </div>
+</details>
+<details class="cand ctrl" id="c-Z6466608628_positive_control">
+  <summary>
+    <span class="c-id">Z6466608628</span>
+    <span class="c-chem">Positive control &middot; commercial glue</span>
+    <span class="c-score mono">-125.6</span>
+    <span class="c-rules mono"></span>
+  </summary>
+  <div class="c-body">
+    <p class="c-why"><strong>The usable bar.</strong> The strongest control by docking score, so it is what a candidate has to beat to mean anything. Seven candidates clear it.</p>
+    <div class="c-vis">
+      <figure class="v2d"><svg class="mol2d" role="img" version='1.1' baseProfile='full'
+              xmlns='http://www.w3.org/2000/svg'
+                      xmlns:rdkit='http://www.rdkit.org/xml'
+                      xmlns:xlink='http://www.w3.org/1999/xlink'
+                  xml:space='preserve'
+width='300px' height='210px' viewBox='0 0 300 210'>
+<!-- END OF HEADER -->
+<path class='bond-0 atom-0 atom-1' d='M 32.5,24.2 L 37.9,33.7' style='fill:none;fill-rule:evenodd;stroke:#FF0000;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-0 atom-0 atom-1' d='M 37.9,33.7 L 43.4,43.1' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-0 atom-0 atom-1' d='M 29.3,26.0 L 34.7,35.5' style='fill:none;fill-rule:evenodd;stroke:#FF0000;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-0 atom-0 atom-1' d='M 34.7,35.5 L 40.2,45.0' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-1 atom-1 atom-2' d='M 41.3,43.1 L 67.6,43.1' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-2 atom-2 atom-3' d='M 67.6,43.1 L 80.7,65.9' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-3 atom-3 atom-4' d='M 80.7,65.9 L 67.6,88.7' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-4 atom-4 atom-5' d='M 67.6,88.7 L 72.8,97.8' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-4 atom-4 atom-5' d='M 72.8,97.8 L 78.1,106.9' style='fill:none;fill-rule:evenodd;stroke:#0000FF;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-5 atom-5 atom-6' d='M 84.4,111.9 L 95.7,113.1' style='fill:none;fill-rule:evenodd;stroke:#0000FF;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-5 atom-5 atom-6' d='M 95.7,113.1 L 106.9,114.3' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-6 atom-6 atom-7' d='M 106.9,114.3 L 112.4,140.0' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-7 atom-7 atom-8' d='M 112.4,140.0 L 89.6,153.1' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-7 atom-7 atom-8' d='M 112.4,144.2 L 93.3,155.3' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-8 atom-8 atom-9' d='M 89.6,153.1 L 89.6,179.5' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-9 atom-9 atom-10' d='M 89.6,179.5 L 112.4,192.6' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-9 atom-9 atom-10' d='M 93.3,177.3 L 112.4,188.4' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-10 atom-10 atom-11' d='M 112.4,192.6 L 135.2,179.5' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-11 atom-11 atom-12' d='M 135.2,179.5 L 135.2,153.1' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-11 atom-11 atom-12' d='M 131.5,177.3 L 131.5,155.3' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-12 atom-12 atom-13' d='M 135.2,153.1 L 158.0,140.0' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-13 atom-13 atom-14' d='M 158.0,140.0 L 180.7,153.1' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-14 atom-14 atom-15' d='M 180.7,153.1 L 203.5,140.0' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-14 atom-14 atom-15' d='M 180.7,148.9 L 199.9,137.9' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-15 atom-15 atom-16' d='M 203.5,140.0 L 203.5,113.7' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-16 atom-16 atom-17' d='M 203.5,113.7 L 213.1,108.2' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-16 atom-16 atom-17' d='M 213.1,108.2 L 222.6,102.7' style='fill:none;fill-rule:evenodd;stroke:#0000FF;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-17 atom-17 atom-18' d='M 230.0,102.7 L 239.6,108.2' style='fill:none;fill-rule:evenodd;stroke:#0000FF;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-17 atom-17 atom-18' d='M 239.6,108.2 L 249.1,113.7' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-18 atom-18 atom-19' d='M 249.1,113.7 L 271.9,100.5' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-19 atom-19 atom-20' d='M 271.9,100.5 L 271.9,89.7' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-19 atom-19 atom-20' d='M 271.9,89.7 L 271.9,78.8' style='fill:none;fill-rule:evenodd;stroke:#0000FF;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-20 atom-20 atom-21' d='M 268.2,72.1 L 258.7,66.6' style='fill:none;fill-rule:evenodd;stroke:#0000FF;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-20 atom-20 atom-21' d='M 258.7,66.6 L 249.1,61.1' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-21 atom-21 atom-22' d='M 249.1,61.1 L 226.3,74.2' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-22 atom-16 atom-23' d='M 203.5,113.7 L 180.7,100.5' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-22 atom-16 atom-23' d='M 199.9,115.8 L 180.7,104.8' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-23 atom-23 atom-24' d='M 180.7,100.5 L 158.0,113.7' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-24 atom-8 atom-25' d='M 89.6,153.1 L 70.0,135.5' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-25 atom-25 atom-26' d='M 71.0,133.5 L 59.6,135.9' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-25 atom-25 atom-26' d='M 59.6,135.9 L 48.2,138.3' style='fill:none;fill-rule:evenodd;stroke:#FF0000;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-25 atom-25 atom-26' d='M 71.7,137.1 L 60.4,139.5' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-25 atom-25 atom-26' d='M 60.4,139.5 L 49.0,141.9' style='fill:none;fill-rule:evenodd;stroke:#FF0000;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-26 atom-4 atom-27' d='M 67.6,88.7 L 41.3,88.7' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-27 atom-27 atom-28' d='M 40.2,86.9 L 34.7,96.4' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-27 atom-27 atom-28' d='M 34.7,96.4 L 29.2,105.9' style='fill:none;fill-rule:evenodd;stroke:#FF0000;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-27 atom-27 atom-28' d='M 43.4,88.7 L 37.9,98.3' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-27 atom-27 atom-28' d='M 37.9,98.3 L 32.4,107.8' style='fill:none;fill-rule:evenodd;stroke:#FF0000;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-28 atom-27 atom-29' d='M 41.3,88.7 L 36.0,79.6' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-28 atom-27 atom-29' d='M 36.0,79.6 L 30.8,70.5' style='fill:none;fill-rule:evenodd;stroke:#0000FF;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-29 atom-29 atom-1' d='M 30.8,61.3 L 36.0,52.2' style='fill:none;fill-rule:evenodd;stroke:#0000FF;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-29 atom-29 atom-1' d='M 36.0,52.2 L 41.3,43.1' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-30 atom-25 atom-5' d='M 70.0,135.5 L 74.4,125.8' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-30 atom-25 atom-5' d='M 74.4,125.8 L 78.7,116.1' style='fill:none;fill-rule:evenodd;stroke:#0000FF;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-31 atom-12 atom-7' d='M 135.2,153.1 L 112.4,140.0' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-32 atom-24 atom-13' d='M 158.0,113.7 L 158.0,140.0' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-32 atom-24 atom-13' d='M 161.6,115.8 L 161.6,137.9' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-33 atom-22 atom-17' d='M 226.3,74.2 L 226.3,85.1' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-33 atom-22 atom-17' d='M 226.3,85.1 L 226.3,95.9' style='fill:none;fill-rule:evenodd;stroke:#0000FF;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path d='M 42.6,43.1 L 41.3,43.1 L 41.0,43.6' style='fill:none;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-opacity:1;' />
+<path d='M 66.3,43.1 L 67.6,43.1 L 68.3,44.3' style='fill:none;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-opacity:1;' />
+<path d='M 80.1,64.8 L 80.7,65.9 L 80.1,67.1' style='fill:none;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-opacity:1;' />
+<path d='M 106.4,114.2 L 106.9,114.3 L 107.2,115.5' style='fill:none;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-opacity:1;' />
+<path d='M 89.6,178.1 L 89.6,179.5 L 90.7,180.1' style='fill:none;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-opacity:1;' />
+<path d='M 111.2,192.0 L 112.4,192.6 L 113.5,192.0' style='fill:none;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-opacity:1;' />
+<path d='M 134.0,180.1 L 135.2,179.5 L 135.2,178.1' style='fill:none;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-opacity:1;' />
+<path d='M 179.6,152.5 L 180.7,153.1 L 181.9,152.5' style='fill:none;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-opacity:1;' />
+<path d='M 202.4,140.6 L 203.5,140.0 L 203.5,138.7' style='fill:none;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-opacity:1;' />
+<path d='M 248.6,113.4 L 249.1,113.7 L 250.2,113.0' style='fill:none;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-opacity:1;' />
+<path d='M 270.8,101.2 L 271.9,100.5 L 271.9,100.0' style='fill:none;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-opacity:1;' />
+<path d='M 249.6,61.3 L 249.1,61.1 L 248.0,61.7' style='fill:none;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-opacity:1;' />
+<path d='M 227.5,73.6 L 226.3,74.2 L 226.3,74.8' style='fill:none;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-opacity:1;' />
+<path d='M 181.9,101.2 L 180.7,100.5 L 179.6,101.2' style='fill:none;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-opacity:1;' />
+<path d='M 159.1,113.0 L 158.0,113.7 L 158.0,115.0' style='fill:none;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-opacity:1;' />
+<path d='M 71.0,136.4 L 70.0,135.5 L 70.3,135.1' style='fill:none;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-opacity:1;' />
+<path d='M 42.6,88.7 L 41.3,88.7 L 41.0,88.3' style='fill:none;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-opacity:1;' />
+<path class='atom-0' d='M 24.7 20.4
+Q 24.7 18.6, 25.6 17.6
+Q 26.5 16.6, 28.1 16.6
+Q 29.8 16.6, 30.7 17.6
+Q 31.5 18.6, 31.5 20.4
+Q 31.5 22.2, 30.7 23.2
+Q 29.8 24.2, 28.1 24.2
+Q 26.5 24.2, 25.6 23.2
+Q 24.7 22.2, 24.7 20.4
+M 28.1 23.4
+Q 29.3 23.4, 29.9 22.6
+Q 30.5 21.9, 30.5 20.4
+Q 30.5 18.9, 29.9 18.2
+Q 29.3 17.4, 28.1 17.4
+Q 27.0 17.4, 26.4 18.2
+Q 25.8 18.9, 25.8 20.4
+Q 25.8 21.9, 26.4 22.6
+Q 27.0 23.4, 28.1 23.4
+' fill='#FF0000'/>
+<path class='atom-5' d='M 79.1 107.8
+L 81.5 111.7
+Q 81.8 112.1, 82.2 112.8
+Q 82.6 113.5, 82.6 113.6
+L 82.6 107.8
+L 83.6 107.8
+L 83.6 115.2
+L 82.6 115.2
+L 79.9 110.9
+Q 79.6 110.4, 79.3 109.8
+Q 79.0 109.2, 78.9 109.1
+L 78.9 115.2
+L 77.9 115.2
+L 77.9 107.8
+L 79.1 107.8
+' fill='#0000FF'/>
+<path class='atom-17' d='M 224.7 96.8
+L 227.1 100.7
+Q 227.4 101.1, 227.7 101.8
+Q 228.1 102.5, 228.2 102.6
+L 228.2 96.8
+L 229.1 96.8
+L 229.1 104.2
+L 228.1 104.2
+L 225.5 99.9
+Q 225.2 99.4, 224.9 98.8
+Q 224.6 98.3, 224.5 98.1
+L 224.5 104.2
+L 223.5 104.2
+L 223.5 96.8
+L 224.7 96.8
+' fill='#0000FF'/>
+<path class='atom-20' d='M 270.2 70.5
+L 272.7 74.4
+Q 272.9 74.8, 273.3 75.5
+Q 273.7 76.2, 273.7 76.3
+L 273.7 70.5
+L 274.7 70.5
+L 274.7 77.9
+L 273.7 77.9
+L 271.1 73.6
+Q 270.8 73.1, 270.4 72.5
+Q 270.1 72.0, 270.0 71.8
+L 270.0 77.9
+L 269.1 77.9
+L 269.1 70.5
+L 270.2 70.5
+' fill='#0000FF'/>
+<path class='atom-20' d='M 276.2 70.5
+L 277.2 70.5
+L 277.2 73.7
+L 281.0 73.7
+L 281.0 70.5
+L 282.0 70.5
+L 282.0 77.9
+L 281.0 77.9
+L 281.0 74.5
+L 277.2 74.5
+L 277.2 77.9
+L 276.2 77.9
+L 276.2 70.5
+' fill='#0000FF'/>
+<path class='atom-26' d='M 40.9 141.0
+Q 40.9 139.2, 41.8 138.2
+Q 42.7 137.2, 44.3 137.2
+Q 46.0 137.2, 46.8 138.2
+Q 47.7 139.2, 47.7 141.0
+Q 47.7 142.8, 46.8 143.9
+Q 45.9 144.9, 44.3 144.9
+Q 42.7 144.9, 41.8 143.9
+Q 40.9 142.9, 40.9 141.0
+M 44.3 144.1
+Q 45.4 144.1, 46.1 143.3
+Q 46.7 142.5, 46.7 141.0
+Q 46.7 139.6, 46.1 138.8
+Q 45.4 138.1, 44.3 138.1
+Q 43.2 138.1, 42.6 138.8
+Q 41.9 139.6, 41.9 141.0
+Q 41.9 142.5, 42.6 143.3
+Q 43.2 144.1, 44.3 144.1
+' fill='#FF0000'/>
+<path class='atom-28' d='M 24.7 111.5
+Q 24.7 109.7, 25.6 108.7
+Q 26.5 107.7, 28.1 107.7
+Q 29.8 107.7, 30.7 108.7
+Q 31.5 109.7, 31.5 111.5
+Q 31.5 113.3, 30.7 114.4
+Q 29.8 115.4, 28.1 115.4
+Q 26.5 115.4, 25.6 114.4
+Q 24.7 113.3, 24.7 111.5
+M 28.1 114.5
+Q 29.3 114.5, 29.9 113.8
+Q 30.5 113.0, 30.5 111.5
+Q 30.5 110.1, 29.9 109.3
+Q 29.3 108.6, 28.1 108.6
+Q 27.0 108.6, 26.4 109.3
+Q 25.8 110.0, 25.8 111.5
+Q 25.8 113.0, 26.4 113.8
+Q 27.0 114.5, 28.1 114.5
+' fill='#FF0000'/>
+<path class='atom-29' d='M 18.0 62.2
+L 19.0 62.2
+L 19.0 65.4
+L 22.8 65.4
+L 22.8 62.2
+L 23.8 62.2
+L 23.8 69.7
+L 22.8 69.7
+L 22.8 66.2
+L 19.0 66.2
+L 19.0 69.7
+L 18.0 69.7
+L 18.0 62.2
+' fill='#0000FF'/>
+<path class='atom-29' d='M 26.5 62.2
+L 28.9 66.1
+Q 29.2 66.5, 29.6 67.2
+Q 29.9 67.9, 30.0 68.0
+L 30.0 62.2
+L 31.0 62.2
+L 31.0 69.7
+L 29.9 69.7
+L 27.3 65.3
+Q 27.0 64.8, 26.7 64.3
+Q 26.4 63.7, 26.3 63.5
+L 26.3 69.7
+L 25.3 69.7
+L 25.3 62.2
+L 26.5 62.2
+' fill='#0000FF'/>
+</svg><figcaption>2D structure, drawn from the SMILES that was docked.</figcaption></figure>
+      <figure class="v3d"><div class="v3d-host" data-structure="Z6466608628_positive_control"><p class="v3d-msg">Loading 3D model&hellip;</p></div><figcaption><b>Rank-1 ternary model.</b> CRBN <span class="sw-c"></span>, PPIL4 <span class="sw-p"></span>, ligand <span class="sw-l"></span>. <span class="v3d-help">Drag to rotate &middot; scroll to zoom &middot; double-click to reset &middot; arrow keys when focused.</span> Every structure is superposed on CRBN, so PPIL4&rsquo;s position is comparable between them.</figcaption></figure>
+    </div>
+    <div class="c-data"><div class="dgroup"><h4>Ternary docking</h4>
+      <div class="dgrid"><div class="d"><span class="dl">Mean, best 10</span><b>-125.610</b></div><div class="d"><span class="dl">Best single model</span><b>-133.292</b></div><div class="d"><span class="dl">Spread (sd)</span><b>4.78</b></div><div class="d"><span class="dl">DockQ vs 9DWV</span><b>0.061</b><span class="dn">diagnostic only</span></div><div class="d"><span class="dl">Models scored</span><b>166</b></div></div></div></div>
+  </div>
+</details>
+<details class="cand ctrl" id="c-negctrl_no_glutarimide">
+  <summary>
+    <span class="c-id">Degron removed</span>
+    <span class="c-chem">Negative control &middot; cannot bind CRBN</span>
+    <span class="c-score mono">-112.2</span>
+    <span class="c-rules mono"></span>
+  </summary>
+  <div class="c-body">
+    <p class="c-why"><strong>The noise floor.</strong> The glutarimide degron is deleted, so this molecule physically cannot engage CRBN. It nonetheless outscores FPFT-2216 &mdash; which is why anything above roughly &minus;112 is not distinguishable from an inert molecule, and why &ldquo;beats the real drug&rdquo; is a meaningless claim.</p>
+    <div class="c-vis">
+      <figure class="v2d"><svg class="mol2d" role="img" version='1.1' baseProfile='full'
+              xmlns='http://www.w3.org/2000/svg'
+                      xmlns:rdkit='http://www.rdkit.org/xml'
+                      xmlns:xlink='http://www.w3.org/1999/xlink'
+                  xml:space='preserve'
+width='300px' height='210px' viewBox='0 0 300 210'>
+<!-- END OF HEADER -->
+<path class='bond-0 atom-0 atom-1' d='M 47.2,62.9 L 53.0,72.8' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-0 atom-0 atom-1' d='M 53.0,72.8 L 58.7,82.8' style='fill:none;fill-rule:evenodd;stroke:#0000FF;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-1 atom-1 atom-2' d='M 65.7,88.2 L 78.0,89.5' style='fill:none;fill-rule:evenodd;stroke:#0000FF;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-1 atom-1 atom-2' d='M 78.0,89.5 L 90.3,90.8' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-2 atom-2 atom-3' d='M 90.3,90.8 L 96.3,119.0' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-3 atom-3 atom-4' d='M 96.3,119.0 L 71.3,133.4' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-3 atom-3 atom-4' d='M 96.3,123.7 L 75.4,135.7' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-4 atom-4 atom-5' d='M 71.3,133.4 L 71.3,162.2' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-5 atom-5 atom-6' d='M 71.3,162.2 L 96.3,176.6' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-5 atom-5 atom-6' d='M 75.4,159.9 L 96.3,172.0' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-6 atom-6 atom-7' d='M 96.3,176.6 L 121.2,162.2' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-7 atom-7 atom-8' d='M 121.2,162.2 L 121.2,133.4' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-7 atom-7 atom-8' d='M 117.2,159.9 L 117.2,135.7' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-8 atom-8 atom-9' d='M 121.2,133.4 L 146.2,119.0' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-9 atom-9 atom-10' d='M 146.2,119.0 L 171.1,133.4' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-10 atom-10 atom-11' d='M 171.1,133.4 L 196.1,119.0' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-10 atom-10 atom-11' d='M 171.1,128.8 L 192.1,116.7' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-11 atom-11 atom-12' d='M 196.1,119.0 L 196.1,90.2' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-12 atom-12 atom-13' d='M 196.1,90.2 L 206.5,84.2' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-12 atom-12 atom-13' d='M 206.5,84.2 L 217.0,78.1' style='fill:none;fill-rule:evenodd;stroke:#0000FF;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-13 atom-13 atom-14' d='M 225.1,78.1 L 235.5,84.2' style='fill:none;fill-rule:evenodd;stroke:#0000FF;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-13 atom-13 atom-14' d='M 235.5,84.2 L 246.0,90.2' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-14 atom-14 atom-15' d='M 246.0,90.2 L 270.9,75.8' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-15 atom-15 atom-16' d='M 270.9,75.8 L 270.9,63.9' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-15 atom-15 atom-16' d='M 270.9,63.9 L 270.9,52.0' style='fill:none;fill-rule:evenodd;stroke:#0000FF;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-16 atom-16 atom-17' d='M 266.9,44.6 L 256.4,38.6' style='fill:none;fill-rule:evenodd;stroke:#0000FF;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-16 atom-16 atom-17' d='M 256.4,38.6 L 246.0,32.6' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-17 atom-17 atom-18' d='M 246.0,32.6 L 221.0,47.0' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-18 atom-12 atom-19' d='M 196.1,90.2 L 171.1,75.8' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-18 atom-12 atom-19' d='M 192.1,92.5 L 171.1,80.4' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-19 atom-19 atom-20' d='M 171.1,75.8 L 146.2,90.2' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-20 atom-4 atom-21' d='M 71.3,133.4 L 49.9,114.1' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-21 atom-21 atom-22' d='M 50.9,111.9 L 38.5,114.5' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-21 atom-21 atom-22' d='M 38.5,114.5 L 26.0,117.2' style='fill:none;fill-rule:evenodd;stroke:#FF0000;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-21 atom-21 atom-22' d='M 51.8,115.8 L 39.3,118.4' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-21 atom-21 atom-22' d='M 39.3,118.4 L 26.9,121.1' style='fill:none;fill-rule:evenodd;stroke:#FF0000;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-22 atom-21 atom-1' d='M 49.9,114.1 L 54.7,103.5' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-22 atom-21 atom-1' d='M 54.7,103.5 L 59.4,92.8' style='fill:none;fill-rule:evenodd;stroke:#0000FF;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-23 atom-8 atom-3' d='M 121.2,133.4 L 96.3,119.0' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-24 atom-20 atom-9' d='M 146.2,90.2 L 146.2,119.0' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-24 atom-20 atom-9' d='M 150.2,92.5 L 150.2,116.7' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-25 atom-18 atom-13' d='M 221.0,47.0 L 221.0,58.9' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-25 atom-18 atom-13' d='M 221.0,58.9 L 221.0,70.8' style='fill:none;fill-rule:evenodd;stroke:#0000FF;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path d='M 89.7,90.8 L 90.3,90.8 L 90.6,92.2' style='fill:none;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-opacity:1;' />
+<path d='M 71.3,160.8 L 71.3,162.2 L 72.6,162.9' style='fill:none;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-opacity:1;' />
+<path d='M 95.0,175.9 L 96.3,176.6 L 97.5,175.9' style='fill:none;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-opacity:1;' />
+<path d='M 120.0,162.9 L 121.2,162.2 L 121.2,160.8' style='fill:none;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-opacity:1;' />
+<path d='M 169.9,132.7 L 171.1,133.4 L 172.4,132.7' style='fill:none;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-opacity:1;' />
+<path d='M 194.8,119.7 L 196.1,119.0 L 196.1,117.6' style='fill:none;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-opacity:1;' />
+<path d='M 245.5,89.9 L 246.0,90.2 L 247.2,89.5' style='fill:none;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-opacity:1;' />
+<path d='M 269.7,76.5 L 270.9,75.8 L 270.9,75.2' style='fill:none;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-opacity:1;' />
+<path d='M 246.5,32.9 L 246.0,32.6 L 244.7,33.3' style='fill:none;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-opacity:1;' />
+<path d='M 222.3,46.3 L 221.0,47.0 L 221.0,47.6' style='fill:none;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-opacity:1;' />
+<path d='M 172.4,76.5 L 171.1,75.8 L 169.9,76.5' style='fill:none;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-opacity:1;' />
+<path d='M 147.4,89.5 L 146.2,90.2 L 146.2,91.6' style='fill:none;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-opacity:1;' />
+<path d='M 51.0,115.1 L 49.9,114.1 L 50.2,113.6' style='fill:none;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-opacity:1;' />
+<path class='atom-1' d='M 59.8 83.7
+L 62.5 88.1
+Q 62.8 88.5, 63.2 89.3
+Q 63.6 90.0, 63.7 90.1
+L 63.7 83.7
+L 64.7 83.7
+L 64.7 91.9
+L 63.6 91.9
+L 60.8 87.2
+Q 60.4 86.6, 60.1 86.0
+Q 59.7 85.3, 59.6 85.2
+L 59.6 91.9
+L 58.5 91.9
+L 58.5 83.7
+L 59.8 83.7
+' fill='#0000FF'/>
+<path class='atom-13' d='M 219.2 71.7
+L 221.9 76.0
+Q 222.2 76.5, 222.6 77.2
+Q 223.0 78.0, 223.0 78.0
+L 223.0 71.7
+L 224.1 71.7
+L 224.1 79.9
+L 223.0 79.9
+L 220.1 75.1
+Q 219.8 74.6, 219.5 74.0
+Q 219.1 73.3, 219.0 73.1
+L 219.0 79.9
+L 217.9 79.9
+L 217.9 71.7
+L 219.2 71.7
+' fill='#0000FF'/>
+<path class='atom-16' d='M 269.1 42.9
+L 271.8 47.2
+Q 272.1 47.6, 272.5 48.4
+Q 272.9 49.2, 272.9 49.2
+L 272.9 42.9
+L 274.0 42.9
+L 274.0 51.1
+L 272.9 51.1
+L 270.0 46.3
+Q 269.7 45.8, 269.4 45.1
+Q 269.0 44.5, 268.9 44.3
+L 268.9 51.1
+L 267.8 51.1
+L 267.8 42.9
+L 269.1 42.9
+' fill='#0000FF'/>
+<path class='atom-16' d='M 275.6 42.9
+L 276.7 42.9
+L 276.7 46.4
+L 280.9 46.4
+L 280.9 42.9
+L 282.0 42.9
+L 282.0 51.1
+L 280.9 51.1
+L 280.9 47.3
+L 276.7 47.3
+L 276.7 51.1
+L 275.6 51.1
+L 275.6 42.9
+' fill='#0000FF'/>
+<path class='atom-22' d='M 18.0 120.1
+Q 18.0 118.2, 19.0 117.1
+Q 19.9 116.0, 21.7 116.0
+Q 23.6 116.0, 24.5 117.1
+Q 25.5 118.2, 25.5 120.1
+Q 25.5 122.1, 24.5 123.3
+Q 23.5 124.4, 21.7 124.4
+Q 19.9 124.4, 19.0 123.3
+Q 18.0 122.1, 18.0 120.1
+M 21.7 123.5
+Q 23.0 123.5, 23.7 122.6
+Q 24.3 121.8, 24.3 120.1
+Q 24.3 118.5, 23.7 117.7
+Q 23.0 116.9, 21.7 116.9
+Q 20.5 116.9, 19.8 117.7
+Q 19.2 118.5, 19.2 120.1
+Q 19.2 121.8, 19.8 122.6
+Q 20.5 123.5, 21.7 123.5
+' fill='#FF0000'/>
+</svg><figcaption>2D structure, drawn from the SMILES that was docked.</figcaption></figure>
+      <figure class="v3d"><div class="v3d-host" data-structure="negctrl_no_glutarimide"><p class="v3d-msg">Loading 3D model&hellip;</p></div><figcaption><b>Rank-1 ternary model.</b> CRBN <span class="sw-c"></span>, PPIL4 <span class="sw-p"></span>, ligand <span class="sw-l"></span>. <span class="v3d-help">Drag to rotate &middot; scroll to zoom &middot; double-click to reset &middot; arrow keys when focused.</span> Every structure is superposed on CRBN, so PPIL4&rsquo;s position is comparable between them.</figcaption></figure>
+    </div>
+    <div class="c-data"><div class="dgroup"><h4>Ternary docking</h4>
+      <div class="dgrid"><div class="d"><span class="dl">Mean, best 10</span><b>-112.202</b></div><div class="d"><span class="dl">Best single model</span><b>-121.855</b></div><div class="d"><span class="dl">Spread (sd)</span><b>6.86</b></div><div class="d"><span class="dl">DockQ vs 9DWV</span><b>0.029</b><span class="dn">diagnostic only</span></div><div class="d"><span class="dl">Models scored</span><b>151</b></div></div></div></div>
+  </div>
+</details>
+<details class="cand ctrl" id="c-FPFT_2216_positive_control">
+  <summary>
+    <span class="c-id">FPFT-2216</span>
+    <span class="c-chem">Positive control &middot; the real drug</span>
+    <span class="c-score mono">-111.4</span>
+    <span class="c-rules mono"></span>
+  </summary>
+  <div class="c-body">
+    <p class="c-why">The methodology check. This is the compound the CRBN&ndash;PPIL4 ternary complex was actually solved with, so it is the one molecule whose right answer is known independently. Recovering the experimental architecture from it is what licenses trusting the protocol at all &mdash; and nothing more than that.</p>
+    <div class="c-vis">
+      <figure class="v2d"><svg class="mol2d" role="img" version='1.1' baseProfile='full'
+              xmlns='http://www.w3.org/2000/svg'
+                      xmlns:rdkit='http://www.rdkit.org/xml'
+                      xmlns:xlink='http://www.w3.org/1999/xlink'
+                  xml:space='preserve'
+width='300px' height='210px' viewBox='0 0 300 210'>
+<!-- END OF HEADER -->
+<path class='bond-0 atom-0 atom-1' d='M 51.4,44.0 L 59.1,54.6' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-0 atom-0 atom-1' d='M 59.1,54.6 L 66.9,65.2' style='fill:none;fill-rule:evenodd;stroke:#FF0000;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-1 atom-1 atom-2' d='M 68.5,77.3 L 63.0,89.6' style='fill:none;fill-rule:evenodd;stroke:#FF0000;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-1 atom-1 atom-2' d='M 63.0,89.6 L 57.5,101.9' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-2 atom-2 atom-3' d='M 57.5,101.9 L 24.6,108.9' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-2 atom-2 atom-3' d='M 55.1,107.2 L 28.9,112.8' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-3 atom-3 atom-4' d='M 24.6,108.9 L 23.1,122.7' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-3 atom-3 atom-4' d='M 23.1,122.7 L 21.7,136.5' style='fill:none;fill-rule:evenodd;stroke:#CCCC00;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-4 atom-4 atom-5' d='M 25.2,144.2 L 38.5,150.2' style='fill:none;fill-rule:evenodd;stroke:#CCCC00;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-4 atom-4 atom-5' d='M 38.5,150.2 L 51.8,156.1' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-5 atom-5 atom-6' d='M 51.8,156.1 L 74.3,131.1' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-5 atom-5 atom-6' d='M 50.6,150.4 L 68.5,130.5' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-6 atom-6 atom-7' d='M 74.3,131.1 L 107.8,134.6' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-7 atom-7 atom-8' d='M 107.8,134.6 L 130.3,109.6' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-7 atom-7 atom-8' d='M 113.6,135.2 L 131.5,115.3' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-8 atom-8 atom-9' d='M 130.3,109.6 L 143.3,115.4' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-8 atom-8 atom-9' d='M 143.3,115.4 L 156.3,121.2' style='fill:none;fill-rule:evenodd;stroke:#0000FF;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-9 atom-9 atom-10' d='M 160.4,129.1 L 158.1,150.9' style='fill:none;fill-rule:evenodd;stroke:#0000FF;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-10 atom-10 atom-11' d='M 152.8,157.7 L 129.3,162.7' style='fill:none;fill-rule:evenodd;stroke:#0000FF;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-10 atom-10 atom-11' d='M 151.8,153.1 L 128.4,158.1' style='fill:none;fill-rule:evenodd;stroke:#0000FF;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-11 atom-12 atom-9' d='M 187.1,107.8 L 187.4,108.4' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:0.8px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-11 atom-12 atom-9' d='M 184.0,109.2 L 184.7,110.4' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:0.8px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-11 atom-12 atom-9' d='M 181.0,110.6 L 182.0,112.3' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:0.8px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-11 atom-12 atom-9' d='M 177.9,112.0 L 179.2,114.3' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:0.8px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-11 atom-12 atom-9' d='M 174.8,113.4 L 176.5,116.3' style='fill:none;fill-rule:evenodd;stroke:#0000FF;stroke-width:0.8px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-11 atom-12 atom-9' d='M 171.7,114.8 L 173.7,118.3' style='fill:none;fill-rule:evenodd;stroke:#0000FF;stroke-width:0.8px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-11 atom-12 atom-9' d='M 168.6,116.2 L 171.0,120.2' style='fill:none;fill-rule:evenodd;stroke:#0000FF;stroke-width:0.8px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-12 atom-12 atom-13' d='M 190.2,106.4 L 219.3,123.3' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-13 atom-13 atom-14' d='M 219.3,123.3 L 248.5,106.4' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-14 atom-14 atom-15' d='M 248.5,106.4 L 248.5,72.8' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-15 atom-15 atom-16' d='M 248.5,75.5 L 260.9,68.3' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-15 atom-15 atom-16' d='M 260.9,68.3 L 273.3,61.2' style='fill:none;fill-rule:evenodd;stroke:#FF0000;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-15 atom-15 atom-16' d='M 246.1,71.4 L 258.5,64.3' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-15 atom-15 atom-16' d='M 258.5,64.3 L 271.0,57.1' style='fill:none;fill-rule:evenodd;stroke:#FF0000;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-16 atom-15 atom-17' d='M 248.5,72.8 L 236.3,65.7' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-16 atom-15 atom-17' d='M 236.3,65.7 L 224.1,58.7' style='fill:none;fill-rule:evenodd;stroke:#0000FF;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-17 atom-17 atom-18' d='M 214.6,58.7 L 202.4,65.7' style='fill:none;fill-rule:evenodd;stroke:#0000FF;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-17 atom-17 atom-18' d='M 202.4,65.7 L 190.2,72.8' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-18 atom-18 atom-19' d='M 192.5,71.4 L 180.1,64.3' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-18 atom-18 atom-19' d='M 180.1,64.3 L 167.7,57.1' style='fill:none;fill-rule:evenodd;stroke:#FF0000;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-18 atom-18 atom-19' d='M 190.2,75.5 L 177.8,68.3' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-18 atom-18 atom-19' d='M 177.8,68.3 L 165.4,61.2' style='fill:none;fill-rule:evenodd;stroke:#FF0000;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-19 atom-6 atom-2' d='M 74.3,131.1 L 57.5,101.9' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-20 atom-11 atom-7' d='M 121.2,157.9 L 114.5,146.2' style='fill:none;fill-rule:evenodd;stroke:#0000FF;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-20 atom-11 atom-7' d='M 114.5,146.2 L 107.8,134.6' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-21 atom-18 atom-12' d='M 190.2,72.8 L 190.2,106.4' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path d='M 26.2,108.6 L 24.6,108.9 L 24.5,109.6' style='fill:none;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-opacity:1;' />
+<path d='M 51.1,155.8 L 51.8,156.1 L 52.9,154.8' style='fill:none;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-opacity:1;' />
+<path d='M 129.2,110.8 L 130.3,109.6 L 131.0,109.9' style='fill:none;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-opacity:1;' />
+<path d='M 191.6,107.3 L 190.2,106.4 L 190.2,104.8' style='fill:none;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-opacity:1;' />
+<path d='M 217.9,122.4 L 219.3,123.3 L 220.8,122.4' style='fill:none;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-opacity:1;' />
+<path d='M 247.0,107.3 L 248.5,106.4 L 248.5,104.8' style='fill:none;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-opacity:1;' />
+<path d='M 248.5,74.5 L 248.5,72.8 L 247.9,72.4' style='fill:none;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-opacity:1;' />
+<path d='M 190.8,72.4 L 190.2,72.8 L 190.2,74.5' style='fill:none;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-opacity:1;' />
+<path class='atom-1' d='M 66.8 71.2
+Q 66.8 68.9, 67.9 67.6
+Q 69.1 66.4, 71.2 66.4
+Q 73.3 66.4, 74.4 67.6
+Q 75.6 68.9, 75.6 71.2
+Q 75.6 73.5, 74.4 74.8
+Q 73.3 76.1, 71.2 76.1
+Q 69.1 76.1, 67.9 74.8
+Q 66.8 73.5, 66.8 71.2
+M 71.2 75.1
+Q 72.6 75.1, 73.4 74.1
+Q 74.2 73.1, 74.2 71.2
+Q 74.2 69.3, 73.4 68.4
+Q 72.6 67.4, 71.2 67.4
+Q 69.7 67.4, 68.9 68.4
+Q 68.2 69.3, 68.2 71.2
+Q 68.2 73.1, 68.9 74.1
+Q 69.7 75.1, 71.2 75.1
+' fill='#FF0000'/>
+<path class='atom-4' d='M 18.4 145.7
+Q 18.5 145.7, 18.9 145.9
+Q 19.4 146.1, 19.8 146.2
+Q 20.3 146.3, 20.8 146.3
+Q 21.7 146.3, 22.3 145.9
+Q 22.8 145.4, 22.8 144.7
+Q 22.8 144.1, 22.5 143.8
+Q 22.3 143.5, 21.8 143.3
+Q 21.4 143.1, 20.8 142.9
+Q 19.9 142.7, 19.4 142.4
+Q 18.9 142.2, 18.6 141.7
+Q 18.2 141.2, 18.2 140.3
+Q 18.2 139.1, 19.0 138.4
+Q 19.8 137.6, 21.4 137.6
+Q 22.5 137.6, 23.8 138.2
+L 23.5 139.2
+Q 22.3 138.7, 21.5 138.7
+Q 20.6 138.7, 20.0 139.1
+Q 19.5 139.5, 19.5 140.2
+Q 19.5 140.7, 19.8 141.0
+Q 20.1 141.3, 20.4 141.5
+Q 20.8 141.6, 21.5 141.8
+Q 22.3 142.1, 22.9 142.4
+Q 23.4 142.6, 23.7 143.2
+Q 24.1 143.7, 24.1 144.7
+Q 24.1 146.0, 23.2 146.7
+Q 22.3 147.4, 20.9 147.4
+Q 20.0 147.4, 19.4 147.2
+Q 18.8 147.0, 18.0 146.7
+L 18.4 145.7
+' fill='#CCCC00'/>
+<path class='atom-9' d='M 158.9 118.5
+L 162.1 123.5
+Q 162.4 124.0, 162.9 124.9
+Q 163.4 125.8, 163.4 125.9
+L 163.4 118.5
+L 164.7 118.5
+L 164.7 128.0
+L 163.4 128.0
+L 160.0 122.5
+Q 159.6 121.9, 159.2 121.1
+Q 158.8 120.4, 158.7 120.2
+L 158.7 128.0
+L 157.4 128.0
+L 157.4 118.5
+L 158.9 118.5
+' fill='#0000FF'/>
+<path class='atom-10' d='M 155.4 152.0
+L 158.5 157.0
+Q 158.9 157.5, 159.4 158.4
+Q 159.9 159.3, 159.9 159.4
+L 159.9 152.0
+L 161.1 152.0
+L 161.1 161.5
+L 159.8 161.5
+L 156.5 156.0
+Q 156.1 155.3, 155.7 154.6
+Q 155.3 153.8, 155.2 153.6
+L 155.2 161.5
+L 153.9 161.5
+L 153.9 152.0
+L 155.4 152.0
+' fill='#0000FF'/>
+<path class='atom-11' d='M 122.5 159.0
+L 125.6 164.0
+Q 125.9 164.5, 126.4 165.4
+Q 126.9 166.3, 127.0 166.4
+L 127.0 159.0
+L 128.2 159.0
+L 128.2 168.5
+L 126.9 168.5
+L 123.6 163.0
+Q 123.2 162.3, 122.8 161.6
+Q 122.4 160.8, 122.2 160.6
+L 122.2 168.5
+L 121.0 168.5
+L 121.0 159.0
+L 122.5 159.0
+' fill='#0000FF'/>
+<path class='atom-16' d='M 273.3 56.0
+Q 273.3 53.7, 274.4 52.4
+Q 275.5 51.1, 277.6 51.1
+Q 279.7 51.1, 280.9 52.4
+Q 282.0 53.7, 282.0 56.0
+Q 282.0 58.3, 280.9 59.6
+Q 279.7 60.9, 277.6 60.9
+Q 275.5 60.9, 274.4 59.6
+Q 273.3 58.3, 273.3 56.0
+M 277.6 59.8
+Q 279.1 59.8, 279.9 58.9
+Q 280.7 57.9, 280.7 56.0
+Q 280.7 54.1, 279.9 53.2
+Q 279.1 52.2, 277.6 52.2
+Q 276.2 52.2, 275.4 53.2
+Q 274.6 54.1, 274.6 56.0
+Q 274.6 57.9, 275.4 58.9
+Q 276.2 59.8, 277.6 59.8
+' fill='#FF0000'/>
+<path class='atom-17' d='M 217.2 51.2
+L 220.4 56.2
+Q 220.7 56.7, 221.2 57.6
+Q 221.7 58.5, 221.7 58.6
+L 221.7 51.2
+L 223.0 51.2
+L 223.0 60.7
+L 221.6 60.7
+L 218.3 55.2
+Q 217.9 54.6, 217.5 53.8
+Q 217.1 53.1, 217.0 52.8
+L 217.0 60.7
+L 215.7 60.7
+L 215.7 51.2
+L 217.2 51.2
+' fill='#0000FF'/>
+<path class='atom-17' d='M 215.6 40.7
+L 216.9 40.7
+L 216.9 44.8
+L 221.8 44.8
+L 221.8 40.7
+L 223.1 40.7
+L 223.1 50.2
+L 221.8 50.2
+L 221.8 45.8
+L 216.9 45.8
+L 216.9 50.2
+L 215.6 50.2
+L 215.6 40.7
+' fill='#0000FF'/>
+<path class='atom-19' d='M 156.7 56.0
+Q 156.7 53.7, 157.8 52.4
+Q 158.9 51.1, 161.0 51.1
+Q 163.2 51.1, 164.3 52.4
+Q 165.4 53.7, 165.4 56.0
+Q 165.4 58.3, 164.3 59.6
+Q 163.1 60.9, 161.0 60.9
+Q 158.9 60.9, 157.8 59.6
+Q 156.7 58.3, 156.7 56.0
+M 161.0 59.8
+Q 162.5 59.8, 163.3 58.9
+Q 164.1 57.9, 164.1 56.0
+Q 164.1 54.1, 163.3 53.2
+Q 162.5 52.2, 161.0 52.2
+Q 159.6 52.2, 158.8 53.2
+Q 158.0 54.1, 158.0 56.0
+Q 158.0 57.9, 158.8 58.9
+Q 159.6 59.8, 161.0 59.8
+' fill='#FF0000'/>
+</svg><figcaption>2D structure, drawn from the SMILES that was docked.</figcaption></figure>
+      <figure class="v3d"><div class="v3d-host" data-structure="FPFT_2216_positive_control"><p class="v3d-msg">Loading 3D model&hellip;</p></div><figcaption><b>Rank-1 ternary model.</b> CRBN <span class="sw-c"></span>, PPIL4 <span class="sw-p"></span>, ligand <span class="sw-l"></span>. <span class="v3d-help">Drag to rotate &middot; scroll to zoom &middot; double-click to reset &middot; arrow keys when focused.</span> Every structure is superposed on CRBN, so PPIL4&rsquo;s position is comparable between them.</figcaption></figure>
+    </div>
+    <div class="c-data"><div class="dgroup"><h4>Ternary docking</h4>
+      <div class="dgrid"><div class="d"><span class="dl">Mean, best 10</span><b>-111.382</b></div><div class="d"><span class="dl">Best single model</span><b>-130.503</b></div><div class="d"><span class="dl">Spread (sd)</span><b>7.30</b></div><div class="d"><span class="dl">DockQ vs 9DWV</span><b>0.376</b><span class="dn">diagnostic only</span></div><div class="d"><span class="dl">Models scored</span><b>161</b></div></div></div></div>
+  </div>
+</details>
+<details class="cand ctrl" id="c-TM-04-064-02_positive_control">
+  <summary>
+    <span class="c-id">TM-04-064-02</span>
+    <span class="c-chem">Positive control &middot; adenine-linked thalidomide</span>
+    <span class="c-score mono">-110.0</span>
+    <span class="c-rules mono"></span>
+  </summary>
+  <div class="c-body">
+    <p class="c-why">A second, structurally unrelated positive: a large adenine-linked degrader. Scores below the noise floor, which is itself informative about how much the score tracks size and interface rather than glue activity.</p>
+    <div class="c-vis">
+      <figure class="v2d"><svg class="mol2d" role="img" version='1.1' baseProfile='full'
+              xmlns='http://www.w3.org/2000/svg'
+                      xmlns:rdkit='http://www.rdkit.org/xml'
+                      xmlns:xlink='http://www.w3.org/1999/xlink'
+                  xml:space='preserve'
+width='300px' height='210px' viewBox='0 0 300 210'>
+<!-- END OF HEADER -->
+<path class='bond-0 atom-0 atom-1' d='M 103.0,111.9 L 103.0,117.4' style='fill:none;fill-rule:evenodd;stroke:#FF0000;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-0 atom-0 atom-1' d='M 103.0,117.4 L 103.0,122.9' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-0 atom-0 atom-1' d='M 101.2,111.9 L 101.2,117.4' style='fill:none;fill-rule:evenodd;stroke:#FF0000;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-0 atom-0 atom-1' d='M 101.2,117.4 L 101.2,122.9' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-1 atom-1 atom-2' d='M 102.1,122.4 L 106.8,125.1' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-1 atom-1 atom-2' d='M 106.8,125.1 L 111.4,127.8' style='fill:none;fill-rule:evenodd;stroke:#0000FF;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-2 atom-2 atom-3' d='M 115.5,127.8 L 120.2,125.1' style='fill:none;fill-rule:evenodd;stroke:#0000FF;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-2 atom-2 atom-3' d='M 120.2,125.1 L 124.9,122.4' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-3 atom-3 atom-4' d='M 124.9,122.4 L 136.2,129.0' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-4 atom-4 atom-5' d='M 136.2,129.0 L 147.6,122.4' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-5 atom-5 atom-6' d='M 147.6,122.4 L 159.0,129.0' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-6 atom-6 atom-7' d='M 159.0,129.0 L 170.4,122.4' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-7 atom-7 atom-8' d='M 170.4,122.4 L 181.7,129.0' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-8 atom-8 atom-9' d='M 181.7,129.0 L 193.1,122.4' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-9 atom-9 atom-10' d='M 193.1,122.4 L 204.5,129.0' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-10 atom-10 atom-11' d='M 204.5,129.0 L 209.2,126.3' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-10 atom-10 atom-11' d='M 209.2,126.3 L 213.8,123.6' style='fill:none;fill-rule:evenodd;stroke:#0000FF;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-11 atom-11 atom-12' d='M 217.9,123.6 L 222.6,126.3' style='fill:none;fill-rule:evenodd;stroke:#0000FF;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-11 atom-11 atom-12' d='M 222.6,126.3 L 227.2,129.0' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-12 atom-12 atom-13' d='M 227.2,129.0 L 227.2,142.1' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-13 atom-13 atom-14' d='M 227.2,142.1 L 238.6,148.7' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-13 atom-13 atom-14' d='M 229.1,141.0 L 238.6,146.5' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-14 atom-14 atom-15' d='M 238.6,148.7 L 250.0,142.1' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-15 atom-15 atom-16' d='M 250.0,142.1 L 250.0,129.0' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-15 atom-15 atom-16' d='M 248.2,141.0 L 248.2,130.0' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-16 atom-16 atom-17' d='M 250.0,129.0 L 238.6,122.4' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-17 atom-17 atom-18' d='M 238.6,122.4 L 241.3,109.6' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-18 atom-18 atom-19' d='M 241.3,109.6 L 246.9,109.0' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-18 atom-18 atom-19' d='M 246.9,109.0 L 252.4,108.4' style='fill:none;fill-rule:evenodd;stroke:#0000FF;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-19 atom-19 atom-20' d='M 255.6,110.7 L 257.7,115.5' style='fill:none;fill-rule:evenodd;stroke:#0000FF;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-19 atom-19 atom-20' d='M 257.7,115.5 L 259.8,120.2' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-20 atom-20 atom-21' d='M 258.9,120.9 L 264.5,122.1' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-20 atom-20 atom-21' d='M 264.5,122.1 L 270.0,123.3' style='fill:none;fill-rule:evenodd;stroke:#FF0000;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-20 atom-20 atom-21' d='M 259.3,119.1 L 264.9,120.3' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-20 atom-20 atom-21' d='M 264.9,120.3 L 270.4,121.5' style='fill:none;fill-rule:evenodd;stroke:#FF0000;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-21 atom-19 atom-22' d='M 255.9,105.6 L 258.4,101.2' style='fill:none;fill-rule:evenodd;stroke:#0000FF;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-21 atom-19 atom-22' d='M 258.4,101.2 L 261.0,96.8' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-22 atom-22 atom-23' d='M 261.0,96.8 L 274.1,96.8' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-23 atom-23 atom-24' d='M 274.1,96.8 L 280.7,85.4' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-24 atom-24 atom-25' d='M 280.7,85.4 L 274.1,74.1' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-25 atom-25 atom-26' d='M 274.1,74.1 L 268.6,74.1' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-25 atom-25 atom-26' d='M 268.6,74.1 L 263.0,74.1' style='fill:none;fill-rule:evenodd;stroke:#0000FF;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-26 atom-26 atom-27' d='M 259.5,76.6 L 257.0,81.0' style='fill:none;fill-rule:evenodd;stroke:#0000FF;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-26 atom-26 atom-27' d='M 257.0,81.0 L 254.4,85.4' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-27 atom-27 atom-28' d='M 254.9,84.5 L 249.3,84.5' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-27 atom-27 atom-28' d='M 249.3,84.5 L 243.7,84.5' style='fill:none;fill-rule:evenodd;stroke:#FF0000;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-27 atom-27 atom-28' d='M 254.9,86.3 L 249.3,86.3' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-27 atom-27 atom-28' d='M 249.3,86.3 L 243.7,86.3' style='fill:none;fill-rule:evenodd;stroke:#FF0000;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-28 atom-25 atom-29' d='M 274.6,75.0 L 277.3,70.4' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-28 atom-25 atom-29' d='M 277.3,70.4 L 279.9,65.8' style='fill:none;fill-rule:evenodd;stroke:#FF0000;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-28 atom-25 atom-29' d='M 273.1,74.1 L 275.7,69.5' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-28 atom-25 atom-29' d='M 275.7,69.5 L 278.4,64.9' style='fill:none;fill-rule:evenodd;stroke:#FF0000;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-29 atom-18 atom-30' d='M 242.5,109.4 L 239.1,105.6' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-29 atom-18 atom-30' d='M 239.1,105.6 L 235.6,101.8' style='fill:none;fill-rule:evenodd;stroke:#FF0000;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-29 atom-18 atom-30' d='M 241.1,110.7 L 237.7,106.9' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-29 atom-18 atom-30' d='M 237.7,106.9 L 234.3,103.1' style='fill:none;fill-rule:evenodd;stroke:#FF0000;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-30 atom-1 atom-31' d='M 102.1,122.4 L 90.7,129.0' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-31 atom-31 atom-32' d='M 90.7,129.0 L 79.4,122.4' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-32 atom-32 atom-33' d='M 79.4,122.4 L 74.7,125.1' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-32 atom-32 atom-33' d='M 74.7,125.1 L 70.0,127.8' style='fill:none;fill-rule:evenodd;stroke:#0000FF;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-33 atom-33 atom-34' d='M 67.7,131.5 L 67.2,136.8' style='fill:none;fill-rule:evenodd;stroke:#0000FF;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-33 atom-33 atom-34' d='M 67.2,136.8 L 66.6,142.0' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-34 atom-34 atom-35' d='M 66.6,142.0 L 61.2,143.2' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-34 atom-34 atom-35' d='M 61.2,143.2 L 55.8,144.3' style='fill:none;fill-rule:evenodd;stroke:#0000FF;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-34 atom-34 atom-35' d='M 64.9,140.5 L 60.2,141.5' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-34 atom-34 atom-35' d='M 60.2,141.5 L 55.4,142.5' style='fill:none;fill-rule:evenodd;stroke:#0000FF;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-35 atom-35 atom-36' d='M 52.3,142.2 L 49.7,137.8' style='fill:none;fill-rule:evenodd;stroke:#0000FF;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-35 atom-35 atom-36' d='M 49.7,137.8 L 47.2,133.4' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-36 atom-36 atom-37' d='M 47.2,133.4 L 34.4,130.7' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-36 atom-36 atom-37' d='M 46.5,131.4 L 35.8,129.1' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-37 atom-37 atom-38' d='M 34.4,130.7 L 32.7,125.7' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-37 atom-37 atom-38' d='M 32.7,125.7 L 31.1,120.7' style='fill:none;fill-rule:evenodd;stroke:#0000FF;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-38 atom-38 atom-39' d='M 32.3,115.9 L 35.7,112.1' style='fill:none;fill-rule:evenodd;stroke:#0000FF;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-38 atom-38 atom-39' d='M 35.7,112.1 L 39.1,108.4' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-38 atom-38 atom-39' d='M 33.7,117.1 L 36.7,113.8' style='fill:none;fill-rule:evenodd;stroke:#0000FF;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-38 atom-38 atom-39' d='M 36.7,113.8 L 39.7,110.4' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-39 atom-39 atom-40' d='M 39.1,108.4 L 44.5,109.6' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-39 atom-39 atom-40' d='M 44.5,109.6 L 49.9,110.7' style='fill:none;fill-rule:evenodd;stroke:#0000FF;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-40 atom-40 atom-41' d='M 52.8,113.7 L 54.4,118.7' style='fill:none;fill-rule:evenodd;stroke:#0000FF;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-40 atom-40 atom-41' d='M 54.4,118.7 L 56.0,123.6' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-40 atom-40 atom-41' d='M 51.0,114.3 L 52.5,118.7' style='fill:none;fill-rule:evenodd;stroke:#0000FF;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-40 atom-40 atom-41' d='M 52.5,118.7 L 53.9,123.2' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-41 atom-37 atom-42' d='M 34.4,130.7 L 31.0,134.4' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-41 atom-37 atom-42' d='M 31.0,134.4 L 27.6,138.1' style='fill:none;fill-rule:evenodd;stroke:#0000FF;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-42 atom-17 atom-12' d='M 238.6,122.4 L 227.2,129.0' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-42 atom-17 atom-12' d='M 238.6,124.5 L 229.1,130.0' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-43 atom-20 atom-16' d='M 259.8,120.2 L 250.0,129.0' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-44 atom-27 atom-22' d='M 254.4,85.4 L 261.0,96.8' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-45 atom-41 atom-33' d='M 56.0,123.6 L 61.0,125.8' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-45 atom-41 atom-33' d='M 61.0,125.8 L 65.9,128.1' style='fill:none;fill-rule:evenodd;stroke:#0000FF;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-46 atom-41 atom-36' d='M 56.0,123.6 L 47.2,133.4' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path d='M 102.4,122.5 L 102.1,122.4 L 101.5,122.7' style='fill:none;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-opacity:1;' />
+<path d='M 124.6,122.5 L 124.9,122.4 L 125.4,122.7' style='fill:none;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-opacity:1;' />
+<path d='M 135.7,128.6 L 136.2,129.0 L 136.8,128.6' style='fill:none;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-opacity:1;' />
+<path d='M 147.0,122.7 L 147.6,122.4 L 148.2,122.7' style='fill:none;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-opacity:1;' />
+<path d='M 158.4,128.6 L 159.0,129.0 L 159.6,128.6' style='fill:none;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-opacity:1;' />
+<path d='M 169.8,122.7 L 170.4,122.4 L 170.9,122.7' style='fill:none;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-opacity:1;' />
+<path d='M 181.2,128.6 L 181.7,129.0 L 182.3,128.6' style='fill:none;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-opacity:1;' />
+<path d='M 192.5,122.7 L 193.1,122.4 L 193.7,122.7' style='fill:none;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-opacity:1;' />
+<path d='M 203.9,128.6 L 204.5,129.0 L 204.7,128.8' style='fill:none;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-opacity:1;' />
+<path d='M 227.2,141.4 L 227.2,142.1 L 227.8,142.4' style='fill:none;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-opacity:1;' />
+<path d='M 238.0,148.3 L 238.6,148.7 L 239.2,148.3' style='fill:none;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-opacity:1;' />
+<path d='M 249.4,142.4 L 250.0,142.1 L 250.0,141.4' style='fill:none;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-opacity:1;' />
+<path d='M 241.2,110.2 L 241.3,109.6 L 241.6,109.5' style='fill:none;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-opacity:1;' />
+<path d='M 259.6,119.9 L 259.8,120.2 L 259.3,120.6' style='fill:none;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-opacity:1;' />
+<path d='M 273.5,96.8 L 274.1,96.8 L 274.4,96.2' style='fill:none;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-opacity:1;' />
+<path d='M 280.4,86.0 L 280.7,85.4 L 280.4,84.9' style='fill:none;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-opacity:1;' />
+<path d='M 274.4,74.6 L 274.1,74.1 L 273.8,74.1' style='fill:none;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-opacity:1;' />
+<path d='M 254.5,85.2 L 254.4,85.4 L 254.7,86.0' style='fill:none;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-opacity:1;' />
+<path d='M 91.3,128.6 L 90.7,129.0 L 90.2,128.6' style='fill:none;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-opacity:1;' />
+<path d='M 79.9,122.7 L 79.4,122.4 L 79.1,122.5' style='fill:none;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-opacity:1;' />
+<path d='M 66.6,141.8 L 66.6,142.0 L 66.3,142.1' style='fill:none;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-opacity:1;' />
+<path d='M 38.9,108.6 L 39.1,108.4 L 39.4,108.5' style='fill:none;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-opacity:1;' />
+<path class='atom-0' d='M 100.2 109.3
+Q 100.2 108.3, 100.7 107.7
+Q 101.2 107.1, 102.1 107.1
+Q 103.1 107.1, 103.6 107.7
+Q 104.1 108.3, 104.1 109.3
+Q 104.1 110.3, 103.6 110.9
+Q 103.0 111.5, 102.1 111.5
+Q 101.2 111.5, 100.7 110.9
+Q 100.2 110.3, 100.2 109.3
+M 102.1 111.0
+Q 102.8 111.0, 103.1 110.6
+Q 103.5 110.1, 103.5 109.3
+Q 103.5 108.4, 103.1 108.0
+Q 102.8 107.6, 102.1 107.6
+Q 101.5 107.6, 101.1 108.0
+Q 100.8 108.4, 100.8 109.3
+Q 100.8 110.1, 101.1 110.6
+Q 101.5 111.0, 102.1 111.0
+' fill='#FF0000'/>
+<path class='atom-2' d='M 112.6 126.8
+L 113.9 129.1
+Q 114.1 129.3, 114.3 129.7
+Q 114.5 130.1, 114.5 130.1
+L 114.5 126.8
+L 115.1 126.8
+L 115.1 131.1
+L 114.5 131.1
+L 113.0 128.6
+Q 112.9 128.3, 112.7 128.0
+Q 112.5 127.7, 112.4 127.6
+L 112.4 131.1
+L 111.9 131.1
+L 111.9 126.8
+L 112.6 126.8
+' fill='#0000FF'/>
+<path class='atom-2' d='M 111.8 131.5
+L 112.4 131.5
+L 112.4 133.3
+L 114.6 133.3
+L 114.6 131.5
+L 115.2 131.5
+L 115.2 135.8
+L 114.6 135.8
+L 114.6 133.8
+L 112.4 133.8
+L 112.4 135.8
+L 111.8 135.8
+L 111.8 131.5
+' fill='#0000FF'/>
+<path class='atom-11' d='M 214.9 120.3
+L 216.3 122.5
+Q 216.5 122.7, 216.7 123.1
+Q 216.9 123.6, 216.9 123.6
+L 216.9 120.3
+L 217.5 120.3
+L 217.5 124.5
+L 216.9 124.5
+L 215.4 122.1
+Q 215.2 121.8, 215.0 121.4
+Q 214.9 121.1, 214.8 121.0
+L 214.8 124.5
+L 214.3 124.5
+L 214.3 120.3
+L 214.9 120.3
+' fill='#0000FF'/>
+<path class='atom-11' d='M 214.2 115.6
+L 214.8 115.6
+L 214.8 117.4
+L 217.0 117.4
+L 217.0 115.6
+L 217.5 115.6
+L 217.5 119.9
+L 217.0 119.9
+L 217.0 117.9
+L 214.8 117.9
+L 214.8 119.9
+L 214.2 119.9
+L 214.2 115.6
+' fill='#0000FF'/>
+<path class='atom-19' d='M 253.5 106.1
+L 254.9 108.3
+Q 255.0 108.5, 255.2 108.9
+Q 255.4 109.3, 255.5 109.4
+L 255.5 106.1
+L 256.0 106.1
+L 256.0 110.3
+L 255.4 110.3
+L 253.9 107.8
+Q 253.8 107.6, 253.6 107.2
+Q 253.4 106.9, 253.4 106.8
+L 253.4 110.3
+L 252.8 110.3
+L 252.8 106.1
+L 253.5 106.1
+' fill='#0000FF'/>
+<path class='atom-21' d='M 270.7 122.9
+Q 270.7 121.9, 271.2 121.3
+Q 271.7 120.8, 272.6 120.8
+Q 273.5 120.8, 274.0 121.3
+Q 274.6 121.9, 274.6 122.9
+Q 274.6 124.0, 274.0 124.5
+Q 273.5 125.1, 272.6 125.1
+Q 271.7 125.1, 271.2 124.5
+Q 270.7 124.0, 270.7 122.9
+M 272.6 124.6
+Q 273.2 124.6, 273.6 124.2
+Q 274.0 123.8, 274.0 122.9
+Q 274.0 122.1, 273.6 121.7
+Q 273.2 121.2, 272.6 121.2
+Q 272.0 121.2, 271.6 121.7
+Q 271.3 122.1, 271.3 122.9
+Q 271.3 123.8, 271.6 124.2
+Q 272.0 124.6, 272.6 124.6
+' fill='#FF0000'/>
+<path class='atom-26' d='M 255.2 71.9
+L 255.8 71.9
+L 255.8 73.7
+L 258.0 73.7
+L 258.0 71.9
+L 258.5 71.9
+L 258.5 76.2
+L 258.0 76.2
+L 258.0 74.2
+L 255.8 74.2
+L 255.8 76.2
+L 255.2 76.2
+L 255.2 71.9
+' fill='#0000FF'/>
+<path class='atom-26' d='M 260.0 71.9
+L 261.4 74.2
+Q 261.6 74.4, 261.8 74.8
+Q 262.0 75.2, 262.0 75.2
+L 262.0 71.9
+L 262.6 71.9
+L 262.6 76.2
+L 262.0 76.2
+L 260.5 73.7
+Q 260.3 73.4, 260.2 73.1
+Q 260.0 72.8, 259.9 72.7
+L 259.9 76.2
+L 259.4 76.2
+L 259.4 71.9
+L 260.0 71.9
+' fill='#0000FF'/>
+<path class='atom-28' d='M 239.3 85.4
+Q 239.3 84.4, 239.8 83.9
+Q 240.3 83.3, 241.3 83.3
+Q 242.2 83.3, 242.7 83.9
+Q 243.2 84.4, 243.2 85.4
+Q 243.2 86.5, 242.7 87.1
+Q 242.2 87.6, 241.3 87.6
+Q 240.3 87.6, 239.8 87.1
+Q 239.3 86.5, 239.3 85.4
+M 241.3 87.2
+Q 241.9 87.2, 242.3 86.7
+Q 242.6 86.3, 242.6 85.4
+Q 242.6 84.6, 242.3 84.2
+Q 241.9 83.8, 241.3 83.8
+Q 240.6 83.8, 240.3 84.2
+Q 239.9 84.6, 239.9 85.4
+Q 239.9 86.3, 240.3 86.7
+Q 240.6 87.2, 241.3 87.2
+' fill='#FF0000'/>
+<path class='atom-29' d='M 278.7 62.7
+Q 278.7 61.7, 279.2 61.1
+Q 279.7 60.5, 280.7 60.5
+Q 281.6 60.5, 282.1 61.1
+Q 282.6 61.7, 282.6 62.7
+Q 282.6 63.7, 282.1 64.3
+Q 281.6 64.9, 280.7 64.9
+Q 279.7 64.9, 279.2 64.3
+Q 278.7 63.7, 278.7 62.7
+M 280.7 64.4
+Q 281.3 64.4, 281.7 64.0
+Q 282.0 63.5, 282.0 62.7
+Q 282.0 61.9, 281.7 61.4
+Q 281.3 61.0, 280.7 61.0
+Q 280.0 61.0, 279.7 61.4
+Q 279.3 61.9, 279.3 62.7
+Q 279.3 63.5, 279.7 64.0
+Q 280.0 64.4, 280.7 64.4
+' fill='#FF0000'/>
+<path class='atom-30' d='M 230.6 99.8
+Q 230.6 98.8, 231.1 98.2
+Q 231.6 97.6, 232.6 97.6
+Q 233.5 97.6, 234.0 98.2
+Q 234.5 98.8, 234.5 99.8
+Q 234.5 100.8, 234.0 101.4
+Q 233.5 102.0, 232.6 102.0
+Q 231.6 102.0, 231.1 101.4
+Q 230.6 100.8, 230.6 99.8
+M 232.6 101.5
+Q 233.2 101.5, 233.6 101.1
+Q 233.9 100.7, 233.9 99.8
+Q 233.9 99.0, 233.6 98.5
+Q 233.2 98.1, 232.6 98.1
+Q 231.9 98.1, 231.6 98.5
+Q 231.2 99.0, 231.2 99.8
+Q 231.2 100.7, 231.6 101.1
+Q 231.9 101.5, 232.6 101.5
+' fill='#FF0000'/>
+<path class='atom-33' d='M 67.1 126.8
+L 68.4 129.1
+Q 68.6 129.3, 68.8 129.7
+Q 69.0 130.1, 69.0 130.1
+L 69.0 126.8
+L 69.6 126.8
+L 69.6 131.1
+L 69.0 131.1
+L 67.5 128.6
+Q 67.4 128.3, 67.2 128.0
+Q 67.0 127.7, 66.9 127.6
+L 66.9 131.1
+L 66.4 131.1
+L 66.4 126.8
+L 67.1 126.8
+' fill='#0000FF'/>
+<path class='atom-35' d='M 52.8 142.6
+L 54.2 144.9
+Q 54.4 145.1, 54.6 145.5
+Q 54.8 145.9, 54.8 145.9
+L 54.8 142.6
+L 55.4 142.6
+L 55.4 146.9
+L 54.8 146.9
+L 53.3 144.4
+Q 53.1 144.1, 52.9 143.8
+Q 52.8 143.5, 52.7 143.4
+L 52.7 146.9
+L 52.2 146.9
+L 52.2 142.6
+L 52.8 142.6
+' fill='#0000FF'/>
+<path class='atom-38' d='M 29.4 116.0
+L 30.8 118.3
+Q 30.9 118.5, 31.1 118.9
+Q 31.3 119.3, 31.3 119.3
+L 31.3 116.0
+L 31.9 116.0
+L 31.9 120.3
+L 31.3 120.3
+L 29.8 117.8
+Q 29.7 117.5, 29.5 117.2
+Q 29.3 116.9, 29.2 116.8
+L 29.2 120.3
+L 28.7 120.3
+L 28.7 116.0
+L 29.4 116.0
+' fill='#0000FF'/>
+<path class='atom-40' d='M 51.0 109.0
+L 52.4 111.3
+Q 52.5 111.5, 52.7 111.9
+Q 53.0 112.3, 53.0 112.3
+L 53.0 109.0
+L 53.5 109.0
+L 53.5 113.3
+L 53.0 113.3
+L 51.5 110.8
+Q 51.3 110.5, 51.1 110.2
+Q 50.9 109.8, 50.9 109.7
+L 50.9 113.3
+L 50.3 113.3
+L 50.3 109.0
+L 51.0 109.0
+' fill='#0000FF'/>
+<path class='atom-42' d='M 17.4 138.3
+L 17.9 138.3
+L 17.9 140.1
+L 20.1 140.1
+L 20.1 138.3
+L 20.7 138.3
+L 20.7 142.5
+L 20.1 142.5
+L 20.1 140.6
+L 17.9 140.6
+L 17.9 142.5
+L 17.4 142.5
+L 17.4 138.3
+' fill='#0000FF'/>
+<path class='atom-42' d='M 21.5 142.4
+Q 21.6 142.1, 21.9 142.0
+Q 22.1 141.8, 22.5 141.8
+Q 22.9 141.8, 23.1 142.1
+Q 23.4 142.3, 23.4 142.7
+Q 23.4 143.1, 23.0 143.5
+Q 22.7 143.9, 22.1 144.3
+L 23.4 144.3
+L 23.4 144.7
+L 21.5 144.7
+L 21.5 144.4
+Q 22.0 144.0, 22.3 143.7
+Q 22.7 143.5, 22.8 143.2
+Q 23.0 143.0, 23.0 142.7
+Q 23.0 142.4, 22.8 142.3
+Q 22.7 142.1, 22.5 142.1
+Q 22.2 142.1, 22.1 142.2
+Q 21.9 142.3, 21.8 142.5
+L 21.5 142.4
+' fill='#0000FF'/>
+<path class='atom-42' d='M 24.6 138.3
+L 26.0 140.5
+Q 26.2 140.8, 26.4 141.2
+Q 26.6 141.6, 26.6 141.6
+L 26.6 138.3
+L 27.2 138.3
+L 27.2 142.5
+L 26.6 142.5
+L 25.1 140.1
+Q 24.9 139.8, 24.7 139.5
+Q 24.6 139.1, 24.5 139.0
+L 24.5 142.5
+L 24.0 142.5
+L 24.0 138.3
+L 24.6 138.3
+' fill='#0000FF'/>
+</svg><figcaption>2D structure, drawn from the SMILES that was docked.</figcaption></figure>
+      <figure class="v3d"><div class="v3d-host" data-structure="TM-04-064-02_positive_control"><p class="v3d-msg">Loading 3D model&hellip;</p></div><figcaption><b>Rank-1 ternary model.</b> CRBN <span class="sw-c"></span>, PPIL4 <span class="sw-p"></span>, ligand <span class="sw-l"></span>. <span class="v3d-help">Drag to rotate &middot; scroll to zoom &middot; double-click to reset &middot; arrow keys when focused.</span> Every structure is superposed on CRBN, so PPIL4&rsquo;s position is comparable between them.</figcaption></figure>
+    </div>
+    <div class="c-data"><div class="dgroup"><h4>Ternary docking</h4>
+      <div class="dgrid"><div class="d"><span class="dl">Mean, best 10</span><b>-109.961</b></div><div class="d"><span class="dl">Best single model</span><b>-126.259</b></div><div class="d"><span class="dl">Spread (sd)</span><b>6.63</b></div><div class="d"><span class="dl">DockQ vs 9DWV</span><b>0.143</b><span class="dn">diagnostic only</span></div><div class="d"><span class="dl">Models scored</span><b>160</b></div></div></div></div>
+  </div>
+</details>
+<details class="cand ctrl" id="c-negctrl_no_ppil4_arm">
+  <summary>
+    <span class="c-id">No PPIL4 arm</span>
+    <span class="c-chem">Negative control &middot; nothing to recruit with</span>
+    <span class="c-score mono">-105.1</span>
+    <span class="c-rules mono"></span>
+  </summary>
+  <div class="c-body">
+    <p class="c-why">Keeps the CRBN degron but removes the arm that would present a surface to PPIL4. Isolates how much of a candidate's score comes from the degron alone.</p>
+    <div class="c-vis">
+      <figure class="v2d"><svg class="mol2d" role="img" version='1.1' baseProfile='full'
+              xmlns='http://www.w3.org/2000/svg'
+                      xmlns:rdkit='http://www.rdkit.org/xml'
+                      xmlns:xlink='http://www.w3.org/1999/xlink'
+                  xml:space='preserve'
+width='300px' height='210px' viewBox='0 0 300 210'>
+<!-- END OF HEADER -->
+<path class='bond-0 atom-0 atom-1' d='M 28.5,102.5 L 44.1,102.5' style='fill:none;fill-rule:evenodd;stroke:#FF0000;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-0 atom-0 atom-1' d='M 44.1,102.5 L 59.8,102.5' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-0 atom-0 atom-1' d='M 28.5,107.5 L 44.1,107.5' style='fill:none;fill-rule:evenodd;stroke:#FF0000;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-0 atom-0 atom-1' d='M 44.1,107.5 L 59.8,107.5' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-1 atom-1 atom-2' d='M 58.3,105.0 L 76.1,74.1' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-2 atom-2 atom-3' d='M 76.1,74.1 L 111.8,74.1' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-3 atom-3 atom-4' d='M 111.8,74.1 L 129.7,105.0' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-4 atom-4 atom-5' d='M 129.7,105.0 L 145.0,105.0' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-4 atom-4 atom-5' d='M 145.0,105.0 L 160.3,105.0' style='fill:none;fill-rule:evenodd;stroke:#0000FF;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-5 atom-5 atom-6' d='M 169.8,111.2 L 178.1,122.6' style='fill:none;fill-rule:evenodd;stroke:#0000FF;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-5 atom-5 atom-6' d='M 178.1,122.6 L 186.3,133.9' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-6 atom-6 atom-7' d='M 186.3,133.9 L 220.2,122.9' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-7 atom-7 atom-8' d='M 220.2,122.9 L 251.1,140.7' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-7 atom-7 atom-8' d='M 225.2,120.0 L 251.1,134.9' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-8 atom-8 atom-9' d='M 251.1,140.7 L 282.0,122.9' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-9 atom-9 atom-10' d='M 282.0,122.9 L 282.0,87.2' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-9 atom-9 atom-10' d='M 277.0,120.0 L 277.0,90.1' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-10 atom-10 atom-11' d='M 282.0,87.2 L 251.1,69.3' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-11 atom-11 atom-12' d='M 251.1,69.3 L 220.2,87.2' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-11 atom-11 atom-12' d='M 251.1,75.1 L 225.2,90.1' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-12 atom-12 atom-13' d='M 220.2,87.2 L 186.3,76.2' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-13 atom-13 atom-14' d='M 189.2,77.1 L 184.5,62.5' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-13 atom-13 atom-14' d='M 184.5,62.5 L 179.7,47.9' style='fill:none;fill-rule:evenodd;stroke:#FF0000;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-13 atom-13 atom-14' d='M 184.5,78.7 L 179.7,64.1' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-13 atom-13 atom-14' d='M 179.7,64.1 L 175.0,49.5' style='fill:none;fill-rule:evenodd;stroke:#FF0000;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-14 atom-4 atom-15' d='M 129.7,105.0 L 111.8,135.9' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-15 atom-15 atom-16' d='M 108.9,135.9 L 116.4,148.8' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-15 atom-15 atom-16' d='M 116.4,148.8 L 123.9,161.8' style='fill:none;fill-rule:evenodd;stroke:#FF0000;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-15 atom-15 atom-16' d='M 113.3,133.4 L 120.7,146.3' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-15 atom-15 atom-16' d='M 120.7,146.3 L 128.2,159.3' style='fill:none;fill-rule:evenodd;stroke:#FF0000;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-16 atom-15 atom-17' d='M 111.8,135.9 L 96.5,135.9' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-16 atom-15 atom-17' d='M 96.5,135.9 L 81.2,135.9' style='fill:none;fill-rule:evenodd;stroke:#0000FF;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-17 atom-17 atom-1' d='M 72.5,129.7 L 65.4,117.4' style='fill:none;fill-rule:evenodd;stroke:#0000FF;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-17 atom-17 atom-1' d='M 65.4,117.4 L 58.3,105.0' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-18 atom-13 atom-5' d='M 186.3,76.2 L 178.1,87.5' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-18 atom-13 atom-5' d='M 178.1,87.5 L 169.8,98.8' style='fill:none;fill-rule:evenodd;stroke:#0000FF;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-19 atom-12 atom-7' d='M 220.2,87.2 L 220.2,122.9' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path d='M 59.2,103.5 L 58.3,105.0 L 58.7,105.6' style='fill:none;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-opacity:1;' />
+<path d='M 75.3,75.7 L 76.1,74.1 L 77.9,74.1' style='fill:none;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-opacity:1;' />
+<path d='M 110.0,74.1 L 111.8,74.1 L 112.7,75.7' style='fill:none;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-opacity:1;' />
+<path d='M 185.9,133.3 L 186.3,133.9 L 188.0,133.3' style='fill:none;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-opacity:1;' />
+<path d='M 249.6,139.8 L 251.1,140.7 L 252.7,139.8' style='fill:none;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-opacity:1;' />
+<path d='M 280.5,123.7 L 282.0,122.9 L 282.0,121.1' style='fill:none;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-opacity:1;' />
+<path d='M 282.0,89.0 L 282.0,87.2 L 280.5,86.3' style='fill:none;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-opacity:1;' />
+<path d='M 252.7,70.2 L 251.1,69.3 L 249.6,70.2' style='fill:none;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-opacity:1;' />
+<path d='M 188.0,76.7 L 186.3,76.2 L 185.9,76.7' style='fill:none;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-opacity:1;' />
+<path d='M 112.7,134.4 L 111.8,135.9 L 111.0,135.9' style='fill:none;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-opacity:1;' />
+<path class='atom-0' d='M 18.0 105.0
+Q 18.0 102.6, 19.2 101.3
+Q 20.4 99.9, 22.6 99.9
+Q 24.9 99.9, 26.1 101.3
+Q 27.3 102.6, 27.3 105.0
+Q 27.3 107.5, 26.1 108.9
+Q 24.8 110.3, 22.6 110.3
+Q 20.4 110.3, 19.2 108.9
+Q 18.0 107.5, 18.0 105.0
+M 22.6 109.1
+Q 24.2 109.1, 25.0 108.1
+Q 25.8 107.1, 25.8 105.0
+Q 25.8 103.1, 25.0 102.1
+Q 24.2 101.1, 22.6 101.1
+Q 21.1 101.1, 20.3 102.1
+Q 19.4 103.1, 19.4 105.0
+Q 19.4 107.1, 20.3 108.1
+Q 21.1 109.1, 22.6 109.1
+' fill='#FF0000'/>
+<path class='atom-5' d='M 163.1 100.0
+L 166.4 105.3
+Q 166.7 105.8, 167.3 106.8
+Q 167.8 107.8, 167.8 107.8
+L 167.8 100.0
+L 169.2 100.0
+L 169.2 110.1
+L 167.8 110.1
+L 164.2 104.2
+Q 163.8 103.5, 163.4 102.8
+Q 162.9 102.0, 162.8 101.7
+L 162.8 110.1
+L 161.5 110.1
+L 161.5 100.0
+L 163.1 100.0
+' fill='#0000FF'/>
+<path class='atom-14' d='M 170.6 42.3
+Q 170.6 39.8, 171.8 38.5
+Q 173.0 37.1, 175.3 37.1
+Q 177.5 37.1, 178.7 38.5
+Q 179.9 39.8, 179.9 42.3
+Q 179.9 44.7, 178.7 46.1
+Q 177.5 47.5, 175.3 47.5
+Q 173.0 47.5, 171.8 46.1
+Q 170.6 44.7, 170.6 42.3
+M 175.3 46.4
+Q 176.8 46.4, 177.6 45.3
+Q 178.5 44.3, 178.5 42.3
+Q 178.5 40.3, 177.6 39.3
+Q 176.8 38.3, 175.3 38.3
+Q 173.7 38.3, 172.9 39.3
+Q 172.1 40.3, 172.1 42.3
+Q 172.1 44.3, 172.9 45.3
+Q 173.7 46.4, 175.3 46.4
+' fill='#FF0000'/>
+<path class='atom-16' d='M 125.0 166.8
+Q 125.0 164.4, 126.2 163.1
+Q 127.4 161.7, 129.7 161.7
+Q 131.9 161.7, 133.1 163.1
+Q 134.3 164.4, 134.3 166.8
+Q 134.3 169.3, 133.1 170.7
+Q 131.9 172.1, 129.7 172.1
+Q 127.4 172.1, 126.2 170.7
+Q 125.0 169.3, 125.0 166.8
+M 129.7 170.9
+Q 131.2 170.9, 132.0 169.9
+Q 132.9 168.9, 132.9 166.8
+Q 132.9 164.9, 132.0 163.9
+Q 131.2 162.8, 129.7 162.8
+Q 128.1 162.8, 127.3 163.8
+Q 126.4 164.8, 126.4 166.8
+Q 126.4 168.9, 127.3 169.9
+Q 128.1 170.9, 129.7 170.9
+' fill='#FF0000'/>
+<path class='atom-17' d='M 62.4 130.9
+L 63.8 130.9
+L 63.8 135.2
+L 69.0 135.2
+L 69.0 130.9
+L 70.3 130.9
+L 70.3 141.0
+L 69.0 141.0
+L 69.0 136.3
+L 63.8 136.3
+L 63.8 141.0
+L 62.4 141.0
+L 62.4 130.9
+' fill='#0000FF'/>
+<path class='atom-17' d='M 73.9 130.9
+L 77.2 136.2
+Q 77.5 136.7, 78.1 137.7
+Q 78.6 138.7, 78.6 138.7
+L 78.6 130.9
+L 80.0 130.9
+L 80.0 141.0
+L 78.6 141.0
+L 75.0 135.1
+Q 74.6 134.4, 74.2 133.6
+Q 73.8 132.9, 73.6 132.6
+L 73.6 141.0
+L 72.3 141.0
+L 72.3 130.9
+L 73.9 130.9
+' fill='#0000FF'/>
+</svg><figcaption>2D structure, drawn from the SMILES that was docked.</figcaption></figure>
+      <figure class="v3d"><div class="v3d-host" data-structure="negctrl_no_ppil4_arm"><p class="v3d-msg">Loading 3D model&hellip;</p></div><figcaption><b>Rank-1 ternary model.</b> CRBN <span class="sw-c"></span>, PPIL4 <span class="sw-p"></span>, ligand <span class="sw-l"></span>. <span class="v3d-help">Drag to rotate &middot; scroll to zoom &middot; double-click to reset &middot; arrow keys when focused.</span> Every structure is superposed on CRBN, so PPIL4&rsquo;s position is comparable between them.</figcaption></figure>
+    </div>
+    <div class="c-data"><div class="dgroup"><h4>Ternary docking</h4>
+      <div class="dgrid"><div class="d"><span class="dl">Mean, best 10</span><b>-105.097</b></div><div class="d"><span class="dl">Best single model</span><b>-117.668</b></div><div class="d"><span class="dl">Spread (sd)</span><b>7.45</b></div><div class="d"><span class="dl">DockQ vs 9DWV</span><b>0.294</b><span class="dn">diagnostic only</span></div><div class="d"><span class="dl">Models scored</span><b>158</b></div></div></div></div>
+  </div>
+</details>
+<details class="cand ctrl" id="c-negctrl_no_crbn_ppil4_arm">
+  <summary>
+    <span class="c-id">Both handles stripped</span>
+    <span class="c-chem">Negative control &middot; bare fragment</span>
+    <span class="c-score mono">-92.2</span>
+    <span class="c-rules mono"></span>
+  </summary>
+  <div class="c-body">
+    <p class="c-why">The FPFT core fragment with both functional handles gone &mdash; the worst score of anything docked, as it should be. The floor of the whole scale.</p>
+    <div class="c-vis">
+      <figure class="v2d"><svg class="mol2d" role="img" version='1.1' baseProfile='full'
+              xmlns='http://www.w3.org/2000/svg'
+                      xmlns:rdkit='http://www.rdkit.org/xml'
+                      xmlns:xlink='http://www.w3.org/1999/xlink'
+                  xml:space='preserve'
+width='300px' height='210px' viewBox='0 0 300 210'>
+<!-- END OF HEADER -->
+<path class='bond-0 atom-0 atom-1' d='M 177.3,196.6 L 197.7,184.9' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-0 atom-0 atom-1' d='M 197.7,184.9 L 218.0,173.1' style='fill:none;fill-rule:evenodd;stroke:#FF0000;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-1 atom-1 atom-2' d='M 227.4,157.5 L 227.4,133.6' style='fill:none;fill-rule:evenodd;stroke:#FF0000;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-1 atom-1 atom-2' d='M 227.4,133.6 L 227.4,109.8' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-2 atom-2 atom-3' d='M 227.4,109.8 L 274.2,75.8' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-2 atom-2 atom-3' d='M 227.4,99.8 L 264.7,72.7' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-3 atom-3 atom-4' d='M 274.2,75.8 L 267.0,53.5' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-3 atom-3 atom-4' d='M 267.0,53.5 L 259.8,31.3' style='fill:none;fill-rule:evenodd;stroke:#CCCC00;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-4 atom-4 atom-5' d='M 249.2,20.8 L 223.9,20.8' style='fill:none;fill-rule:evenodd;stroke:#CCCC00;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-4 atom-4 atom-5' d='M 223.9,20.8 L 198.5,20.8' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-5 atom-5 atom-6' d='M 198.5,20.8 L 180.6,75.8' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-5 atom-5 atom-6' d='M 204.4,28.9 L 190.1,72.7' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-6 atom-6 atom-7' d='M 180.6,75.8 L 125.6,93.7' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-7 atom-7 atom-8' d='M 125.6,93.7 L 107.7,148.7' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-7 atom-7 atom-8' d='M 116.1,96.8 L 101.8,140.6' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-8 atom-8 atom-9' d='M 107.7,148.7 L 82.8,148.7' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-8 atom-8 atom-9' d='M 82.8,148.7 L 58.0,148.7' style='fill:none;fill-rule:evenodd;stroke:#0000FF;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-9 atom-9 atom-10' d='M 46.6,138.6 L 35.3,103.8' style='fill:none;fill-rule:evenodd;stroke:#0000FF;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-10 atom-10 atom-11' d='M 40.1,87.8 L 70.7,65.6' style='fill:none;fill-rule:evenodd;stroke:#0000FF;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-10 atom-10 atom-11' d='M 44.9,94.3 L 75.4,72.1' style='fill:none;fill-rule:evenodd;stroke:#0000FF;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-11 atom-6 atom-2' d='M 180.6,75.8 L 227.4,109.8' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-12 atom-11 atom-7' d='M 86.9,65.6 L 106.2,79.6' style='fill:none;fill-rule:evenodd;stroke:#0000FF;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-12 atom-11 atom-7' d='M 106.2,79.6 L 125.6,93.7' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path d='M 271.9,77.5 L 274.2,75.8 L 273.9,74.7' style='fill:none;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-opacity:1;' />
+<path d='M 199.8,20.8 L 198.5,20.8 L 197.6,23.5' style='fill:none;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-opacity:1;' />
+<path d='M 108.6,146.0 L 107.7,148.7 L 106.5,148.7' style='fill:none;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-opacity:1;' />
+<path class='atom-1' d='M 219.9 167.7
+Q 219.9 163.8, 221.9 161.6
+Q 223.8 159.4, 227.4 159.4
+Q 231.1 159.4, 233.0 161.6
+Q 235.0 163.8, 235.0 167.7
+Q 235.0 171.7, 233.0 174.0
+Q 231.0 176.2, 227.4 176.2
+Q 223.8 176.2, 221.9 174.0
+Q 219.9 171.7, 219.9 167.7
+M 227.4 174.4
+Q 229.9 174.4, 231.3 172.7
+Q 232.6 171.0, 232.6 167.7
+Q 232.6 164.5, 231.3 162.9
+Q 229.9 161.2, 227.4 161.2
+Q 224.9 161.2, 223.6 162.9
+Q 222.2 164.5, 222.2 167.7
+Q 222.2 171.0, 223.6 172.7
+Q 224.9 174.4, 227.4 174.4
+' fill='#FF0000'/>
+<path class='atom-4' d='M 251.7 26.4
+Q 251.9 26.5, 252.7 26.8
+Q 253.4 27.1, 254.3 27.3
+Q 255.1 27.5, 256.0 27.5
+Q 257.5 27.5, 258.4 26.8
+Q 259.3 26.0, 259.3 24.7
+Q 259.3 23.8, 258.9 23.2
+Q 258.4 22.7, 257.7 22.4
+Q 257.0 22.1, 255.9 21.7
+Q 254.4 21.3, 253.5 20.9
+Q 252.7 20.4, 252.1 19.6
+Q 251.5 18.7, 251.5 17.2
+Q 251.5 15.1, 252.8 13.9
+Q 254.3 12.6, 257.0 12.6
+Q 258.9 12.6, 261.1 13.5
+L 260.6 15.3
+Q 258.6 14.5, 257.1 14.5
+Q 255.5 14.5, 254.6 15.1
+Q 253.7 15.8, 253.8 16.9
+Q 253.8 17.8, 254.2 18.3
+Q 254.7 18.9, 255.3 19.2
+Q 256.0 19.5, 257.1 19.8
+Q 258.6 20.3, 259.5 20.7
+Q 260.3 21.2, 261.0 22.2
+Q 261.6 23.1, 261.6 24.7
+Q 261.6 26.9, 260.1 28.2
+Q 258.6 29.4, 256.1 29.4
+Q 254.6 29.4, 253.5 29.1
+Q 252.4 28.8, 251.1 28.2
+L 251.7 26.4
+' fill='#CCCC00'/>
+<path class='atom-9' d='M 27.6 140.5
+L 29.8 140.5
+L 29.8 147.5
+L 38.2 147.5
+L 38.2 140.5
+L 40.4 140.5
+L 40.4 156.9
+L 38.2 156.9
+L 38.2 149.3
+L 29.8 149.3
+L 29.8 156.9
+L 27.6 156.9
+L 27.6 140.5
+' fill='#0000FF'/>
+<path class='atom-9' d='M 46.2 140.5
+L 51.6 149.2
+Q 52.1 150.1, 53.0 151.6
+Q 53.8 153.2, 53.9 153.2
+L 53.9 140.5
+L 56.1 140.5
+L 56.1 156.9
+L 53.8 156.9
+L 48.1 147.4
+Q 47.4 146.3, 46.7 145.0
+Q 46.0 143.8, 45.8 143.4
+L 45.8 156.9
+L 43.6 156.9
+L 43.6 140.5
+L 46.2 140.5
+' fill='#0000FF'/>
+<path class='atom-10' d='M 28.3 85.5
+L 33.7 94.2
+Q 34.3 95.0, 35.1 96.6
+Q 36.0 98.1, 36.0 98.2
+L 36.0 85.5
+L 38.2 85.5
+L 38.2 101.9
+L 35.9 101.9
+L 30.2 92.4
+Q 29.5 91.3, 28.8 90.0
+Q 28.1 88.7, 27.9 88.3
+L 27.9 101.9
+L 25.8 101.9
+L 25.8 85.5
+L 28.3 85.5
+' fill='#0000FF'/>
+<path class='atom-11' d='M 75.2 51.5
+L 80.5 60.2
+Q 81.1 61.0, 81.9 62.6
+Q 82.8 64.1, 82.8 64.2
+L 82.8 51.5
+L 85.0 51.5
+L 85.0 67.9
+L 82.8 67.9
+L 77.0 58.4
+Q 76.3 57.3, 75.6 56.0
+Q 74.9 54.7, 74.7 54.3
+L 74.7 67.9
+L 72.6 67.9
+L 72.6 51.5
+L 75.2 51.5
+' fill='#0000FF'/>
+</svg><figcaption>2D structure, drawn from the SMILES that was docked.</figcaption></figure>
+      <figure class="v3d"><div class="v3d-host" data-structure="negctrl_no_crbn_ppil4_arm"><p class="v3d-msg">Loading 3D model&hellip;</p></div><figcaption><b>Rank-1 ternary model.</b> CRBN <span class="sw-c"></span>, PPIL4 <span class="sw-p"></span>, ligand <span class="sw-l"></span>. <span class="v3d-help">Drag to rotate &middot; scroll to zoom &middot; double-click to reset &middot; arrow keys when focused.</span> Every structure is superposed on CRBN, so PPIL4&rsquo;s position is comparable between them.</figcaption></figure>
+    </div>
+    <div class="c-data"><div class="dgroup"><h4>Ternary docking</h4>
+      <div class="dgrid"><div class="d"><span class="dl">Mean, best 10</span><b>-92.187</b></div><div class="d"><span class="dl">Best single model</span><b>-97.833</b></div><div class="d"><span class="dl">Spread (sd)</span><b>2.88</b></div><div class="d"><span class="dl">DockQ vs 9DWV</span><b>0.290</b><span class="dn">diagnostic only</span></div><div class="d"><span class="dl">Models scored</span><b>146</b></div></div></div></div>
+  </div>
+</details>
+<!-- CONTROL-PANELS:END -->
       </div>
 
       <div class="sec-head" style="padding-top:14px">
@@ -6711,6 +8421,8 @@ Q 153.3 39.2, 154.6 39.2
     openTarget();
   })();
 </script>
+
+<script src="viewer.js" defer></script>
 
 </body>
 </html>
