@@ -189,6 +189,11 @@
     font-family:ui-monospace,SFMono-Regular,"SF Mono",Menlo,Consolas,monospace;
   }
   td.nm{font-family:ui-monospace,SFMono-Regular,"SF Mono",Menlo,Consolas,monospace; color:var(--ink); white-space:nowrap}
+  /* All three rules cleared -- carries the signal the removed "call" column used to. */
+  td.num.full{color:var(--accent); font-weight:700}
+  td.why{color:var(--muted); font-size:.815rem; line-height:1.5; min-width:290px}
+  td.chem{color:var(--body); font-size:.8rem; line-height:1.45; min-width:150px}
+  #shortlist-table table{min-width:880px}
   .tag{display:inline-block; font-size:.68rem; letter-spacing:.05em; font-weight:650; padding:2px 7px; border-radius:2px; text-transform:uppercase; white-space:nowrap}
   .t-buy{background:var(--accent-soft); color:var(--accent)}
   .t-other{background:var(--sunk); color:var(--muted)}
@@ -607,25 +612,39 @@
           &minus;125.6 control bar.
         </p>
       </div>
-      <div class="tw">
+      <div class="tw" id="shortlist-table">
         <table>
           <thead>
-            <tr><th>#</th><th>ID</th><th>Chemotype</th><th>Score</th><th>Rules</th><th>Call</th></tr>
+            <tr><th>#</th><th>ID</th><th>Chemotype</th><th>Score</th><th>Rules</th><th>Why it is on the list</th></tr>
           </thead>
           <tbody>
-            <tr><td class="num">1</td><td class="nm">RW_708</td><td>cyano phthalimide, phenylpiperazine arm</td><td class="num">-132.1</td><td class="num">1/3</td><td><span class="tag t-other">Add</span></td></tr>
-            <tr><td class="num">2</td><td class="nm">RW_491</td><td>methoxy phthalimide, phenylpiperazine arm</td><td class="num">-132.1</td><td class="num">1/3</td><td><span class="tag t-other">Add</span></td></tr>
-            <tr><td class="num">3</td><td class="nm">RW_1987</td><td>dimethylamino isoindolinone, phenylpiperazine arm</td><td class="num">-129.9</td><td class="num">3/3</td><td><span class="tag t-buy">Buy</span></td></tr>
-            <tr><td class="num">4</td><td class="nm">RW_1959</td><td>hydroxy isoindolinone, phenylpiperazine arm</td><td class="num">-128.4</td><td class="num">3/3</td><td><span class="tag t-buy">Buy</span></td></tr>
-            <tr><td class="num">5</td><td class="nm">RW_465</td><td>bromo isoindolinone, phenylpiperazine arm</td><td class="num">-127.6</td><td class="num">3/3</td><td><span class="tag t-buy">Buy</span></td></tr>
-            <tr><td class="num">6</td><td class="nm">RW_1992</td><td>trifluoromethyl isoindolinone, phenylpiperazine arm</td><td class="num">-127.2</td><td class="num">3/3</td><td><span class="tag t-buy">Buy</span></td></tr>
-            <tr><td class="num">7</td><td class="nm">RW_2392</td><td>carboxylic-acid isoindolinone, phenylpiperazine arm</td><td class="num">-126.9</td><td class="num">1/3</td><td><span class="tag t-other">No-buy</span></td></tr>
+            <tr><td class="num">1</td><td class="nm">RW_708</td><td class="chem">nitrile phthalimide, phenylpiperazine arm</td><td class="num">-132.1</td><td class="num">1/3</td><td class="why">Best score of anything docked &mdash; and last of the 18 on structure. The widest top-10 spread of any run (sd 12.0): a strong mean without a convergent funnel behind it.</td></tr>
+            <tr><td class="num">2</td><td class="nm">RW_491</td><td class="chem">methoxy phthalimide, phenylpiperazine arm</td><td class="num">-132.1</td><td class="num">1/3</td><td class="why">Second-best score, statistically tied with RW_708. Structure axis still sits below the line, so the score is not corroborated by the geometry.</td></tr>
+            <tr><td class="num">3</td><td class="nm">RW_1987</td><td class="chem">dimethylamino isoindolinone, phenylpiperazine arm</td><td class="num">-129.9</td><td class="num full">3/3</td><td class="why">Top-5 on dock, structure <em>and</em> upstream pose at once, with the largest buried interface of the set (1794&nbsp;&Aring;&sup2;). The strongest all-round profile.</td></tr>
+            <tr><td class="num">4</td><td class="nm">RW_1959</td><td class="chem">hydroxy isoindolinone, phenylpiperazine arm</td><td class="num">-128.4</td><td class="num full">3/3</td><td class="why">Clears all three, though structure by only +0.01 &mdash; effectively a tie with the threshold. The hydroxy group is an H-bond handle the others lack.</td></tr>
+            <tr><td class="num">5</td><td class="nm">RW_465</td><td class="chem">bromo isoindolinone, phenylpiperazine arm</td><td class="num">-127.6</td><td class="num full">3/3</td><td class="why">Clears all three and holds the #2 upstream pose of the 18. The bromo handle is also the most tractable vector for making analogs.</td></tr>
+            <tr><td class="num">6</td><td class="nm">RW_1992</td><td class="chem">trifluoromethyl isoindolinone, phenylpiperazine arm</td><td class="num">-127.2</td><td class="num full">3/3</td><td class="why">Clears all three with the tightest funnel of the four: 87% of models converge on one binding mode, so the pose is the best-determined here.</td></tr>
+            <tr><td class="num">7</td><td class="nm">RW_2392</td><td class="chem">carboxylic-acid isoindolinone, phenylpiperazine arm</td><td class="num">-126.9</td><td class="num">1/3</td><td class="why">Clears the control bar on score alone and fails both other axes (#16 structure, #14 pose). Included as the weakest member of the bar-clearing set.</td></tr>
+            <tr><td class="num">8</td><td class="nm">RW_234</td><td class="chem">cyano isoindolinone, phenylpiperazine arm</td><td class="num">-125.6</td><td class="num">1/3</td><td class="why">Misses the control bar by 0.02 units &mdash; a rounding error, not a real gap. Third-largest interface (1791&nbsp;&Aring;&sup2;) and a credible upstream pose.</td></tr>
+            <tr><td class="num">9</td><td class="nm">RW_2123</td><td class="chem">methylamino isoindolinone, phenylpiperazine arm</td><td class="num">-125.4</td><td class="num">0/3</td><td class="why">Passes nothing, yet sits mid-pack on every axis simultaneously. Included as the balanced case &mdash; and as the least converged funnel of the 18 (52%).</td></tr>
+            <tr><td class="num">10</td><td class="nm">RW_1668</td><td class="chem">methylamino isoindolinone, phenylpiperazine arm</td><td class="num">-125.2</td><td class="num">1/3</td><td class="why"><strong>The structure extreme.</strong> Best structure score of all 21 and the tightest funnel measured (87%), on a merely average docking score. The inverse of RW_708.</td></tr>
+            <tr><td class="num">11</td><td class="nm">RW_445</td><td class="chem">chloro phthalimide, phenylpiperazine arm</td><td class="num">-125.1</td><td class="num">1/3</td><td class="why">Second-best structure score and second-largest interface (1792&nbsp;&Aring;&sup2;), let down only by an 11th-place docking score.</td></tr>
+            <tr><td class="num">12</td><td class="nm">RW_779</td><td class="chem">bromo phthalimide, phenylpiperazine arm</td><td class="num">-124.4</td><td class="num">1/3</td><td class="why">Good structure (#7), weak upstream pose (#15). The bromo member of the Cl/Br/F phthalimide series &mdash; a direct read on halogen substitution.</td></tr>
+            <tr><td class="num">13</td><td class="nm">RW_381</td><td class="chem">chloro isoindolinone, phenylpiperazine arm</td><td class="num">-123.9</td><td class="num">2/3</td><td class="why"><strong>The pose extreme.</strong> The single best upstream Vina pose of all 18. Its structure rule passes at +0.001, so that pass should be read as noise rather than signal.</td></tr>
+            <tr><td class="num">14</td><td class="nm">RW_1092</td><td class="chem">chloro isoindolinone, phenylpiperazine arm</td><td class="num">-123.3</td><td class="num">1/3</td><td class="why">Strong structure (#6), strong pose (#3) and a converged funnel (87%) &mdash; held off the buy list purely by docking rank. Positional isomer of RW_381.</td></tr>
+            <tr><td class="num">15</td><td class="nm">RW_1078</td><td class="chem">fluoro phthalimide, phenylpiperazine arm</td><td class="num">-122.6</td><td class="num">0/3</td><td class="why">Passes nothing and is middling throughout. Retained as the fluoro member of the halogen series, so the Cl/Br/F comparison is complete.</td></tr>
+            <tr><td class="num">16</td><td class="nm">RW_80</td><td class="chem">fluoro phthalimide, phenylpiperazine arm</td><td class="num">-120.0</td><td class="num">0/3</td><td class="why">The worst upstream pose of the 18, but a well-converged funnel (82%). Positional isomer of RW_1078, isolating where the fluorine sits.</td></tr>
+            <tr><td class="num">17</td><td class="nm">RW_72</td><td class="chem">unsubstituted isoindolinone, phenylpiperazine arm</td><td class="num">-118.8</td><td class="num">0/3</td><td class="why">Weak on all three axes. Retained because it is the <em>positional isomer of the Z6466608628 positive control</em> &mdash; a direct measure of how much substituent position alone is worth.</td></tr>
+            <tr><td class="num">18</td><td class="nm">RW_672</td><td class="chem">methyl isoindolinone, phenylpiperazine arm</td><td class="num">-112.1</td><td class="num">0/3</td><td class="why">Weakest of the 18 and the smallest interface on the list (1535&nbsp;&Aring;&sup2;). Sits above the noise floor, so its score is <em>not distinguishable from an inert molecule</em>.</td></tr>
+            <tr><td class="num">19</td><td class="nm">TZ_6</td><td class="chem">ethyl phthalimide, no PPIL4 arm</td><td class="num">-108.6</td><td class="num">1/3</td><td class="why">From the second screen, re-docked here under one protocol. Below the noise floor. Carried because it is the evidence that the two screens disagree.</td></tr>
+            <tr><td class="num">20</td><td class="nm">TZ_118</td><td class="chem">cyano/methoxy phthalimide, no PPIL4 arm</td><td class="num">-104.0</td><td class="num">1/3</td><td class="why">From the second screen. Lowest structure score of all 21 and the least converged funnel measured (33%), despite ranking 3rd in its own screen.</td></tr>
           </tbody>
         </table>
       </div>
       <p class="caption">
-        Rows 8&ndash;20 continue to &minus;104.0. The final three sit above the noise floor and are
-        carried only for completeness &mdash; on score they are not distinguishable from an inert molecule.
+        Rules are independent, so passing count is not a quality score in itself &mdash; a molecule can
+        top the docking axis and still fail two rules. The last three rows sit above the noise floor and
+        are carried for completeness only: on score they are not distinguishable from an inert molecule.
       </p>
 
       <div class="col">
