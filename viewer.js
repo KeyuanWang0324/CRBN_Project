@@ -135,28 +135,30 @@
           m.vertexColors = true;
           m.side = THREE.DoubleSide;
           m.metalness = 0.0;
-          m.roughness = 0.78;
+          m.roughness = 0.9;
           m.flatShading = false;
         });
       });
       scene.add(root);
 
-      // Frame the model from its own bounds rather than a fixed distance --
-      // these structures differ in extent.
-      var box = new THREE.Box3().setFromObject(root);
-      var size = box.getSize(new THREE.Vector3());
-      var centre = box.getCenter(new THREE.Vector3());
-      var radius = Math.max(size.x, size.y, size.z) * 0.5 || 20;
+      // The ligand sits at the origin: 16 shifts every structure by one shared
+      // translation before export, so the molecule is the centre of rotation
+      // here. Framing on the mesh's bounding box instead would centre on the
+      // midpoint of a sprawling AlphaFold model and push the ligand -- the
+      // subject -- off to one side, and would frame each structure differently
+      // depending on where its disordered tails happened to land.
+      var centre = new THREE.Vector3(0, 0, 0);
+      var radius = 34;
 
       var camera = new THREE.PerspectiveCamera(35, width / height, radius * 0.02, radius * 60);
-      camera.position.set(centre.x + radius * 1.4, centre.y + radius * 0.7, centre.z + radius * 2.2);
+      camera.position.set(radius * 1.1, radius * 0.55, radius * 1.9);
       camera.lookAt(centre);
 
-      scene.add(new THREE.AmbientLight(0xffffff, 0.62));
-      var key = new THREE.DirectionalLight(0xffffff, 0.58);
+      scene.add(new THREE.AmbientLight(0xffffff, 0.46));
+      var key = new THREE.DirectionalLight(0xffffff, 0.4);
       key.position.set(1, 1, 1.4);
       camera.add(key);
-      var fill = new THREE.DirectionalLight(0xffffff, 0.22);
+      var fill = new THREE.DirectionalLight(0xffffff, 0.14);
       fill.position.set(-1, -0.6, -1);
       camera.add(fill);
       scene.add(camera);
@@ -191,7 +193,7 @@
       if (ro) ro.observe(host); else window.addEventListener('resize', onResize);
 
       renderer.domElement.addEventListener('dblclick', function () {
-        camera.position.set(centre.x + radius * 1.4, centre.y + radius * 0.7, centre.z + radius * 2.2);
+        camera.position.set(radius * 1.1, radius * 0.55, radius * 1.9);
         controls.target.copy(centre);
         controls.update();
       });
