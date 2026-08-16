@@ -135,7 +135,7 @@
           m.vertexColors = true;
           m.side = THREE.DoubleSide;
           m.metalness = 0.0;
-          m.roughness = 0.62;
+          m.roughness = 0.78;
           m.flatShading = false;
         });
       });
@@ -152,11 +152,11 @@
       camera.position.set(centre.x + radius * 1.4, centre.y + radius * 0.7, centre.z + radius * 2.2);
       camera.lookAt(centre);
 
-      scene.add(new THREE.AmbientLight(0xffffff, 0.72));
-      var key = new THREE.DirectionalLight(0xffffff, 0.85);
+      scene.add(new THREE.AmbientLight(0xffffff, 0.62));
+      var key = new THREE.DirectionalLight(0xffffff, 0.58);
       key.position.set(1, 1, 1.4);
       camera.add(key);
-      var fill = new THREE.DirectionalLight(0xffffff, 0.35);
+      var fill = new THREE.DirectionalLight(0xffffff, 0.22);
       fill.position.set(-1, -0.6, -1);
       camera.add(fill);
       scene.add(camera);
