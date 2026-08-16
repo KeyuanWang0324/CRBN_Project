@@ -23,27 +23,20 @@
 
       body {
         margin: 0;
+        display: flex;
+        min-height: 100vh;
         font-family: Arial, Helvetica, sans-serif;
         background: linear-gradient(135deg, var(--bg), #0f172a 40%, #111827);
         color: var(--text);
-        min-height: 100vh;
       }
 
-      .container {
-        width: min(1100px, calc(100% - 32px));
-        margin: 0 auto;
-      }
-
-      header {
-        padding: 28px 0;
-      }
-
-      nav {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        gap: 16px;
-        flex-wrap: wrap;
+      /* ---- left sidebar: the tabs live here ---- */
+      .sidebar {
+        width: 240px;
+        flex: 0 0 240px;
+        background: rgba(18, 26, 43, 0.6);
+        border-right: 1px solid var(--border);
+        padding: 30px 18px;
       }
 
       .brand {
@@ -51,23 +44,28 @@
         font-weight: 700;
         letter-spacing: 0.08em;
         text-transform: uppercase;
+        margin-bottom: 30px;
       }
 
-      /* ---- tabs: click a tab, one section shows at a time ---- */
       .tabs {
         display: flex;
-        gap: 26px;
+        flex-direction: column;
+        gap: 6px;
       }
 
       .tab-btn {
+        display: block;
+        width: 100%;
+        text-align: left;
         background: none;
         border: none;
+        border-left: 3px solid transparent;
+        border-radius: 10px;
         font: inherit;
         color: var(--muted);
         cursor: pointer;
-        padding: 6px 2px;
-        border-bottom: 2px solid transparent;
-        transition: color 0.2s ease, border-color 0.2s ease;
+        padding: 11px 14px;
+        transition: color 0.2s ease, background 0.2s ease, border-color 0.2s ease;
       }
 
       .tab-btn:hover {
@@ -76,11 +74,14 @@
 
       .tab-btn.active {
         color: var(--text);
-        border-bottom-color: var(--accent);
+        background: var(--panel-soft);
+        border-left-color: var(--accent);
       }
 
+      /* ---- main content ---- */
       main {
-        padding: 26px 0 60px;
+        flex: 1;
+        padding: 54px 56px;
       }
 
       .tab {
@@ -91,64 +92,67 @@
         display: block;
       }
 
-      /* ---- content styles you can reuse ---- */
       .page-title {
         font-size: clamp(2.2rem, 5vw, 4rem);
         line-height: 1.08;
-        margin: 0 0 18px;
+        margin: 0 0 26px;
+      }
+
+      h2 {
+        font-size: 1.35rem;
+        margin: 0 0 12px;
       }
 
       .page-summary {
         font-size: 1.08rem;
         line-height: 1.7;
         color: var(--muted);
-        max-width: 620px;
-      }
-
-      .card {
-        background: rgba(18, 26, 43, 0.92);
-        border: 1px solid var(--border);
-        border-radius: 22px;
-        padding: 24px;
-        box-shadow: 0 18px 45px rgba(0, 0, 0, 0.2);
+        max-width: 640px;
       }
 
       @media (max-width: 760px) {
-        nav {
+        body {
           flex-direction: column;
-          align-items: flex-start;
+        }
+        .sidebar {
+          width: 100%;
+          flex: none;
+          border-right: none;
+          border-bottom: 1px solid var(--border);
+        }
+        .tabs {
+          flex-direction: row;
         }
       }
     </style>
   </head>
   <body>
-    <header>
-      <div class="container">
-        <nav>
-          <div class="brand">CRBN</div>
-          <!-- the two tabs -->
-          <div class="tabs">
-            <button class="tab-btn active" data-tab="overview">Overview</button>
-            <button class="tab-btn" data-tab="team">Team</button>
-          </div>
-        </nav>
-      </div>
-    </header>
+    <!-- ===== LEFT SIDEBAR (tabs) ===== -->
+    <aside class="sidebar">
+      <div class="brand">CRBN</div>
+      <nav class="tabs">
+        <button class="tab-btn active" data-tab="overview">Overview</button>
+        <button class="tab-btn" data-tab="team">Team</button>
+      </nav>
+    </aside>
 
-    <main class="container">
-      <!-- ===== OVERVIEW ===== -->
+    <!-- ===== MAIN CONTENT ===== -->
+    <main>
+      <!-- OVERVIEW: this is an EXAMPLE. Replace the title and text with your own. -->
       <section id="overview" class="tab active">
-        <!-- Write your project title on the line below (between the tags). -->
-        <h1 class="page-title"></h1>
+        <h1 class="page-title">CRBN Molecular Glue Project</h1>
 
-        <!-- Write a one- or two-sentence summary of the project below. -->
-        <p class="page-summary"></p>
+        <h2>Overview</h2>
+        <p class="page-summary">
+          This project uses computational modeling to design molecular glues
+          that make a cell degrade a target protein. Candidate molecules are
+          docked into the CRBN ternary complex and ranked to build a shortlist
+          for testing. <em>(Example text — replace it with your own words.)</em>
+        </p>
       </section>
 
-      <!-- ===== TEAM ===== -->
-      <section id="team" class="tab">
-        <!-- Write your team here yourself: names and what each person did. -->
-      </section>
+      <!-- TEAM: write your team here yourself. -->
+      <section id="team" class="tab"></section>
     </main>
 
     <script>
