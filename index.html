@@ -9,7 +9,7 @@
 <style>
   :root{
     --paper:#F5F7F6; --panel:#FFFFFF; --sunk:#EDF0EF;
-    --ink:#141A19; --body:#3A4442; --muted:#6B7674; --faint:#8D9795;
+    --ink:#141A19; --body:#3A4442; --muted:#626D6B; --faint:#5E6968;
     --rule:#D8DEDC; --hair:#E6EAE9;
     --accent:#12695E; --accent-soft:#12695E1F;
     --cross:#9C6B15; --posc:#3A579C; --negc:#94443A;
@@ -18,7 +18,7 @@
   @media (prefers-color-scheme:dark){
     :root:not([data-theme="light"]){
       --paper:#0E1413; --panel:#151D1B; --sunk:#111817;
-      --ink:#EAF0EE; --body:#B9C4C1; --muted:#8B9794; --faint:#6E7A77;
+      --ink:#EAF0EE; --body:#B9C4C1; --muted:#8B9794; --faint:#93A09D;
       --rule:#26312F; --hair:#1D2725;
       --accent:#5FBCAE; --accent-soft:#5FBCAE1F;
       --cross:#C99A3E; --posc:#7E9AD9; --negc:#CF7C70;
@@ -26,7 +26,7 @@
   }
   :root[data-theme="dark"]{
     --paper:#0E1413; --panel:#151D1B; --sunk:#111817;
-    --ink:#EAF0EE; --body:#B9C4C1; --muted:#8B9794; --faint:#6E7A77;
+    --ink:#EAF0EE; --body:#B9C4C1; --muted:#8B9794; --faint:#93A09D;
     --rule:#26312F; --hair:#1D2725;
     --accent:#5FBCAE; --accent-soft:#5FBCAE1F;
     --cross:#C99A3E; --posc:#7E9AD9; --negc:#CF7C70;
@@ -391,9 +391,9 @@
       </p>
       <div class="facts">
         <div class="fact"><b>2,500</b><span>analogs designed</span></div>
-        <div class="fact"><b>27</b><span>molecules fully docked</span></div>
-        <div class="fact"><b>0.376</b><span>DockQ on the known structure</span></div>
-        <div class="fact"><b>4</b><span>clear all three rules</span></div>
+        <div class="fact"><b>27</b><span>molecules docked under the locked protocol (18 designed + 3 cross-check + 6 controls)</span></div>
+        <div class="fact"><b>0.376</b><span>DockQ of the FPFT-2216 reproduction &mdash; method check against 9DWV, not a candidate score</span></div>
+        <div class="fact"><b>4</b><span>of the 20 shortlisted clear all three rules</span></div>
       </div>
     </section>
 
@@ -402,8 +402,10 @@
         <p class="eyebrow">Background</p>
         <h2 class="serif">The mechanism, and why PPIL4</h2>
         <p class="caption">
-          A molecular glue does not inhibit its target &mdash; it destroys it, by forcing a protein the
-          cell had no reason to discard into contact with the machinery that discards things.
+          A molecular glue <em>degrader</em> does not inhibit its target &mdash; it destroys it, by forcing a
+          protein the cell had no reason to discard into contact with the machinery that discards things.
+          (Not every molecular glue degrades: many, rapamycin among them, simply hold two proteins
+          together.)
         </p>
       </div>
 
@@ -414,18 +416,20 @@
             <h3>CRBN is a substrate receptor on an E3 ubiquitin ligase</h3>
             <p>
               Cereblon sits in the CRL4 complex, whose job is to tag proteins with ubiquitin and send
-              them to the proteasome. Its pocket normally reads a small set of natural degrons.
+              them to the proteasome. Its pocket normally reads a small set of natural <em>degrons</em> &mdash; short signals on a protein that mark it for destruction.
             </p>
           </div>
         </div>
         <div class="link">
           <span class="link-i">02</span>
           <div>
-            <h3>A glutarimide degron docks a small molecule into that pocket</h3>
+            <h3>A glutarimide warhead docks a small molecule into that pocket</h3>
             <p>
-              Thalidomide-class compounds bind CRBN through a glutarimide ring. Every candidate here
-              keeps that ring fixed and varies only what is attached to it &mdash; the degron is the
-              part that must not change.
+              Thalidomide-class compounds bind CRBN through a glutarimide ring &mdash; a mimic of the cyclic-imide
+              degron CRBN evolved to read on its natural substrates. (A degron proper is a signal on the
+              substrate protein, not on the drug.) Every candidate here keeps that ring fixed and varies
+              only what is attached to it: it is the CRBN-binding handle, and changing it breaks the
+              mechanism.
             </p>
           </div>
         </div>
@@ -436,7 +440,7 @@
             <p>
               Bound to CRBN, the compound presents a composite surface that neither protein has alone.
               A protein that happens to be complementary to that surface gets recruited &mdash; a
-              <em>neosubstrate</em>. This is the glue: the drug does not bind the target on its own.
+              <em>neosubstrate</em>, meaning a target the ligase would never normally touch. This is the glue: the drug does not bind the target on its own.
             </p>
           </div>
         </div>
@@ -457,14 +461,18 @@
       </div>
       <div class="col stack">
         <p>
-          <strong>RAS-driven cancers depend on efficient pre-mRNA splicing.</strong> Oncogenic RAS
-          raises transcriptional load, and the spliceosome has to keep up &mdash; the same
-          &ldquo;spliceosome addiction&rdquo; logic established for MYC.
+          <strong>RAS-driven cancers may depend on efficient pre-mRNA splicing.</strong> Oncogenic RAS raises
+          transcriptional load, and the spliceosome has to keep up. The asymmetry matters:
+          &ldquo;spliceosome addiction&rdquo; is <em>established</em> for MYC, whereas for RAS this is
+          emerging evidence and an argument by analogy &mdash; not a settled result.
         </p>
         <p>
-          <strong>PPIL4 is part of the spliceosome catalytic core.</strong> DepMap co-dependency places
-          it with the Prp19/NTC, DHX38 and CDC40 catalytic-activation module, independently of the
-          literature.
+          <strong>PPIL4 is a spliceosome-associated peptidyl-prolyl isomerase</strong> &mdash; a cyclophilin-family
+          enzyme carrying an RRM domain &mdash; acting in catalytic <em>activation</em> of the spliceosome
+          rather than forming part of its catalytic core. Our own DepMap co-dependency analysis places it
+          alongside the Prp19/NTC complex and the second-step factors DHX38 and CDC40. That is our
+          analysis rather than an established result, and co-dependency is a weak signal for broadly
+          essential genes &mdash; which PPIL4 is, as the boundary below says.
         </p>
         <p>
           <strong>PPIL4 is a druggable glue target, and that is already proven.</strong> The
@@ -510,7 +518,7 @@
                       xmlns:rdkit='http://www.rdkit.org/xml'
                       xmlns:xlink='http://www.w3.org/1999/xlink'
                   xml:space='preserve'
-width='300px' height='210px' viewBox='0 0 300 210'>
+width='300px' height='210px' viewBox='0 0 300 210'><title>2D structure of FPFT-2216</title>
 <!-- END OF HEADER -->
 <path class='bond-0 atom-0 atom-1' d='M 51.4,44.0 L 59.1,54.6' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
 <path class='bond-0 atom-0 atom-1' d='M 59.1,54.6 L 66.9,65.2' style='fill:none;fill-rule:evenodd;stroke:#FF0000;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
@@ -753,7 +761,7 @@ Q 159.6 59.8, 161.0 59.8
                       xmlns:rdkit='http://www.rdkit.org/xml'
                       xmlns:xlink='http://www.w3.org/1999/xlink'
                   xml:space='preserve'
-width='300px' height='210px' viewBox='0 0 300 210'>
+width='300px' height='210px' viewBox='0 0 300 210'><title>2D structure of Z6466608628</title>
 <!-- END OF HEADER -->
 <path class='bond-0 atom-0 atom-1' d='M 32.5,24.2 L 37.9,33.7' style='fill:none;fill-rule:evenodd;stroke:#FF0000;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
 <path class='bond-0 atom-0 atom-1' d='M 37.9,33.7 L 43.4,43.1' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
@@ -1002,7 +1010,7 @@ L 26.5 62.2
                       xmlns:rdkit='http://www.rdkit.org/xml'
                       xmlns:xlink='http://www.w3.org/1999/xlink'
                   xml:space='preserve'
-width='300px' height='210px' viewBox='0 0 300 210'>
+width='300px' height='210px' viewBox='0 0 300 210'><title>2D structure of Degron removed</title>
 <!-- END OF HEADER -->
 <path class='bond-0 atom-0 atom-1' d='M 47.2,62.9 L 53.0,72.8' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
 <path class='bond-0 atom-0 atom-1' d='M 53.0,72.8 L 58.7,82.8' style='fill:none;fill-rule:evenodd;stroke:#0000FF;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
@@ -1163,7 +1171,7 @@ Q 20.5 123.5, 21.7 123.5
                       xmlns:rdkit='http://www.rdkit.org/xml'
                       xmlns:xlink='http://www.w3.org/1999/xlink'
                   xml:space='preserve'
-width='300px' height='210px' viewBox='0 0 300 210'>
+width='300px' height='210px' viewBox='0 0 300 210'><title>2D structure of FPFT-2216</title>
 <!-- END OF HEADER -->
 <path class='bond-0 atom-0 atom-1' d='M 51.4,44.0 L 59.1,54.6' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
 <path class='bond-0 atom-0 atom-1' d='M 59.1,54.6 L 66.9,65.2' style='fill:none;fill-rule:evenodd;stroke:#FF0000;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
@@ -1407,7 +1415,7 @@ Q 159.6 59.8, 161.0 59.8
                       xmlns:rdkit='http://www.rdkit.org/xml'
                       xmlns:xlink='http://www.w3.org/1999/xlink'
                   xml:space='preserve'
-width='300px' height='210px' viewBox='0 0 300 210'>
+width='300px' height='210px' viewBox='0 0 300 210'><title>2D structure of TM-04-064-02</title>
 <!-- END OF HEADER -->
 <path class='bond-0 atom-0 atom-1' d='M 103.0,111.9 L 103.0,117.4' style='fill:none;fill-rule:evenodd;stroke:#FF0000;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
 <path class='bond-0 atom-0 atom-1' d='M 103.0,117.4 L 103.0,122.9' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
@@ -1859,7 +1867,7 @@ L 24.6 138.3
                       xmlns:rdkit='http://www.rdkit.org/xml'
                       xmlns:xlink='http://www.w3.org/1999/xlink'
                   xml:space='preserve'
-width='300px' height='210px' viewBox='0 0 300 210'>
+width='300px' height='210px' viewBox='0 0 300 210'><title>2D structure of No PPIL4 arm</title>
 <!-- END OF HEADER -->
 <path class='bond-0 atom-0 atom-1' d='M 28.5,102.5 L 44.1,102.5' style='fill:none;fill-rule:evenodd;stroke:#FF0000;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
 <path class='bond-0 atom-0 atom-1' d='M 44.1,102.5 L 59.8,102.5' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
@@ -2033,7 +2041,7 @@ L 73.9 130.9
                       xmlns:rdkit='http://www.rdkit.org/xml'
                       xmlns:xlink='http://www.w3.org/1999/xlink'
                   xml:space='preserve'
-width='300px' height='210px' viewBox='0 0 300 210'>
+width='300px' height='210px' viewBox='0 0 300 210'><title>2D structure of Both handles stripped</title>
 <!-- END OF HEADER -->
 <path class='bond-0 atom-0 atom-1' d='M 177.3,196.6 L 197.7,184.9' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
 <path class='bond-0 atom-0 atom-1' d='M 197.7,184.9 L 218.0,173.1' style='fill:none;fill-rule:evenodd;stroke:#FF0000;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
@@ -2200,6 +2208,7 @@ L 75.2 51.5
         <div class="step key-step"><span class="step-n">08</span><div><h3>Ligand-inclusive 3-body docking &mdash; the ranking stage</h3><p>CRBN, the ligand and PPIL4 docked as three separate bodies, with the ligand parameterised into the CNS force field so its real chemistry can differentiate candidates. ~70 minutes per molecule.</p></div></div>
         <div class="step"><span class="step-n">09</span><div><h3>Scoring against the real structure</h3><p>Every docked molecule re-scored against 9DWV, which is what exposed the DockQ calibration failure.</p></div></div>
         <div class="step"><span class="step-n">11&ndash;12</span><div><h3>Buy list assembly</h3><p>Ranking, calibration bars, decision rules and registry lookup composed into the final list.</p></div></div>
+        <div class="step"><span class="step-n">07, 10</span><div><h3>Support stages, not in the ranking path</h3><p>07 extracts the top models for inspection; 10 is the second, independently built screen whose molecules appear here as the cross-check set. Neither feeds the ranking, so neither is renumbered.</p></div></div>
       </div>
 
       <div class="sec-head" style="padding-top:14px">
@@ -2215,7 +2224,7 @@ L 75.2 51.5
           <div class="mk">Analog library</div>
           <div>
             <p class="mv">2,500 analogs enumerated on the thalidomide scaffold. The
-            <strong>glutarimide degron is held fixed</strong> &mdash; it is the part that binds CRBN, and
+            <strong>glutarimide CRBN-binding warhead is held fixed</strong> &mdash; it is the part that binds CRBN, and
             varying it would break the mechanism &mdash; while benzo-ring substituents and the
             PPIL4-facing arm vary. Both the phthalimide (di-oxo) and isoindolinone (mono-oxo) cores are
             represented.</p>
@@ -2389,8 +2398,8 @@ L 75.2 51.5
         <div class="chart">
           <div class="axis-top">
             <div class="axis-note">
-              <div class="flag" style="left:20.87%"><b>Usable bar &minus;125.6</b><span>strongest control</span></div>
-              <div class="flag" style="left:50.66%"><b>Noise floor &minus;112.2</b><span>degron-dead negative</span></div>
+              <div class="flag" style="left:20.87%"><b>Usable bar &minus;125.61</b><span>strongest control</span></div>
+              <div class="flag" style="left:50.66%"><b>Noise floor &minus;112.20</b><span>degron-dead negative</span></div>
             </div>
           </div>
 
@@ -2453,7 +2462,7 @@ L 75.2 51.5
           known to be inert, and <em>&ldquo;beats FPFT-2216&rdquo; is a meaningless claim.</em>
         </p>
         <p>
-          That is why the bar used here is <strong>Z6466608628 at &minus;125.6</strong>, the strongest
+          That is why the bar used here is <strong>Z6466608628 at &minus;125.61</strong>, the strongest
           control in the set. Seven of the twenty candidates clear it.
         </p>
       </div>
@@ -2467,7 +2476,7 @@ L 75.2 51.5
           CRBN&ndash;PPIL4 ternary complex was solved with. Running it through the identical pipeline
           reproduces the experimental architecture at <strong>DockQ 0.376</strong> &mdash; above the
           CAPRI &ldquo;acceptable&rdquo; threshold of 0.23, with an interface RMSD of
-          2.07&nbsp;&Aring; and 65% of native contacts recovered.
+          2.07&nbsp;&Aring; and 64.7% of native contacts recovered.
         </p>
         <p>
           That validates the <em>method</em>, and only the method. It is one data point, and it says
@@ -2485,10 +2494,14 @@ L 75.2 51.5
             <tr><td>DockQ vs 9DWV</td><td class="num">0.376</td><td class="num">&ge; 0.23</td><td><span class="tag t-buy">Pass</span></td></tr>
             <tr><td>Interface RMSD</td><td class="num">2.07 &Aring;</td><td class="num">&mdash;</td><td><span class="tag t-other">Acceptable</span></td></tr>
             <tr><td>Native contacts recovered</td><td class="num">0.647</td><td class="num">&mdash;</td><td><span class="tag t-other">Acceptable</span></td></tr>
-            <tr><td>Golden reference reproduced</td><td class="num">byte-identical</td><td class="num">&mdash;</td><td><span class="tag t-buy">Pass</span></td></tr>
           </tbody>
         </table>
       </div>
+
+      <p class="caption">Separately from accuracy, the run is <em>reproducible</em>: re-running FPFT-2216
+        reproduces the committed reference values byte for byte. That is a check that the protocol is
+        pinned, not a measure of how close any model is to the real structure, which is why it is not in
+        the table above.</p>
 
       <div class="sec-head" style="padding-top:14px">
         <h2 class="serif">Three results that cut against the pipeline</h2>
@@ -2502,8 +2515,10 @@ L 75.2 51.5
           <p class="eyebrow">Discarded metric</p>
           <h3>A ranking column failed its own calibration</h3>
           <p>
-            DockQ against the real 9DWV structure looked like a quality score. Measured across all 26
-            molecules, two <em>negative</em> controls placed 2nd and 3rd &mdash; above every candidate.
+            DockQ &mdash; a 0&ndash;1 score for how closely a model reproduces a known complex, where &ge;0.23 is
+            CAPRI &ldquo;acceptable&rdquo; &mdash; looked like a quality score. Measured across all 27
+            molecules docked under the protocol, two <em>negative</em> controls placed 2nd and 3rd, above
+            every candidate.
             Its correlation with the docking score is +0.055. It is now kept as a geometry diagnostic
             and is barred from the ranking.
           </p>
@@ -2521,10 +2536,13 @@ L 75.2 51.5
           <p class="eyebrow">Failed cross-check</p>
           <h3>Two independent screens disagree</h3>
           <p>
-            The second screen ranked its own candidates highly. Re-docked here under one protocol, all
-            three sampled molecules landed below every candidate and below the noise floor. The same
-            molecule scores ~14.5 units better under the other protocol &mdash; so the two score sets
-            were never comparable.
+            The second screen ranked its own candidates highly. Three were re-docked here under one protocol &mdash;
+            two appear in the shortlist, the third fell below the cut &mdash; and all three scored worse
+            than every candidate and worse than the noise floor. The same molecule scores ~14.5 units
+            better under the other protocol, so the two score sets were never comparable. Read the ranking
+            gap carefully though: those three carry no PPIL4-facing arm and are 20&ndash;24 heavy atoms
+            against the candidates&rsquo; 30&ndash;34, so the size bias accounts for part of it. The
+            protocol offset is the solid half of this finding.
           </p>
         </div>
       </div>
@@ -2534,7 +2552,7 @@ L 75.2 51.5
         <p class="caption">
           Ranked by docking score. Three independent rules gate the recommendation: a credible CRBN
           pocket pose upstream, a non-negative structure-quality score, and clearing the
-          &minus;125.6 control bar.
+          &minus;125.61 control bar.
         </p>
       </div>
       <div class="tw" id="shortlist-table">
@@ -2543,32 +2561,32 @@ L 75.2 51.5
             <tr><th>#</th><th>ID</th><th>Chemotype</th><th>Score</th><th>Rules</th><th>Why it is on the list</th></tr>
           </thead>
           <tbody>
-            <tr><td class="num">1</td><td class="nm"><a href="#c-RW_708">RW_708</a></td><td class="chem">nitrile phthalimide, phenylpiperazine arm</td><td class="num">-132.1</td><td class="num">1/3</td><td class="why">Best score of anything docked &mdash; and last of the 18 on structure. The widest top-10 spread of any run (sd 12.0): a strong mean without a convergent funnel behind it.</td></tr>
-            <tr><td class="num">2</td><td class="nm"><a href="#c-RW_491">RW_491</a></td><td class="chem">methoxy phthalimide, phenylpiperazine arm</td><td class="num">-132.1</td><td class="num">1/3</td><td class="why">Second-best score, statistically tied with RW_708. Structure axis still sits below the line, so the score is not corroborated by the geometry.</td></tr>
-            <tr><td class="num">3</td><td class="nm"><a href="#c-RW_1987">RW_1987</a></td><td class="chem">dimethylamino isoindolinone, phenylpiperazine arm</td><td class="num">-129.9</td><td class="num full">3/3</td><td class="why">Top-5 on dock, structure <em>and</em> upstream pose at once, with the largest buried interface of the set (1794&nbsp;&Aring;&sup2;). The strongest all-round profile.</td></tr>
-            <tr><td class="num">4</td><td class="nm"><a href="#c-RW_1959">RW_1959</a></td><td class="chem">hydroxy isoindolinone, phenylpiperazine arm</td><td class="num">-128.4</td><td class="num full">3/3</td><td class="why">Clears all three, though structure by only +0.01 &mdash; effectively a tie with the threshold. The hydroxy group is an H-bond handle the others lack.</td></tr>
-            <tr><td class="num">5</td><td class="nm"><a href="#c-RW_465">RW_465</a></td><td class="chem">bromo isoindolinone, phenylpiperazine arm</td><td class="num">-127.6</td><td class="num full">3/3</td><td class="why">Clears all three and holds the #2 upstream pose of the 18. The bromo handle is also the most tractable vector for making analogs.</td></tr>
-            <tr><td class="num">6</td><td class="nm"><a href="#c-RW_1992">RW_1992</a></td><td class="chem">trifluoromethyl isoindolinone, phenylpiperazine arm</td><td class="num">-127.2</td><td class="num full">3/3</td><td class="why">Clears all three with the tightest funnel of the four: 87% of models converge on one binding mode, so the pose is the best-determined here.</td></tr>
-            <tr><td class="num">7</td><td class="nm"><a href="#c-RW_2392">RW_2392</a></td><td class="chem">carboxylic-acid isoindolinone, phenylpiperazine arm</td><td class="num">-126.9</td><td class="num">1/3</td><td class="why">Clears the control bar on score alone and fails both other axes (#16 structure, #14 pose). Included as the weakest member of the bar-clearing set.</td></tr>
-            <tr><td class="num">8</td><td class="nm"><a href="#c-RW_234">RW_234</a></td><td class="chem">cyano isoindolinone, phenylpiperazine arm</td><td class="num">-125.6</td><td class="num">1/3</td><td class="why">Misses the control bar by 0.02 units &mdash; a rounding error, not a real gap. Third-largest interface (1791&nbsp;&Aring;&sup2;) and a credible upstream pose.</td></tr>
-            <tr><td class="num">9</td><td class="nm"><a href="#c-RW_2123">RW_2123</a></td><td class="chem">methylamino isoindolinone, phenylpiperazine arm</td><td class="num">-125.4</td><td class="num">0/3</td><td class="why">Passes nothing, yet sits mid-pack on every axis simultaneously. Included as the balanced case &mdash; and as the least converged funnel of the 18 (52%).</td></tr>
-            <tr><td class="num">10</td><td class="nm"><a href="#c-RW_1668">RW_1668</a></td><td class="chem">methylamino isoindolinone, phenylpiperazine arm</td><td class="num">-125.2</td><td class="num">1/3</td><td class="why"><strong>The structure extreme.</strong> Best structure score of all 21 and the tightest funnel measured (87%), on a merely average docking score. The inverse of RW_708.</td></tr>
-            <tr><td class="num">11</td><td class="nm"><a href="#c-RW_445">RW_445</a></td><td class="chem">chloro phthalimide, phenylpiperazine arm</td><td class="num">-125.1</td><td class="num">1/3</td><td class="why">Second-best structure score and second-largest interface (1792&nbsp;&Aring;&sup2;), let down only by an 11th-place docking score.</td></tr>
-            <tr><td class="num">12</td><td class="nm"><a href="#c-RW_779">RW_779</a></td><td class="chem">bromo phthalimide, phenylpiperazine arm</td><td class="num">-124.4</td><td class="num">1/3</td><td class="why">Good structure (#7), weak upstream pose (#15). The bromo member of the Cl/Br/F phthalimide series &mdash; a direct read on halogen substitution.</td></tr>
-            <tr><td class="num">13</td><td class="nm"><a href="#c-RW_381">RW_381</a></td><td class="chem">chloro isoindolinone, phenylpiperazine arm</td><td class="num">-123.9</td><td class="num">2/3</td><td class="why"><strong>The pose extreme.</strong> The single best upstream Vina pose of all 18. Its structure rule passes at +0.001, so that pass should be read as noise rather than signal.</td></tr>
-            <tr><td class="num">14</td><td class="nm"><a href="#c-RW_1092">RW_1092</a></td><td class="chem">chloro isoindolinone, phenylpiperazine arm</td><td class="num">-123.3</td><td class="num">1/3</td><td class="why">Strong structure (#6), strong pose (#3) and a converged funnel (87%) &mdash; held off the buy list purely by docking rank. Positional isomer of RW_381.</td></tr>
-            <tr><td class="num">15</td><td class="nm"><a href="#c-RW_1078">RW_1078</a></td><td class="chem">fluoro phthalimide, phenylpiperazine arm</td><td class="num">-122.6</td><td class="num">0/3</td><td class="why">Passes nothing and is middling throughout. Retained as the fluoro member of the halogen series, so the Cl/Br/F comparison is complete.</td></tr>
-            <tr><td class="num">16</td><td class="nm"><a href="#c-RW_80">RW_80</a></td><td class="chem">fluoro phthalimide, phenylpiperazine arm</td><td class="num">-120.0</td><td class="num">0/3</td><td class="why">The worst upstream pose of the 18, but a well-converged funnel (82%). Positional isomer of RW_1078, isolating where the fluorine sits.</td></tr>
-            <tr><td class="num">17</td><td class="nm"><a href="#c-RW_72">RW_72</a></td><td class="chem">unsubstituted isoindolinone, phenylpiperazine arm</td><td class="num">-118.8</td><td class="num">0/3</td><td class="why">Weak on all three axes. Retained because it is the <em>positional isomer of the Z6466608628 positive control</em> &mdash; a direct measure of how much substituent position alone is worth.</td></tr>
-            <tr><td class="num">18</td><td class="nm"><a href="#c-RW_672">RW_672</a></td><td class="chem">methyl isoindolinone, phenylpiperazine arm</td><td class="num">-112.1</td><td class="num">0/3</td><td class="why">Weakest of the 18 and the smallest interface on the list (1535&nbsp;&Aring;&sup2;). Sits above the noise floor, so its score is <em>not distinguishable from an inert molecule</em>.</td></tr>
-            <tr><td class="num">19</td><td class="nm"><a href="#c-TZ_6">TZ_6</a></td><td class="chem">ethyl phthalimide, no PPIL4 arm</td><td class="num">-108.6</td><td class="num">1/3</td><td class="why">From the second screen, re-docked here under one protocol. Below the noise floor. Carried because it is the evidence that the two screens disagree.</td></tr>
-            <tr><td class="num">20</td><td class="nm"><a href="#c-TZ_118">TZ_118</a></td><td class="chem">cyano/methoxy phthalimide, no PPIL4 arm</td><td class="num">-104.0</td><td class="num">1/3</td><td class="why">From the second screen. Lowest structure score of all 21 and the least converged funnel measured (33%), despite ranking 3rd in its own screen.</td></tr>
+            <tr><td class="num">1</td><td class="nm"><a href="#c-RW_708">RW_708</a></td><td class="chem">nitrile phthalimide, phenylpiperazine arm</td><td class="num">-132.10</td><td class="num">1/3</td><td class="why">Best score of anything docked &mdash; and last of the 18 on structure. The widest top-10 spread of any run (sd 12.0): a strong mean without a convergent funnel behind it.</td></tr>
+            <tr><td class="num">2</td><td class="nm"><a href="#c-RW_491">RW_491</a></td><td class="chem">methoxy phthalimide, phenylpiperazine arm</td><td class="num">-132.08</td><td class="num">1/3</td><td class="why">Second-best score, statistically tied with RW_708. Structure axis still sits below the line, so the score is not corroborated by the geometry.</td></tr>
+            <tr><td class="num">3</td><td class="nm"><a href="#c-RW_1987">RW_1987</a></td><td class="chem">dimethylamino isoindolinone, phenylpiperazine arm</td><td class="num">-129.91</td><td class="num full">3/3</td><td class="why">Top-5 on dock, structure <em>and</em> upstream pose at once, with the largest buried interface of the set (1794&nbsp;&Aring;&sup2;). The strongest all-round profile.</td></tr>
+            <tr><td class="num">4</td><td class="nm"><a href="#c-RW_1959">RW_1959</a></td><td class="chem">hydroxy isoindolinone, phenylpiperazine arm</td><td class="num">-128.41</td><td class="num full">3/3</td><td class="why">Clears all three, though structure by only +0.01 &mdash; effectively a tie with the threshold. The hydroxy group is an H-bond handle the others lack.</td></tr>
+            <tr><td class="num">5</td><td class="nm"><a href="#c-RW_465">RW_465</a></td><td class="chem">bromo isoindolinone, phenylpiperazine arm</td><td class="num">-127.58</td><td class="num full">3/3</td><td class="why">Clears all three and holds the #2 upstream pose of the 18. The bromo handle is also the most tractable vector for making analogs.</td></tr>
+            <tr><td class="num">6</td><td class="nm"><a href="#c-RW_1992">RW_1992</a></td><td class="chem">trifluoromethyl isoindolinone, phenylpiperazine arm</td><td class="num">-127.20</td><td class="num full">3/3</td><td class="why">Clears all three with the tightest funnel of the four: 87% of models converge on one binding mode, so the pose is the best-determined here.</td></tr>
+            <tr><td class="num">7</td><td class="nm"><a href="#c-RW_2392">RW_2392</a></td><td class="chem">carboxylic-acid isoindolinone, phenylpiperazine arm</td><td class="num">-126.91</td><td class="num">1/3</td><td class="why">Clears the control bar on score alone and fails both other axes (#16 structure, #14 pose). Included as the weakest member of the bar-clearing set.</td></tr>
+            <tr><td class="num">8</td><td class="nm"><a href="#c-RW_234">RW_234</a></td><td class="chem">cyano isoindolinone, phenylpiperazine arm</td><td class="num">-125.59</td><td class="num">1/3</td><td class="why">Misses the control bar by 0.02 units &mdash; a rounding error, not a real gap. Third-largest interface (1791&nbsp;&Aring;&sup2;) and a credible upstream pose.</td></tr>
+            <tr><td class="num">9</td><td class="nm"><a href="#c-RW_2123">RW_2123</a></td><td class="chem">methylamino isoindolinone, phenylpiperazine arm</td><td class="num">-125.39</td><td class="num">0/3</td><td class="why">Passes nothing, yet sits mid-pack on every axis simultaneously. Included as the balanced case &mdash; and as the least converged funnel of the 18 (52%).</td></tr>
+            <tr><td class="num">10</td><td class="nm"><a href="#c-RW_1668">RW_1668</a></td><td class="chem">methylamino isoindolinone, phenylpiperazine arm</td><td class="num">-125.16</td><td class="num">1/3</td><td class="why"><strong>The structure extreme.</strong> Best structure score of all 20 scored molecules and the tightest funnel measured (87%), on a merely average docking score. The inverse of RW_708.</td></tr>
+            <tr><td class="num">11</td><td class="nm"><a href="#c-RW_445">RW_445</a></td><td class="chem">chloro phthalimide, phenylpiperazine arm</td><td class="num">-125.14</td><td class="num">1/3</td><td class="why">Second-best structure score and second-largest interface (1792&nbsp;&Aring;&sup2;), let down only by an 11th-place docking score.</td></tr>
+            <tr><td class="num">12</td><td class="nm"><a href="#c-RW_779">RW_779</a></td><td class="chem">bromo phthalimide, phenylpiperazine arm</td><td class="num">-124.44</td><td class="num">1/3</td><td class="why">Good structure (#7), weak upstream pose (#15). The bromo member of the Cl/Br/F phthalimide series &mdash; a direct read on halogen substitution.</td></tr>
+            <tr><td class="num">13</td><td class="nm"><a href="#c-RW_381">RW_381</a></td><td class="chem">chloro isoindolinone, phenylpiperazine arm</td><td class="num">-123.88</td><td class="num">2/3</td><td class="why"><strong>The pose extreme.</strong> The single best upstream Vina pose of all 18. Its structure rule passes at +0.001, so that pass should be read as noise rather than signal.</td></tr>
+            <tr><td class="num">14</td><td class="nm"><a href="#c-RW_1092">RW_1092</a></td><td class="chem">chloro isoindolinone, phenylpiperazine arm</td><td class="num">-123.29</td><td class="num">1/3</td><td class="why">Strong structure (#6), strong pose (#3) and a converged funnel (87%) &mdash; held off the buy list purely by docking rank. Positional isomer of RW_381.</td></tr>
+            <tr><td class="num">15</td><td class="nm"><a href="#c-RW_1078">RW_1078</a></td><td class="chem">fluoro phthalimide, phenylpiperazine arm</td><td class="num">-122.63</td><td class="num">0/3</td><td class="why">Passes nothing and is middling throughout. Retained as the fluoro member of the halogen series, so the Cl/Br/F comparison is complete.</td></tr>
+            <tr><td class="num">16</td><td class="nm"><a href="#c-RW_80">RW_80</a></td><td class="chem">fluoro phthalimide, phenylpiperazine arm</td><td class="num">-119.99</td><td class="num">0/3</td><td class="why">The worst upstream pose of the 18, but a well-converged funnel (82%). Positional isomer of RW_1078, isolating where the fluorine sits.</td></tr>
+            <tr><td class="num">17</td><td class="nm"><a href="#c-RW_72">RW_72</a></td><td class="chem">unsubstituted isoindolinone, phenylpiperazine arm</td><td class="num">-118.81</td><td class="num">0/3</td><td class="why">Weak on all three axes. Retained because it is the <em>positional isomer of the Z6466608628 positive control</em> &mdash; a direct measure of how much substituent position alone is worth.</td></tr>
+            <tr><td class="num">18</td><td class="nm"><a href="#c-RW_672">RW_672</a></td><td class="chem">methyl isoindolinone, phenylpiperazine arm</td><td class="num">-112.11</td><td class="num">0/3</td><td class="why">Weakest of the 18 and the smallest interface on the list (1535&nbsp;&Aring;&sup2;). Does not clear the noise floor, so its score is <em>not distinguishable from an inert molecule</em>.</td></tr>
+            <tr><td class="num">19</td><td class="nm"><a href="#c-TZ_6">TZ_6</a></td><td class="chem">ethyl phthalimide, no PPIL4 arm</td><td class="num">-108.56</td><td class="num">1/3</td><td class="why">From the second screen, re-docked here under one protocol. Does not clear the noise floor. Carried because it is the evidence that the two screens disagree.</td></tr>
+            <tr><td class="num">20</td><td class="nm"><a href="#c-TZ_118">TZ_118</a></td><td class="chem">cyano/methoxy phthalimide, no PPIL4 arm</td><td class="num">-104.01</td><td class="num">1/3</td><td class="why">From the second screen. Lowest structure score of all 20 scored molecules and the least converged funnel measured (33%), despite ranking 3rd in its own screen.</td></tr>
           </tbody>
         </table>
       </div>
       <p class="caption">
         Rules are independent, so passing count is not a quality score in itself &mdash; a molecule can
-        top the docking axis and still fail two rules. The last three rows sit above the noise floor and
+        top the docking axis and still fail two rules. The last three rows do not clear the noise floor and
         are carried for completeness only: on score they are not distinguishable from an inert molecule.
         <strong>Click any ID</strong> to open that molecule&rsquo;s full record below.
       </p>
@@ -2592,8 +2610,8 @@ L 75.2 51.5
     <span class="c-rules mono">1/3</span>
   </summary>
   <div class="c-body">
-    <p class="c-why">Best score of anything docked, and last of the 18 on structure.</p>
-    <p class="okline">Clears the &minus;125.6 control bar set by the strongest positive control.</p>
+    <p class="c-why">Best score of anything docked, and last of the 18 designed candidates on structure.</p>
+    <p class="okline">Clears the &minus;125.61 control bar set by the strongest positive control.</p>
     <div class="c-rulerow"><span class="pill p-no"><b>&times;</b>Credible CRBN pose</span><span class="pill p-no"><b>&times;</b>Structure &ge; 0</span><span class="pill p-ok"><b>&check;</b>Beats control bar</span></div>
     <div class="c-vis">
       <figure class="v2d"><svg class="mol2d" role="img" version='1.1' baseProfile='full'
@@ -2601,7 +2619,7 @@ L 75.2 51.5
                       xmlns:rdkit='http://www.rdkit.org/xml'
                       xmlns:xlink='http://www.w3.org/1999/xlink'
                   xml:space='preserve'
-width='300px' height='210px' viewBox='0 0 300 210'>
+width='300px' height='210px' viewBox='0 0 300 210'><title>2D structure of RW_708</title>
 <!-- END OF HEADER -->
 <path class='bond-0 atom-0 atom-1' d='M 175.8,191.0 L 166.7,185.8' style='fill:none;fill-rule:evenodd;stroke:#0000FF;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
 <path class='bond-0 atom-0 atom-1' d='M 166.7,185.8 L 157.6,180.5' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
@@ -2879,9 +2897,9 @@ Q 48.1 134.2, 49.2 134.2
       <figure class="v3d"><div class="v3d-host" data-structure="RW_708"><p class="v3d-msg">Loading 3D model&hellip;</p></div><noscript><img class="v3d-poster" src="img/RW_708.png" width="620" height="460" alt="Rank-1 ternary model of RW_708: CRBN in teal, PPIL4 in indigo, ligand in ochre at the interface."></noscript><figcaption><b>Rank-1 ternary model.</b> CRBN <span class="sw-c"></span>, PPIL4 <span class="sw-p"></span>, ligand <span class="sw-l"></span>. <span class="v3d-help">Drag to rotate &middot; scroll to zoom &middot; double-click to reset &middot; arrow keys when focused.</span> Every structure is superposed on CRBN, so PPIL4&rsquo;s position is comparable between them.</figcaption></figure>
     </div>
     <div class="c-data">
-      <div class="dgroup"><h4>Ternary docking</h4><div class="dgrid"><div class="d"><span class="dl">Mean, best 10</span><b>-132.101</b><span class="dn">rank #1 &middot; z 1.47</span></div><div class="d"><span class="dl">Best single model</span><b>-163.314</b></div><div class="d"><span class="dl">Spread (sd)</span><b>12.02</b><span class="dn">lower is a tighter funnel</span></div><div class="d"><span class="dl">Models scored</span><b>160</b></div></div></div>
-      <div class="dgroup"><h4>Structure quality</h4><div class="dgrid"><div class="d"><span class="dl">Structure axis</span><b>-1.019</b><span class="dn">rank #18</span></div><div class="d"><span class="dl">Buried interface</span><b>1695 &Aring;&sup2;</b></div><div class="d"><span class="dl">Top cluster</span><b>61%</b><span class="dn">of all models</span></div><div class="d"><span class="dl">Restraint energy</span><b>185.9</b><span class="dn">AIR, lower is better</span></div><div class="d"><span class="dl">van der Waals</span><b>-71.62</b></div><div class="d"><span class="dl">DockQ vs 9DWV</span><b>0.255</b><span class="dn">diagnostic only, not ranked on</span></div></div></div>
-      <div class="dgroup"><h4>Upstream evidence</h4><div class="dgrid"><div class="d"><span class="dl">Vina, CRBN pocket</span><b>-9.51 kcal/mol</b><span class="dn">rank #7</span></div><div class="d"><span class="dl">Vina, combined</span><b>-15.97 kcal/mol</b></div><div class="d"><span class="dl">Pose overlap</span><b>0.66</b></div><div class="d"><span class="dl">P(CRBN glue)</span><b>0.965</b><span class="dn">classifier, saturated &mdash; weak signal</span></div></div></div>
+      <div class="dgroup"><h4>Ternary docking</h4><div class="dgrid"><div class="d"><span class="dl">Mean, best 10</span><b>-132.101</b><span class="dn">#1 against the 18 designed &middot; z 1.47</span></div><div class="d"><span class="dl">Best single model</span><b>-163.314</b></div><div class="d"><span class="dl">Spread (sd)</span><b>12.02</b><span class="dn">lower is a tighter funnel</span></div><div class="d"><span class="dl">Models scored</span><b>160</b></div></div></div>
+      <div class="dgroup"><h4>Structure quality</h4><div class="dgrid"><div class="d"><span class="dl">Structure axis</span><b>-1.019</b><span class="dn">#18 against the 18 designed</span></div><div class="d"><span class="dl">Buried interface</span><b>1695 &Aring;&sup2;</b></div><div class="d"><span class="dl">Top cluster</span><b>61%</b><span class="dn">of all models</span></div><div class="d"><span class="dl">Restraint energy</span><b>185.9</b><span class="dn">AIR, lower is better</span></div><div class="d"><span class="dl">van der Waals</span><b>-71.62</b></div><div class="d"><span class="dl">DockQ vs 9DWV</span><b>0.255</b><span class="dn">diagnostic only, not ranked on</span></div></div></div>
+      <div class="dgroup"><h4>Upstream evidence</h4><div class="dgrid"><div class="d"><span class="dl">Vina, CRBN pocket</span><b>-9.51 kcal/mol</b><span class="dn">#7 against the 18 designed</span></div><div class="d"><span class="dl">Vina, combined</span><b>-15.97 kcal/mol</b></div><div class="d"><span class="dl">Pose overlap</span><b>0.66</b></div><div class="d"><span class="dl">RF glue-likeness</span><b>0.965</b><span class="dn">vote fraction, uncalibrated &mdash; saturated across the library, weak signal</span></div></div></div>
       <div class="dgroup"><h4>Identity</h4><div class="dgrid"><div class="d"><span class="dl">Formula</span><b>C24H21N5O4</b></div><div class="d"><span class="dl">Molecular weight</span><b>443.46</b></div><div class="d"><span class="dl">CAS</span><b>Not a registered substance &mdash; custom synthesis</b></div><div class="d"><span class="dl">Pipeline ID</span><b>cand_708</b><span class="dn">name used in every run directory</span></div></div></div>
     </div>
     <p class="c-smiles"><span class="dl">SMILES</span><code>N#Cc1ccc2c(c1-c1ccc(N3CCNCC3)cc1)C(=O)N(C1CCC(=O)NC1=O)C2=O</code></p>
@@ -2897,7 +2915,7 @@ Q 48.1 134.2, 49.2 134.2
   </summary>
   <div class="c-body">
     <p class="c-why">Second-best score; structure axis still below the line.</p>
-    <p class="okline">Clears the &minus;125.6 control bar set by the strongest positive control.</p>
+    <p class="okline">Clears the &minus;125.61 control bar set by the strongest positive control.</p>
     <div class="c-rulerow"><span class="pill p-no"><b>&times;</b>Credible CRBN pose</span><span class="pill p-no"><b>&times;</b>Structure &ge; 0</span><span class="pill p-ok"><b>&check;</b>Beats control bar</span></div>
     <div class="c-vis">
       <figure class="v2d"><svg class="mol2d" role="img" version='1.1' baseProfile='full'
@@ -2905,7 +2923,7 @@ Q 48.1 134.2, 49.2 134.2
                       xmlns:rdkit='http://www.rdkit.org/xml'
                       xmlns:xlink='http://www.w3.org/1999/xlink'
                   xml:space='preserve'
-width='300px' height='210px' viewBox='0 0 300 210'>
+width='300px' height='210px' viewBox='0 0 300 210'><title>2D structure of RW_491</title>
 <!-- END OF HEADER -->
 <path class='bond-0 atom-0 atom-1' d='M 228.7,196.6 L 228.7,186.8' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
 <path class='bond-0 atom-0 atom-1' d='M 228.7,186.8 L 228.7,177.0' style='fill:none;fill-rule:evenodd;stroke:#FF0000;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
@@ -3182,9 +3200,9 @@ Q 175.2 86.4, 176.2 86.4
       <figure class="v3d"><div class="v3d-host" data-structure="RW_491"><p class="v3d-msg">Loading 3D model&hellip;</p></div><noscript><img class="v3d-poster" src="img/RW_491.png" width="620" height="460" alt="Rank-1 ternary model of RW_491: CRBN in teal, PPIL4 in indigo, ligand in ochre at the interface."></noscript><figcaption><b>Rank-1 ternary model.</b> CRBN <span class="sw-c"></span>, PPIL4 <span class="sw-p"></span>, ligand <span class="sw-l"></span>. <span class="v3d-help">Drag to rotate &middot; scroll to zoom &middot; double-click to reset &middot; arrow keys when focused.</span> Every structure is superposed on CRBN, so PPIL4&rsquo;s position is comparable between them.</figcaption></figure>
     </div>
     <div class="c-data">
-      <div class="dgroup"><h4>Ternary docking</h4><div class="dgrid"><div class="d"><span class="dl">Mean, best 10</span><b>-132.082</b><span class="dn">rank #2 &middot; z 1.47</span></div><div class="d"><span class="dl">Best single model</span><b>-148.067</b></div><div class="d"><span class="dl">Spread (sd)</span><b>7.55</b><span class="dn">lower is a tighter funnel</span></div><div class="d"><span class="dl">Models scored</span><b>163</b></div></div></div>
-      <div class="dgroup"><h4>Structure quality</h4><div class="dgrid"><div class="d"><span class="dl">Structure axis</span><b>-0.332</b><span class="dn">rank #12</span></div><div class="d"><span class="dl">Buried interface</span><b>1751 &Aring;&sup2;</b></div><div class="d"><span class="dl">Top cluster</span><b>71%</b><span class="dn">of all models</span></div><div class="d"><span class="dl">Restraint energy</span><b>197.6</b><span class="dn">AIR, lower is better</span></div><div class="d"><span class="dl">van der Waals</span><b>-77.41</b></div><div class="d"><span class="dl">DockQ vs 9DWV</span><b>0.067</b><span class="dn">diagnostic only, not ranked on</span></div></div></div>
-      <div class="dgroup"><h4>Upstream evidence</h4><div class="dgrid"><div class="d"><span class="dl">Vina, CRBN pocket</span><b>-9.19 kcal/mol</b><span class="dn">rank #11</span></div><div class="d"><span class="dl">Vina, combined</span><b>-14.98 kcal/mol</b></div><div class="d"><span class="dl">Pose overlap</span><b>0.77</b></div><div class="d"><span class="dl">P(CRBN glue)</span><b>0.97</b><span class="dn">classifier, saturated &mdash; weak signal</span></div></div></div>
+      <div class="dgroup"><h4>Ternary docking</h4><div class="dgrid"><div class="d"><span class="dl">Mean, best 10</span><b>-132.082</b><span class="dn">#2 against the 18 designed &middot; z 1.47</span></div><div class="d"><span class="dl">Best single model</span><b>-148.067</b></div><div class="d"><span class="dl">Spread (sd)</span><b>7.55</b><span class="dn">lower is a tighter funnel</span></div><div class="d"><span class="dl">Models scored</span><b>163</b></div></div></div>
+      <div class="dgroup"><h4>Structure quality</h4><div class="dgrid"><div class="d"><span class="dl">Structure axis</span><b>-0.332</b><span class="dn">#12 against the 18 designed</span></div><div class="d"><span class="dl">Buried interface</span><b>1751 &Aring;&sup2;</b></div><div class="d"><span class="dl">Top cluster</span><b>71%</b><span class="dn">of all models</span></div><div class="d"><span class="dl">Restraint energy</span><b>197.6</b><span class="dn">AIR, lower is better</span></div><div class="d"><span class="dl">van der Waals</span><b>-77.41</b></div><div class="d"><span class="dl">DockQ vs 9DWV</span><b>0.067</b><span class="dn">diagnostic only, not ranked on</span></div></div></div>
+      <div class="dgroup"><h4>Upstream evidence</h4><div class="dgrid"><div class="d"><span class="dl">Vina, CRBN pocket</span><b>-9.19 kcal/mol</b><span class="dn">#11 against the 18 designed</span></div><div class="d"><span class="dl">Vina, combined</span><b>-14.98 kcal/mol</b></div><div class="d"><span class="dl">Pose overlap</span><b>0.77</b></div><div class="d"><span class="dl">RF glue-likeness</span><b>0.97</b><span class="dn">vote fraction, uncalibrated &mdash; saturated across the library, weak signal</span></div></div></div>
       <div class="dgroup"><h4>Identity</h4><div class="dgrid"><div class="d"><span class="dl">Formula</span><b>C24H24N4O5</b></div><div class="d"><span class="dl">Molecular weight</span><b>448.48</b></div><div class="d"><span class="dl">CAS</span><b>Not a registered substance &mdash; custom synthesis</b></div><div class="d"><span class="dl">Pipeline ID</span><b>cand_491</b><span class="dn">name used in every run directory</span></div></div></div>
     </div>
     <p class="c-smiles"><span class="dl">SMILES</span><code>COc1ccc(-c2ccc(N3CCNCC3)cc2)c2c1C(=O)N(C1CCC(=O)NC1=O)C2=O</code></p>
@@ -3200,7 +3218,7 @@ Q 175.2 86.4, 176.2 86.4
   </summary>
   <div class="c-body">
     <p class="c-why">Top-5 on dock, structure and pose at once. Strongest all-round profile.</p>
-    <p class="okline">Clears the &minus;125.6 control bar set by the strongest positive control.</p>
+    <p class="okline">Clears the &minus;125.61 control bar set by the strongest positive control.</p>
     <div class="c-rulerow"><span class="pill p-ok"><b>&check;</b>Credible CRBN pose</span><span class="pill p-ok"><b>&check;</b>Structure &ge; 0</span><span class="pill p-ok"><b>&check;</b>Beats control bar</span></div>
     <div class="c-vis">
       <figure class="v2d"><svg class="mol2d" role="img" version='1.1' baseProfile='full'
@@ -3208,7 +3226,7 @@ Q 175.2 86.4, 176.2 86.4
                       xmlns:rdkit='http://www.rdkit.org/xml'
                       xmlns:xlink='http://www.w3.org/1999/xlink'
                   xml:space='preserve'
-width='300px' height='210px' viewBox='0 0 300 210'>
+width='300px' height='210px' viewBox='0 0 300 210'><title>2D structure of RW_1987</title>
 <!-- END OF HEADER -->
 <path class='bond-0 atom-0 atom-1' d='M 98.4,196.6 L 106.6,191.9' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
 <path class='bond-0 atom-0 atom-1' d='M 106.6,191.9 L 114.7,187.2' style='fill:none;fill-rule:evenodd;stroke:#0000FF;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
@@ -3461,9 +3479,9 @@ Q 45.0 96.2, 45.9 96.2
       <figure class="v3d"><div class="v3d-host" data-structure="RW_1987"><p class="v3d-msg">Loading 3D model&hellip;</p></div><noscript><img class="v3d-poster" src="img/RW_1987.png" width="620" height="460" alt="Rank-1 ternary model of RW_1987: CRBN in teal, PPIL4 in indigo, ligand in ochre at the interface."></noscript><figcaption><b>Rank-1 ternary model.</b> CRBN <span class="sw-c"></span>, PPIL4 <span class="sw-p"></span>, ligand <span class="sw-l"></span>. <span class="v3d-help">Drag to rotate &middot; scroll to zoom &middot; double-click to reset &middot; arrow keys when focused.</span> Every structure is superposed on CRBN, so PPIL4&rsquo;s position is comparable between them.</figcaption></figure>
     </div>
     <div class="c-data">
-      <div class="dgroup"><h4>Ternary docking</h4><div class="dgrid"><div class="d"><span class="dl">Mean, best 10</span><b>-129.905</b><span class="dn">rank #3 &middot; z 1.01</span></div><div class="d"><span class="dl">Best single model</span><b>-144.398</b></div><div class="d"><span class="dl">Spread (sd)</span><b>6.39</b><span class="dn">lower is a tighter funnel</span></div><div class="d"><span class="dl">Models scored</span><b>174</b></div></div></div>
-      <div class="dgroup"><h4>Structure quality</h4><div class="dgrid"><div class="d"><span class="dl">Structure axis</span><b>0.539</b><span class="dn">rank #4</span></div><div class="d"><span class="dl">Buried interface</span><b>1794 &Aring;&sup2;</b></div><div class="d"><span class="dl">Top cluster</span><b>80%</b><span class="dn">of all models</span></div><div class="d"><span class="dl">Restraint energy</span><b>179.5</b><span class="dn">AIR, lower is better</span></div><div class="d"><span class="dl">van der Waals</span><b>-83.53</b></div><div class="d"><span class="dl">DockQ vs 9DWV</span><b>0.064</b><span class="dn">diagnostic only, not ranked on</span></div></div></div>
-      <div class="dgroup"><h4>Upstream evidence</h4><div class="dgrid"><div class="d"><span class="dl">Vina, CRBN pocket</span><b>-9.76 kcal/mol</b><span class="dn">rank #4</span></div><div class="d"><span class="dl">Vina, combined</span><b>-15.74 kcal/mol</b></div><div class="d"><span class="dl">Pose overlap</span><b>0.73</b></div><div class="d"><span class="dl">P(CRBN glue)</span><b>0.985</b><span class="dn">classifier, saturated &mdash; weak signal</span></div></div></div>
+      <div class="dgroup"><h4>Ternary docking</h4><div class="dgrid"><div class="d"><span class="dl">Mean, best 10</span><b>-129.905</b><span class="dn">#3 against the 18 designed &middot; z 1.01</span></div><div class="d"><span class="dl">Best single model</span><b>-144.398</b></div><div class="d"><span class="dl">Spread (sd)</span><b>6.39</b><span class="dn">lower is a tighter funnel</span></div><div class="d"><span class="dl">Models scored</span><b>174</b></div></div></div>
+      <div class="dgroup"><h4>Structure quality</h4><div class="dgrid"><div class="d"><span class="dl">Structure axis</span><b>0.539</b><span class="dn">#4 against the 18 designed</span></div><div class="d"><span class="dl">Buried interface</span><b>1794 &Aring;&sup2;</b></div><div class="d"><span class="dl">Top cluster</span><b>80%</b><span class="dn">of all models</span></div><div class="d"><span class="dl">Restraint energy</span><b>179.5</b><span class="dn">AIR, lower is better</span></div><div class="d"><span class="dl">van der Waals</span><b>-83.53</b></div><div class="d"><span class="dl">DockQ vs 9DWV</span><b>0.064</b><span class="dn">diagnostic only, not ranked on</span></div></div></div>
+      <div class="dgroup"><h4>Upstream evidence</h4><div class="dgrid"><div class="d"><span class="dl">Vina, CRBN pocket</span><b>-9.76 kcal/mol</b><span class="dn">#4 against the 18 designed</span></div><div class="d"><span class="dl">Vina, combined</span><b>-15.74 kcal/mol</b></div><div class="d"><span class="dl">Pose overlap</span><b>0.73</b></div><div class="d"><span class="dl">RF glue-likeness</span><b>0.985</b><span class="dn">vote fraction, uncalibrated &mdash; saturated across the library, weak signal</span></div></div></div>
       <div class="dgroup"><h4>Identity</h4><div class="dgrid"><div class="d"><span class="dl">Formula</span><b>C25H29N5O3</b></div><div class="d"><span class="dl">Molecular weight</span><b>447.54</b></div><div class="d"><span class="dl">CAS</span><b>Not a registered substance &mdash; custom synthesis</b></div><div class="d"><span class="dl">Pipeline ID</span><b>cand_1987</b><span class="dn">name used in every run directory</span></div></div></div>
     </div>
     <p class="c-smiles"><span class="dl">SMILES</span><code>CN(C)c1cc2c(c(-c3ccc(N4CCNCC4)cc3)c1)C(=O)N(C1CCC(=O)NC1=O)C2</code></p>
@@ -3479,7 +3497,7 @@ Q 45.0 96.2, 45.9 96.2
   </summary>
   <div class="c-body">
     <p class="c-why">Clears all three, structure by only +0.01.</p>
-    <p class="okline">Clears the &minus;125.6 control bar set by the strongest positive control.</p>
+    <p class="okline">Clears the &minus;125.61 control bar set by the strongest positive control.</p>
     <div class="c-rulerow"><span class="pill p-ok"><b>&check;</b>Credible CRBN pose</span><span class="pill p-ok"><b>&check;</b>Structure &ge; 0</span><span class="pill p-ok"><b>&check;</b>Beats control bar</span></div>
     <div class="c-vis">
       <figure class="v2d"><svg class="mol2d" role="img" version='1.1' baseProfile='full'
@@ -3487,7 +3505,7 @@ Q 45.0 96.2, 45.9 96.2
                       xmlns:rdkit='http://www.rdkit.org/xml'
                       xmlns:xlink='http://www.w3.org/1999/xlink'
                   xml:space='preserve'
-width='300px' height='210px' viewBox='0 0 300 210'>
+width='300px' height='210px' viewBox='0 0 300 210'><title>2D structure of RW_1959</title>
 <!-- END OF HEADER -->
 <path class='bond-0 atom-0 atom-1' d='M 45.1,19.4 L 50.0,27.8' style='fill:none;fill-rule:evenodd;stroke:#FF0000;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
 <path class='bond-0 atom-0 atom-1' d='M 50.0,27.8 L 54.9,36.3' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
@@ -3753,9 +3771,9 @@ L 39.8 53.3
       <figure class="v3d"><div class="v3d-host" data-structure="RW_1959"><p class="v3d-msg">Loading 3D model&hellip;</p></div><noscript><img class="v3d-poster" src="img/RW_1959.png" width="620" height="460" alt="Rank-1 ternary model of RW_1959: CRBN in teal, PPIL4 in indigo, ligand in ochre at the interface."></noscript><figcaption><b>Rank-1 ternary model.</b> CRBN <span class="sw-c"></span>, PPIL4 <span class="sw-p"></span>, ligand <span class="sw-l"></span>. <span class="v3d-help">Drag to rotate &middot; scroll to zoom &middot; double-click to reset &middot; arrow keys when focused.</span> Every structure is superposed on CRBN, so PPIL4&rsquo;s position is comparable between them.</figcaption></figure>
     </div>
     <div class="c-data">
-      <div class="dgroup"><h4>Ternary docking</h4><div class="dgrid"><div class="d"><span class="dl">Mean, best 10</span><b>-128.409</b><span class="dn">rank #4 &middot; z 0.70</span></div><div class="d"><span class="dl">Best single model</span><b>-140.851</b></div><div class="d"><span class="dl">Spread (sd)</span><b>6.04</b><span class="dn">lower is a tighter funnel</span></div><div class="d"><span class="dl">Models scored</span><b>171</b></div></div></div>
-      <div class="dgroup"><h4>Structure quality</h4><div class="dgrid"><div class="d"><span class="dl">Structure axis</span><b>0.014</b><span class="dn">rank #8</span></div><div class="d"><span class="dl">Buried interface</span><b>1713 &Aring;&sup2;</b></div><div class="d"><span class="dl">Top cluster</span><b>66%</b><span class="dn">of all models</span></div><div class="d"><span class="dl">Restraint energy</span><b>173.2</b><span class="dn">AIR, lower is better</span></div><div class="d"><span class="dl">van der Waals</span><b>-79.33</b></div><div class="d"><span class="dl">DockQ vs 9DWV</span><b>0.048</b><span class="dn">diagnostic only, not ranked on</span></div></div></div>
-      <div class="dgroup"><h4>Upstream evidence</h4><div class="dgrid"><div class="d"><span class="dl">Vina, CRBN pocket</span><b>-9.71 kcal/mol</b><span class="dn">rank #5</span></div><div class="d"><span class="dl">Vina, combined</span><b>-15.66 kcal/mol</b></div><div class="d"><span class="dl">Pose overlap</span><b>0.75</b></div><div class="d"><span class="dl">P(CRBN glue)</span><b>0.985</b><span class="dn">classifier, saturated &mdash; weak signal</span></div></div></div>
+      <div class="dgroup"><h4>Ternary docking</h4><div class="dgrid"><div class="d"><span class="dl">Mean, best 10</span><b>-128.409</b><span class="dn">#4 against the 18 designed &middot; z 0.70</span></div><div class="d"><span class="dl">Best single model</span><b>-140.851</b></div><div class="d"><span class="dl">Spread (sd)</span><b>6.04</b><span class="dn">lower is a tighter funnel</span></div><div class="d"><span class="dl">Models scored</span><b>171</b></div></div></div>
+      <div class="dgroup"><h4>Structure quality</h4><div class="dgrid"><div class="d"><span class="dl">Structure axis</span><b>0.014</b><span class="dn">#8 against the 18 designed</span></div><div class="d"><span class="dl">Buried interface</span><b>1713 &Aring;&sup2;</b></div><div class="d"><span class="dl">Top cluster</span><b>66%</b><span class="dn">of all models</span></div><div class="d"><span class="dl">Restraint energy</span><b>173.2</b><span class="dn">AIR, lower is better</span></div><div class="d"><span class="dl">van der Waals</span><b>-79.33</b></div><div class="d"><span class="dl">DockQ vs 9DWV</span><b>0.048</b><span class="dn">diagnostic only, not ranked on</span></div></div></div>
+      <div class="dgroup"><h4>Upstream evidence</h4><div class="dgrid"><div class="d"><span class="dl">Vina, CRBN pocket</span><b>-9.71 kcal/mol</b><span class="dn">#5 against the 18 designed</span></div><div class="d"><span class="dl">Vina, combined</span><b>-15.66 kcal/mol</b></div><div class="d"><span class="dl">Pose overlap</span><b>0.75</b></div><div class="d"><span class="dl">RF glue-likeness</span><b>0.985</b><span class="dn">vote fraction, uncalibrated &mdash; saturated across the library, weak signal</span></div></div></div>
       <div class="dgroup"><h4>Identity</h4><div class="dgrid"><div class="d"><span class="dl">Formula</span><b>C23H24N4O4</b></div><div class="d"><span class="dl">Molecular weight</span><b>420.47</b></div><div class="d"><span class="dl">CAS</span><b>Not a registered substance &mdash; custom synthesis</b></div><div class="d"><span class="dl">Pipeline ID</span><b>cand_1959</b><span class="dn">name used in every run directory</span></div></div></div>
     </div>
     <p class="c-smiles"><span class="dl">SMILES</span><code>O=C1CCC(N2Cc3cc(O)cc(-c4ccc(N5CCNCC5)cc4)c3C2=O)C(=O)N1</code></p>
@@ -3771,7 +3789,7 @@ L 39.8 53.3
   </summary>
   <div class="c-body">
     <p class="c-why">Clears all three, and the #2 upstream pose of the 18.</p>
-    <p class="okline">Clears the &minus;125.6 control bar set by the strongest positive control.</p>
+    <p class="okline">Clears the &minus;125.61 control bar set by the strongest positive control.</p>
     <div class="c-rulerow"><span class="pill p-ok"><b>&check;</b>Credible CRBN pose</span><span class="pill p-ok"><b>&check;</b>Structure &ge; 0</span><span class="pill p-ok"><b>&check;</b>Beats control bar</span></div>
     <div class="c-vis">
       <figure class="v2d"><svg class="mol2d" role="img" version='1.1' baseProfile='full'
@@ -3779,7 +3797,7 @@ L 39.8 53.3
                       xmlns:rdkit='http://www.rdkit.org/xml'
                       xmlns:xlink='http://www.w3.org/1999/xlink'
                   xml:space='preserve'
-width='300px' height='210px' viewBox='0 0 300 210'>
+width='300px' height='210px' viewBox='0 0 300 210'><title>2D structure of RW_465</title>
 <!-- END OF HEADER -->
 <path class='bond-0 atom-0 atom-1' d='M 45.0,19.4 L 49.9,27.8' style='fill:none;fill-rule:evenodd;stroke:#FF0000;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
 <path class='bond-0 atom-0 atom-1' d='M 49.9,27.8 L 54.8,36.3' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
@@ -4052,9 +4070,9 @@ L 39.7 53.3
       <figure class="v3d"><div class="v3d-host" data-structure="RW_465"><p class="v3d-msg">Loading 3D model&hellip;</p></div><noscript><img class="v3d-poster" src="img/RW_465.png" width="620" height="460" alt="Rank-1 ternary model of RW_465: CRBN in teal, PPIL4 in indigo, ligand in ochre at the interface."></noscript><figcaption><b>Rank-1 ternary model.</b> CRBN <span class="sw-c"></span>, PPIL4 <span class="sw-p"></span>, ligand <span class="sw-l"></span>. <span class="v3d-help">Drag to rotate &middot; scroll to zoom &middot; double-click to reset &middot; arrow keys when focused.</span> Every structure is superposed on CRBN, so PPIL4&rsquo;s position is comparable between them.</figcaption></figure>
     </div>
     <div class="c-data">
-      <div class="dgroup"><h4>Ternary docking</h4><div class="dgrid"><div class="d"><span class="dl">Mean, best 10</span><b>-127.583</b><span class="dn">rank #5 &middot; z 0.53</span></div><div class="d"><span class="dl">Best single model</span><b>-132.816</b></div><div class="d"><span class="dl">Spread (sd)</span><b>3.47</b><span class="dn">lower is a tighter funnel</span></div><div class="d"><span class="dl">Models scored</span><b>179</b></div></div></div>
-      <div class="dgroup"><h4>Structure quality</h4><div class="dgrid"><div class="d"><span class="dl">Structure axis</span><b>0.469</b><span class="dn">rank #5</span></div><div class="d"><span class="dl">Buried interface</span><b>1754 &Aring;&sup2;</b></div><div class="d"><span class="dl">Top cluster</span><b>73%</b><span class="dn">of all models</span></div><div class="d"><span class="dl">Restraint energy</span><b>181.2</b><span class="dn">AIR, lower is better</span></div><div class="d"><span class="dl">van der Waals</span><b>-74.95</b></div><div class="d"><span class="dl">DockQ vs 9DWV</span><b>0.053</b><span class="dn">diagnostic only, not ranked on</span></div></div></div>
-      <div class="dgroup"><h4>Upstream evidence</h4><div class="dgrid"><div class="d"><span class="dl">Vina, CRBN pocket</span><b>-9.93 kcal/mol</b><span class="dn">rank #2</span></div><div class="d"><span class="dl">Vina, combined</span><b>-15.81 kcal/mol</b></div><div class="d"><span class="dl">Pose overlap</span><b>0.70</b></div><div class="d"><span class="dl">P(CRBN glue)</span><b>0.99</b><span class="dn">classifier, saturated &mdash; weak signal</span></div></div></div>
+      <div class="dgroup"><h4>Ternary docking</h4><div class="dgrid"><div class="d"><span class="dl">Mean, best 10</span><b>-127.583</b><span class="dn">#5 against the 18 designed &middot; z 0.53</span></div><div class="d"><span class="dl">Best single model</span><b>-132.816</b></div><div class="d"><span class="dl">Spread (sd)</span><b>3.47</b><span class="dn">lower is a tighter funnel</span></div><div class="d"><span class="dl">Models scored</span><b>179</b></div></div></div>
+      <div class="dgroup"><h4>Structure quality</h4><div class="dgrid"><div class="d"><span class="dl">Structure axis</span><b>0.469</b><span class="dn">#5 against the 18 designed</span></div><div class="d"><span class="dl">Buried interface</span><b>1754 &Aring;&sup2;</b></div><div class="d"><span class="dl">Top cluster</span><b>73%</b><span class="dn">of all models</span></div><div class="d"><span class="dl">Restraint energy</span><b>181.2</b><span class="dn">AIR, lower is better</span></div><div class="d"><span class="dl">van der Waals</span><b>-74.95</b></div><div class="d"><span class="dl">DockQ vs 9DWV</span><b>0.053</b><span class="dn">diagnostic only, not ranked on</span></div></div></div>
+      <div class="dgroup"><h4>Upstream evidence</h4><div class="dgrid"><div class="d"><span class="dl">Vina, CRBN pocket</span><b>-9.93 kcal/mol</b><span class="dn">#2 against the 18 designed</span></div><div class="d"><span class="dl">Vina, combined</span><b>-15.81 kcal/mol</b></div><div class="d"><span class="dl">Pose overlap</span><b>0.70</b></div><div class="d"><span class="dl">RF glue-likeness</span><b>0.99</b><span class="dn">vote fraction, uncalibrated &mdash; saturated across the library, weak signal</span></div></div></div>
       <div class="dgroup"><h4>Identity</h4><div class="dgrid"><div class="d"><span class="dl">Formula</span><b>C23H23BrN4O3</b></div><div class="d"><span class="dl">Molecular weight</span><b>483.37</b></div><div class="d"><span class="dl">CAS</span><b>Not a registered substance &mdash; custom synthesis</b></div><div class="d"><span class="dl">Pipeline ID</span><b>cand_465</b><span class="dn">name used in every run directory</span></div></div></div>
     </div>
     <p class="c-smiles"><span class="dl">SMILES</span><code>O=C1CCC(N2Cc3cc(Br)cc(-c4ccc(N5CCNCC5)cc4)c3C2=O)C(=O)N1</code></p>
@@ -4070,7 +4088,7 @@ L 39.7 53.3
   </summary>
   <div class="c-body">
     <p class="c-why">Clears all three with the tightest funnel of the four.</p>
-    <p class="okline">Clears the &minus;125.6 control bar set by the strongest positive control.</p>
+    <p class="okline">Clears the &minus;125.61 control bar set by the strongest positive control.</p>
     <div class="c-rulerow"><span class="pill p-ok"><b>&check;</b>Credible CRBN pose</span><span class="pill p-ok"><b>&check;</b>Structure &ge; 0</span><span class="pill p-ok"><b>&check;</b>Beats control bar</span></div>
     <div class="c-vis">
       <figure class="v2d"><svg class="mol2d" role="img" version='1.1' baseProfile='full'
@@ -4078,7 +4096,7 @@ L 39.7 53.3
                       xmlns:rdkit='http://www.rdkit.org/xml'
                       xmlns:xlink='http://www.w3.org/1999/xlink'
                   xml:space='preserve'
-width='300px' height='210px' viewBox='0 0 300 210'>
+width='300px' height='210px' viewBox='0 0 300 210'><title>2D structure of RW_1992</title>
 <!-- END OF HEADER -->
 <path class='bond-0 atom-0 atom-1' d='M 56.9,18.6 L 61.3,26.1' style='fill:none;fill-rule:evenodd;stroke:#FF0000;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
 <path class='bond-0 atom-0 atom-1' d='M 61.3,26.1 L 65.6,33.6' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
@@ -4352,9 +4370,9 @@ L 52.2 48.7
       <figure class="v3d"><div class="v3d-host" data-structure="RW_1992"><p class="v3d-msg">Loading 3D model&hellip;</p></div><noscript><img class="v3d-poster" src="img/RW_1992.png" width="620" height="460" alt="Rank-1 ternary model of RW_1992: CRBN in teal, PPIL4 in indigo, ligand in ochre at the interface."></noscript><figcaption><b>Rank-1 ternary model.</b> CRBN <span class="sw-c"></span>, PPIL4 <span class="sw-p"></span>, ligand <span class="sw-l"></span>. <span class="v3d-help">Drag to rotate &middot; scroll to zoom &middot; double-click to reset &middot; arrow keys when focused.</span> Every structure is superposed on CRBN, so PPIL4&rsquo;s position is comparable between them.</figcaption></figure>
     </div>
     <div class="c-data">
-      <div class="dgroup"><h4>Ternary docking</h4><div class="dgrid"><div class="d"><span class="dl">Mean, best 10</span><b>-127.205</b><span class="dn">rank #6 &middot; z 0.45</span></div><div class="d"><span class="dl">Best single model</span><b>-132.650</b></div><div class="d"><span class="dl">Spread (sd)</span><b>3.71</b><span class="dn">lower is a tighter funnel</span></div><div class="d"><span class="dl">Models scored</span><b>165</b></div></div></div>
-      <div class="dgroup"><h4>Structure quality</h4><div class="dgrid"><div class="d"><span class="dl">Structure axis</span><b>0.617</b><span class="dn">rank #3</span></div><div class="d"><span class="dl">Buried interface</span><b>1698 &Aring;&sup2;</b></div><div class="d"><span class="dl">Top cluster</span><b>87%</b><span class="dn">of all models</span></div><div class="d"><span class="dl">Restraint energy</span><b>179.6</b><span class="dn">AIR, lower is better</span></div><div class="d"><span class="dl">van der Waals</span><b>-75.26</b></div><div class="d"><span class="dl">DockQ vs 9DWV</span><b>0.079</b><span class="dn">diagnostic only, not ranked on</span></div></div></div>
-      <div class="dgroup"><h4>Upstream evidence</h4><div class="dgrid"><div class="d"><span class="dl">Vina, CRBN pocket</span><b>-9.36 kcal/mol</b><span class="dn">rank #8</span></div><div class="d"><span class="dl">Vina, combined</span><b>-16.00 kcal/mol</b></div><div class="d"><span class="dl">Pose overlap</span><b>0.84</b></div><div class="d"><span class="dl">P(CRBN glue)</span><b>0.96</b><span class="dn">classifier, saturated &mdash; weak signal</span></div></div></div>
+      <div class="dgroup"><h4>Ternary docking</h4><div class="dgrid"><div class="d"><span class="dl">Mean, best 10</span><b>-127.205</b><span class="dn">#6 against the 18 designed &middot; z 0.45</span></div><div class="d"><span class="dl">Best single model</span><b>-132.650</b></div><div class="d"><span class="dl">Spread (sd)</span><b>3.71</b><span class="dn">lower is a tighter funnel</span></div><div class="d"><span class="dl">Models scored</span><b>165</b></div></div></div>
+      <div class="dgroup"><h4>Structure quality</h4><div class="dgrid"><div class="d"><span class="dl">Structure axis</span><b>0.617</b><span class="dn">#3 against the 18 designed</span></div><div class="d"><span class="dl">Buried interface</span><b>1698 &Aring;&sup2;</b></div><div class="d"><span class="dl">Top cluster</span><b>87%</b><span class="dn">of all models</span></div><div class="d"><span class="dl">Restraint energy</span><b>179.6</b><span class="dn">AIR, lower is better</span></div><div class="d"><span class="dl">van der Waals</span><b>-75.26</b></div><div class="d"><span class="dl">DockQ vs 9DWV</span><b>0.079</b><span class="dn">diagnostic only, not ranked on</span></div></div></div>
+      <div class="dgroup"><h4>Upstream evidence</h4><div class="dgrid"><div class="d"><span class="dl">Vina, CRBN pocket</span><b>-9.36 kcal/mol</b><span class="dn">#8 against the 18 designed</span></div><div class="d"><span class="dl">Vina, combined</span><b>-16.00 kcal/mol</b></div><div class="d"><span class="dl">Pose overlap</span><b>0.84</b></div><div class="d"><span class="dl">RF glue-likeness</span><b>0.96</b><span class="dn">vote fraction, uncalibrated &mdash; saturated across the library, weak signal</span></div></div></div>
       <div class="dgroup"><h4>Identity</h4><div class="dgrid"><div class="d"><span class="dl">Formula</span><b>C24H23F3N4O3</b></div><div class="d"><span class="dl">Molecular weight</span><b>472.47</b></div><div class="d"><span class="dl">CAS</span><b>Not a registered substance &mdash; custom synthesis</b></div><div class="d"><span class="dl">Pipeline ID</span><b>cand_1992</b><span class="dn">name used in every run directory</span></div></div></div>
     </div>
     <p class="c-smiles"><span class="dl">SMILES</span><code>O=C1CCC(N2Cc3c(cc(C(F)(F)F)cc3-c3ccc(N4CCNCC4)cc3)C2=O)C(=O)N1</code></p>
@@ -4370,7 +4388,7 @@ L 52.2 48.7
   </summary>
   <div class="c-body">
     <p class="c-why">Clears the control bar on score alone; fails both other axes.</p>
-    <p class="okline">Clears the &minus;125.6 control bar set by the strongest positive control.</p>
+    <p class="okline">Clears the &minus;125.61 control bar set by the strongest positive control.</p>
     <div class="c-rulerow"><span class="pill p-no"><b>&times;</b>Credible CRBN pose</span><span class="pill p-no"><b>&times;</b>Structure &ge; 0</span><span class="pill p-ok"><b>&check;</b>Beats control bar</span></div>
     <div class="c-vis">
       <figure class="v2d"><svg class="mol2d" role="img" version='1.1' baseProfile='full'
@@ -4378,7 +4396,7 @@ L 52.2 48.7
                       xmlns:rdkit='http://www.rdkit.org/xml'
                       xmlns:xlink='http://www.w3.org/1999/xlink'
                   xml:space='preserve'
-width='300px' height='210px' viewBox='0 0 300 210'>
+width='300px' height='210px' viewBox='0 0 300 210'><title>2D structure of RW_2392</title>
 <!-- END OF HEADER -->
 <path class='bond-0 atom-0 atom-1' d='M 45.1,19.4 L 50.0,27.8' style='fill:none;fill-rule:evenodd;stroke:#FF0000;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
 <path class='bond-0 atom-0 atom-1' d='M 50.0,27.8 L 54.9,36.3' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
@@ -4669,9 +4687,9 @@ L 39.8 53.3
       <figure class="v3d"><div class="v3d-host" data-structure="RW_2392"><p class="v3d-msg">Loading 3D model&hellip;</p></div><noscript><img class="v3d-poster" src="img/RW_2392.png" width="620" height="460" alt="Rank-1 ternary model of RW_2392: CRBN in teal, PPIL4 in indigo, ligand in ochre at the interface."></noscript><figcaption><b>Rank-1 ternary model.</b> CRBN <span class="sw-c"></span>, PPIL4 <span class="sw-p"></span>, ligand <span class="sw-l"></span>. <span class="v3d-help">Drag to rotate &middot; scroll to zoom &middot; double-click to reset &middot; arrow keys when focused.</span> Every structure is superposed on CRBN, so PPIL4&rsquo;s position is comparable between them.</figcaption></figure>
     </div>
     <div class="c-data">
-      <div class="dgroup"><h4>Ternary docking</h4><div class="dgrid"><div class="d"><span class="dl">Mean, best 10</span><b>-126.909</b><span class="dn">rank #7 &middot; z 0.39</span></div><div class="d"><span class="dl">Best single model</span><b>-141.788</b></div><div class="d"><span class="dl">Spread (sd)</span><b>7.06</b><span class="dn">lower is a tighter funnel</span></div><div class="d"><span class="dl">Models scored</span><b>157</b></div></div></div>
-      <div class="dgroup"><h4>Structure quality</h4><div class="dgrid"><div class="d"><span class="dl">Structure axis</span><b>-0.545</b><span class="dn">rank #16</span></div><div class="d"><span class="dl">Buried interface</span><b>1644 &Aring;&sup2;</b></div><div class="d"><span class="dl">Top cluster</span><b>68%</b><span class="dn">of all models</span></div><div class="d"><span class="dl">Restraint energy</span><b>186.3</b><span class="dn">AIR, lower is better</span></div><div class="d"><span class="dl">van der Waals</span><b>-70.44</b></div><div class="d"><span class="dl">DockQ vs 9DWV</span><b>0.051</b><span class="dn">diagnostic only, not ranked on</span></div></div></div>
-      <div class="dgroup"><h4>Upstream evidence</h4><div class="dgrid"><div class="d"><span class="dl">Vina, CRBN pocket</span><b>-9.11 kcal/mol</b><span class="dn">rank #14</span></div><div class="d"><span class="dl">Vina, combined</span><b>-15.33 kcal/mol</b></div><div class="d"><span class="dl">Pose overlap</span><b>0.71</b></div><div class="d"><span class="dl">P(CRBN glue)</span><b>0.995</b><span class="dn">classifier, saturated &mdash; weak signal</span></div></div></div>
+      <div class="dgroup"><h4>Ternary docking</h4><div class="dgrid"><div class="d"><span class="dl">Mean, best 10</span><b>-126.909</b><span class="dn">#7 against the 18 designed &middot; z 0.39</span></div><div class="d"><span class="dl">Best single model</span><b>-141.788</b></div><div class="d"><span class="dl">Spread (sd)</span><b>7.06</b><span class="dn">lower is a tighter funnel</span></div><div class="d"><span class="dl">Models scored</span><b>157</b></div></div></div>
+      <div class="dgroup"><h4>Structure quality</h4><div class="dgrid"><div class="d"><span class="dl">Structure axis</span><b>-0.545</b><span class="dn">#16 against the 18 designed</span></div><div class="d"><span class="dl">Buried interface</span><b>1644 &Aring;&sup2;</b></div><div class="d"><span class="dl">Top cluster</span><b>68%</b><span class="dn">of all models</span></div><div class="d"><span class="dl">Restraint energy</span><b>186.3</b><span class="dn">AIR, lower is better</span></div><div class="d"><span class="dl">van der Waals</span><b>-70.44</b></div><div class="d"><span class="dl">DockQ vs 9DWV</span><b>0.051</b><span class="dn">diagnostic only, not ranked on</span></div></div></div>
+      <div class="dgroup"><h4>Upstream evidence</h4><div class="dgrid"><div class="d"><span class="dl">Vina, CRBN pocket</span><b>-9.11 kcal/mol</b><span class="dn">#14 against the 18 designed</span></div><div class="d"><span class="dl">Vina, combined</span><b>-15.33 kcal/mol</b></div><div class="d"><span class="dl">Pose overlap</span><b>0.71</b></div><div class="d"><span class="dl">RF glue-likeness</span><b>0.995</b><span class="dn">vote fraction, uncalibrated &mdash; saturated across the library, weak signal</span></div></div></div>
       <div class="dgroup"><h4>Identity</h4><div class="dgrid"><div class="d"><span class="dl">Formula</span><b>C24H24N4O5</b></div><div class="d"><span class="dl">Molecular weight</span><b>448.48</b></div><div class="d"><span class="dl">CAS</span><b>Not a registered substance &mdash; custom synthesis</b></div><div class="d"><span class="dl">Pipeline ID</span><b>cand_2392</b><span class="dn">name used in every run directory</span></div></div></div>
     </div>
     <p class="c-smiles"><span class="dl">SMILES</span><code>O=C1CCC(N2Cc3c(ccc(C(=O)O)c3-c3ccc(N4CCNCC4)cc3)C2=O)C(=O)N1</code></p>
@@ -4695,7 +4713,7 @@ L 39.8 53.3
                       xmlns:rdkit='http://www.rdkit.org/xml'
                       xmlns:xlink='http://www.w3.org/1999/xlink'
                   xml:space='preserve'
-width='300px' height='210px' viewBox='0 0 300 210'>
+width='300px' height='210px' viewBox='0 0 300 210'><title>2D structure of RW_234</title>
 <!-- END OF HEADER -->
 <path class='bond-0 atom-0 atom-1' d='M 175.8,191.0 L 166.7,185.8' style='fill:none;fill-rule:evenodd;stroke:#0000FF;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
 <path class='bond-0 atom-0 atom-1' d='M 166.7,185.8 L 157.6,180.5' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
@@ -4950,9 +4968,9 @@ Q 48.1 134.2, 49.2 134.2
       <figure class="v3d"><div class="v3d-host" data-structure="RW_234"><p class="v3d-msg">Loading 3D model&hellip;</p></div><noscript><img class="v3d-poster" src="img/RW_234.png" width="620" height="460" alt="Rank-1 ternary model of RW_234: CRBN in teal, PPIL4 in indigo, ligand in ochre at the interface."></noscript><figcaption><b>Rank-1 ternary model.</b> CRBN <span class="sw-c"></span>, PPIL4 <span class="sw-p"></span>, ligand <span class="sw-l"></span>. <span class="v3d-help">Drag to rotate &middot; scroll to zoom &middot; double-click to reset &middot; arrow keys when focused.</span> Every structure is superposed on CRBN, so PPIL4&rsquo;s position is comparable between them.</figcaption></figure>
     </div>
     <div class="c-data">
-      <div class="dgroup"><h4>Ternary docking</h4><div class="dgrid"><div class="d"><span class="dl">Mean, best 10</span><b>-125.588</b><span class="dn">rank #8 &middot; z 0.12</span></div><div class="d"><span class="dl">Best single model</span><b>-143.383</b></div><div class="d"><span class="dl">Spread (sd)</span><b>7.14</b><span class="dn">lower is a tighter funnel</span></div><div class="d"><span class="dl">Models scored</span><b>160</b></div></div></div>
-      <div class="dgroup"><h4>Structure quality</h4><div class="dgrid"><div class="d"><span class="dl">Structure axis</span><b>-0.368</b><span class="dn">rank #13</span></div><div class="d"><span class="dl">Buried interface</span><b>1791 &Aring;&sup2;</b></div><div class="d"><span class="dl">Top cluster</span><b>64%</b><span class="dn">of all models</span></div><div class="d"><span class="dl">Restraint energy</span><b>200.2</b><span class="dn">AIR, lower is better</span></div><div class="d"><span class="dl">van der Waals</span><b>-74.35</b></div><div class="d"><span class="dl">DockQ vs 9DWV</span><b>0.046</b><span class="dn">diagnostic only, not ranked on</span></div></div></div>
-      <div class="dgroup"><h4>Upstream evidence</h4><div class="dgrid"><div class="d"><span class="dl">Vina, CRBN pocket</span><b>-9.28 kcal/mol</b><span class="dn">rank #9</span></div><div class="d"><span class="dl">Vina, combined</span><b>-15.26 kcal/mol</b></div><div class="d"><span class="dl">Pose overlap</span><b>0.82</b></div><div class="d"><span class="dl">P(CRBN glue)</span><b>0.975</b><span class="dn">classifier, saturated &mdash; weak signal</span></div></div></div>
+      <div class="dgroup"><h4>Ternary docking</h4><div class="dgrid"><div class="d"><span class="dl">Mean, best 10</span><b>-125.588</b><span class="dn">#8 against the 18 designed &middot; z 0.12</span></div><div class="d"><span class="dl">Best single model</span><b>-143.383</b></div><div class="d"><span class="dl">Spread (sd)</span><b>7.14</b><span class="dn">lower is a tighter funnel</span></div><div class="d"><span class="dl">Models scored</span><b>160</b></div></div></div>
+      <div class="dgroup"><h4>Structure quality</h4><div class="dgrid"><div class="d"><span class="dl">Structure axis</span><b>-0.368</b><span class="dn">#13 against the 18 designed</span></div><div class="d"><span class="dl">Buried interface</span><b>1791 &Aring;&sup2;</b></div><div class="d"><span class="dl">Top cluster</span><b>64%</b><span class="dn">of all models</span></div><div class="d"><span class="dl">Restraint energy</span><b>200.2</b><span class="dn">AIR, lower is better</span></div><div class="d"><span class="dl">van der Waals</span><b>-74.35</b></div><div class="d"><span class="dl">DockQ vs 9DWV</span><b>0.046</b><span class="dn">diagnostic only, not ranked on</span></div></div></div>
+      <div class="dgroup"><h4>Upstream evidence</h4><div class="dgrid"><div class="d"><span class="dl">Vina, CRBN pocket</span><b>-9.28 kcal/mol</b><span class="dn">#9 against the 18 designed</span></div><div class="d"><span class="dl">Vina, combined</span><b>-15.26 kcal/mol</b></div><div class="d"><span class="dl">Pose overlap</span><b>0.82</b></div><div class="d"><span class="dl">RF glue-likeness</span><b>0.975</b><span class="dn">vote fraction, uncalibrated &mdash; saturated across the library, weak signal</span></div></div></div>
       <div class="dgroup"><h4>Identity</h4><div class="dgrid"><div class="d"><span class="dl">Formula</span><b>C24H23N5O3</b></div><div class="d"><span class="dl">Molecular weight</span><b>429.48</b></div><div class="d"><span class="dl">CAS</span><b>Not a registered substance &mdash; custom synthesis</b></div><div class="d"><span class="dl">Pipeline ID</span><b>cand_234</b><span class="dn">name used in every run directory</span></div></div></div>
     </div>
     <p class="c-smiles"><span class="dl">SMILES</span><code>N#Cc1ccc2c(c1-c1ccc(N3CCNCC3)cc1)CN(C1CCC(=O)NC1=O)C2=O</code></p>
@@ -4976,7 +4994,7 @@ Q 48.1 134.2, 49.2 134.2
                       xmlns:rdkit='http://www.rdkit.org/xml'
                       xmlns:xlink='http://www.w3.org/1999/xlink'
                   xml:space='preserve'
-width='300px' height='210px' viewBox='0 0 300 210'>
+width='300px' height='210px' viewBox='0 0 300 210'><title>2D structure of RW_2123</title>
 <!-- END OF HEADER -->
 <path class='bond-0 atom-0 atom-1' d='M 228.7,196.6 L 228.7,186.7' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
 <path class='bond-0 atom-0 atom-1' d='M 228.7,186.7 L 228.7,176.9' style='fill:none;fill-rule:evenodd;stroke:#0000FF;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
@@ -5241,9 +5259,9 @@ Q 191.1 60.2, 192.1 60.2
       <figure class="v3d"><div class="v3d-host" data-structure="RW_2123"><p class="v3d-msg">Loading 3D model&hellip;</p></div><noscript><img class="v3d-poster" src="img/RW_2123.png" width="620" height="460" alt="Rank-1 ternary model of RW_2123: CRBN in teal, PPIL4 in indigo, ligand in ochre at the interface."></noscript><figcaption><b>Rank-1 ternary model.</b> CRBN <span class="sw-c"></span>, PPIL4 <span class="sw-p"></span>, ligand <span class="sw-l"></span>. <span class="v3d-help">Drag to rotate &middot; scroll to zoom &middot; double-click to reset &middot; arrow keys when focused.</span> Every structure is superposed on CRBN, so PPIL4&rsquo;s position is comparable between them.</figcaption></figure>
     </div>
     <div class="c-data">
-      <div class="dgroup"><h4>Ternary docking</h4><div class="dgrid"><div class="d"><span class="dl">Mean, best 10</span><b>-125.387</b><span class="dn">rank #9 &middot; z 0.07</span></div><div class="d"><span class="dl">Best single model</span><b>-133.144</b></div><div class="d"><span class="dl">Spread (sd)</span><b>6.96</b><span class="dn">lower is a tighter funnel</span></div><div class="d"><span class="dl">Models scored</span><b>169</b></div></div></div>
-      <div class="dgroup"><h4>Structure quality</h4><div class="dgrid"><div class="d"><span class="dl">Structure axis</span><b>-0.430</b><span class="dn">rank #14</span></div><div class="d"><span class="dl">Buried interface</span><b>1777 &Aring;&sup2;</b></div><div class="d"><span class="dl">Top cluster</span><b>52%</b><span class="dn">of all models</span></div><div class="d"><span class="dl">Restraint energy</span><b>184.8</b><span class="dn">AIR, lower is better</span></div><div class="d"><span class="dl">van der Waals</span><b>-70.57</b></div><div class="d"><span class="dl">DockQ vs 9DWV</span><b>0.046</b><span class="dn">diagnostic only, not ranked on</span></div></div></div>
-      <div class="dgroup"><h4>Upstream evidence</h4><div class="dgrid"><div class="d"><span class="dl">Vina, CRBN pocket</span><b>-9.70 kcal/mol</b><span class="dn">rank #6</span></div><div class="d"><span class="dl">Vina, combined</span><b>-16.07 kcal/mol</b></div><div class="d"><span class="dl">Pose overlap</span><b>0.65</b></div><div class="d"><span class="dl">P(CRBN glue)</span><b>0.975</b><span class="dn">classifier, saturated &mdash; weak signal</span></div></div></div>
+      <div class="dgroup"><h4>Ternary docking</h4><div class="dgrid"><div class="d"><span class="dl">Mean, best 10</span><b>-125.387</b><span class="dn">#9 against the 18 designed &middot; z 0.07</span></div><div class="d"><span class="dl">Best single model</span><b>-133.144</b></div><div class="d"><span class="dl">Spread (sd)</span><b>6.96</b><span class="dn">lower is a tighter funnel</span></div><div class="d"><span class="dl">Models scored</span><b>169</b></div></div></div>
+      <div class="dgroup"><h4>Structure quality</h4><div class="dgrid"><div class="d"><span class="dl">Structure axis</span><b>-0.430</b><span class="dn">#14 against the 18 designed</span></div><div class="d"><span class="dl">Buried interface</span><b>1777 &Aring;&sup2;</b></div><div class="d"><span class="dl">Top cluster</span><b>52%</b><span class="dn">of all models</span></div><div class="d"><span class="dl">Restraint energy</span><b>184.8</b><span class="dn">AIR, lower is better</span></div><div class="d"><span class="dl">van der Waals</span><b>-70.57</b></div><div class="d"><span class="dl">DockQ vs 9DWV</span><b>0.046</b><span class="dn">diagnostic only, not ranked on</span></div></div></div>
+      <div class="dgroup"><h4>Upstream evidence</h4><div class="dgrid"><div class="d"><span class="dl">Vina, CRBN pocket</span><b>-9.70 kcal/mol</b><span class="dn">#6 against the 18 designed</span></div><div class="d"><span class="dl">Vina, combined</span><b>-16.07 kcal/mol</b></div><div class="d"><span class="dl">Pose overlap</span><b>0.65</b></div><div class="d"><span class="dl">RF glue-likeness</span><b>0.975</b><span class="dn">vote fraction, uncalibrated &mdash; saturated across the library, weak signal</span></div></div></div>
       <div class="dgroup"><h4>Identity</h4><div class="dgrid"><div class="d"><span class="dl">Formula</span><b>C24H27N5O3</b></div><div class="d"><span class="dl">Molecular weight</span><b>433.51</b></div><div class="d"><span class="dl">CAS</span><b>Not a registered substance &mdash; custom synthesis</b></div><div class="d"><span class="dl">Pipeline ID</span><b>cand_2123</b><span class="dn">name used in every run directory</span></div></div></div>
     </div>
     <p class="c-smiles"><span class="dl">SMILES</span><code>CNc1ccc(-c2ccc(N3CCNCC3)cc2)c2c1C(=O)N(C1CCC(=O)NC1=O)C2</code></p>
@@ -5258,7 +5276,7 @@ Q 191.1 60.2, 192.1 60.2
     <span class="c-rules mono">1/3</span>
   </summary>
   <div class="c-body">
-    <p class="c-why">The structure extreme: best structure score of all 21.</p>
+    <p class="c-why">The structure extreme: best structure score of all 20 scored molecules.</p>
     <p class="flagline">Between the noise floor and the &minus;125.6 control bar.</p>
     <div class="c-rulerow"><span class="pill p-no"><b>&times;</b>Credible CRBN pose</span><span class="pill p-ok"><b>&check;</b>Structure &ge; 0</span><span class="pill p-no"><b>&times;</b>Beats control bar</span></div>
     <div class="c-vis">
@@ -5267,7 +5285,7 @@ Q 191.1 60.2, 192.1 60.2
                       xmlns:rdkit='http://www.rdkit.org/xml'
                       xmlns:xlink='http://www.w3.org/1999/xlink'
                   xml:space='preserve'
-width='300px' height='210px' viewBox='0 0 300 210'>
+width='300px' height='210px' viewBox='0 0 300 210'><title>2D structure of RW_1668</title>
 <!-- END OF HEADER -->
 <path class='bond-0 atom-0 atom-1' d='M 98.4,196.6 L 106.6,191.9' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
 <path class='bond-0 atom-0 atom-1' d='M 106.6,191.9 L 114.7,187.2' style='fill:none;fill-rule:evenodd;stroke:#0000FF;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
@@ -5532,9 +5550,9 @@ Q 45.0 96.2, 45.9 96.2
       <figure class="v3d"><div class="v3d-host" data-structure="RW_1668"><p class="v3d-msg">Loading 3D model&hellip;</p></div><noscript><img class="v3d-poster" src="img/RW_1668.png" width="620" height="460" alt="Rank-1 ternary model of RW_1668: CRBN in teal, PPIL4 in indigo, ligand in ochre at the interface."></noscript><figcaption><b>Rank-1 ternary model.</b> CRBN <span class="sw-c"></span>, PPIL4 <span class="sw-p"></span>, ligand <span class="sw-l"></span>. <span class="v3d-help">Drag to rotate &middot; scroll to zoom &middot; double-click to reset &middot; arrow keys when focused.</span> Every structure is superposed on CRBN, so PPIL4&rsquo;s position is comparable between them.</figcaption></figure>
     </div>
     <div class="c-data">
-      <div class="dgroup"><h4>Ternary docking</h4><div class="dgrid"><div class="d"><span class="dl">Mean, best 10</span><b>-125.157</b><span class="dn">rank #10 &middot; z 0.03</span></div><div class="d"><span class="dl">Best single model</span><b>-130.225</b></div><div class="d"><span class="dl">Spread (sd)</span><b>1.99</b><span class="dn">lower is a tighter funnel</span></div><div class="d"><span class="dl">Models scored</span><b>167</b></div></div></div>
-      <div class="dgroup"><h4>Structure quality</h4><div class="dgrid"><div class="d"><span class="dl">Structure axis</span><b>0.964</b><span class="dn">rank #1</span></div><div class="d"><span class="dl">Buried interface</span><b>1658 &Aring;&sup2;</b></div><div class="d"><span class="dl">Top cluster</span><b>87%</b><span class="dn">of all models</span></div><div class="d"><span class="dl">Restraint energy</span><b>164.2</b><span class="dn">AIR, lower is better</span></div><div class="d"><span class="dl">van der Waals</span><b>-74.29</b></div><div class="d"><span class="dl">DockQ vs 9DWV</span><b>0.063</b><span class="dn">diagnostic only, not ranked on</span></div></div></div>
-      <div class="dgroup"><h4>Upstream evidence</h4><div class="dgrid"><div class="d"><span class="dl">Vina, CRBN pocket</span><b>-9.20 kcal/mol</b><span class="dn">rank #10</span></div><div class="d"><span class="dl">Vina, combined</span><b>-14.84 kcal/mol</b></div><div class="d"><span class="dl">Pose overlap</span><b>0.69</b></div><div class="d"><span class="dl">P(CRBN glue)</span><b>0.975</b><span class="dn">classifier, saturated &mdash; weak signal</span></div></div></div>
+      <div class="dgroup"><h4>Ternary docking</h4><div class="dgrid"><div class="d"><span class="dl">Mean, best 10</span><b>-125.157</b><span class="dn">#10 against the 18 designed &middot; z 0.03</span></div><div class="d"><span class="dl">Best single model</span><b>-130.225</b></div><div class="d"><span class="dl">Spread (sd)</span><b>1.99</b><span class="dn">lower is a tighter funnel</span></div><div class="d"><span class="dl">Models scored</span><b>167</b></div></div></div>
+      <div class="dgroup"><h4>Structure quality</h4><div class="dgrid"><div class="d"><span class="dl">Structure axis</span><b>0.964</b><span class="dn">#1 against the 18 designed</span></div><div class="d"><span class="dl">Buried interface</span><b>1658 &Aring;&sup2;</b></div><div class="d"><span class="dl">Top cluster</span><b>87%</b><span class="dn">of all models</span></div><div class="d"><span class="dl">Restraint energy</span><b>164.2</b><span class="dn">AIR, lower is better</span></div><div class="d"><span class="dl">van der Waals</span><b>-74.29</b></div><div class="d"><span class="dl">DockQ vs 9DWV</span><b>0.063</b><span class="dn">diagnostic only, not ranked on</span></div></div></div>
+      <div class="dgroup"><h4>Upstream evidence</h4><div class="dgrid"><div class="d"><span class="dl">Vina, CRBN pocket</span><b>-9.20 kcal/mol</b><span class="dn">#10 against the 18 designed</span></div><div class="d"><span class="dl">Vina, combined</span><b>-14.84 kcal/mol</b></div><div class="d"><span class="dl">Pose overlap</span><b>0.69</b></div><div class="d"><span class="dl">RF glue-likeness</span><b>0.975</b><span class="dn">vote fraction, uncalibrated &mdash; saturated across the library, weak signal</span></div></div></div>
       <div class="dgroup"><h4>Identity</h4><div class="dgrid"><div class="d"><span class="dl">Formula</span><b>C24H27N5O3</b></div><div class="d"><span class="dl">Molecular weight</span><b>433.51</b></div><div class="d"><span class="dl">CAS</span><b>Not a registered substance &mdash; custom synthesis</b></div><div class="d"><span class="dl">Pipeline ID</span><b>cand_1668</b><span class="dn">name used in every run directory</span></div></div></div>
     </div>
     <p class="c-smiles"><span class="dl">SMILES</span><code>CNc1cc2c(c(-c3ccc(N4CCNCC4)cc3)c1)C(=O)N(C1CCC(=O)NC1=O)C2</code></p>
@@ -5558,7 +5576,7 @@ Q 45.0 96.2, 45.9 96.2
                       xmlns:rdkit='http://www.rdkit.org/xml'
                       xmlns:xlink='http://www.w3.org/1999/xlink'
                   xml:space='preserve'
-width='300px' height='210px' viewBox='0 0 300 210'>
+width='300px' height='210px' viewBox='0 0 300 210'><title>2D structure of RW_445</title>
 <!-- END OF HEADER -->
 <path class='bond-0 atom-0 atom-1' d='M 45.2,19.4 L 50.1,27.8' style='fill:none;fill-rule:evenodd;stroke:#FF0000;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
 <path class='bond-0 atom-0 atom-1' d='M 50.1,27.8 L 55.0,36.3' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
@@ -5837,9 +5855,9 @@ L 39.9 53.3
       <figure class="v3d"><div class="v3d-host" data-structure="RW_445"><p class="v3d-msg">Loading 3D model&hellip;</p></div><noscript><img class="v3d-poster" src="img/RW_445.png" width="620" height="460" alt="Rank-1 ternary model of RW_445: CRBN in teal, PPIL4 in indigo, ligand in ochre at the interface."></noscript><figcaption><b>Rank-1 ternary model.</b> CRBN <span class="sw-c"></span>, PPIL4 <span class="sw-p"></span>, ligand <span class="sw-l"></span>. <span class="v3d-help">Drag to rotate &middot; scroll to zoom &middot; double-click to reset &middot; arrow keys when focused.</span> Every structure is superposed on CRBN, so PPIL4&rsquo;s position is comparable between them.</figcaption></figure>
     </div>
     <div class="c-data">
-      <div class="dgroup"><h4>Ternary docking</h4><div class="dgrid"><div class="d"><span class="dl">Mean, best 10</span><b>-125.144</b><span class="dn">rank #11 &middot; z 0.02</span></div><div class="d"><span class="dl">Best single model</span><b>-132.738</b></div><div class="d"><span class="dl">Spread (sd)</span><b>4.04</b><span class="dn">lower is a tighter funnel</span></div><div class="d"><span class="dl">Models scored</span><b>156</b></div></div></div>
-      <div class="dgroup"><h4>Structure quality</h4><div class="dgrid"><div class="d"><span class="dl">Structure axis</span><b>0.957</b><span class="dn">rank #2</span></div><div class="d"><span class="dl">Buried interface</span><b>1792 &Aring;&sup2;</b></div><div class="d"><span class="dl">Top cluster</span><b>77%</b><span class="dn">of all models</span></div><div class="d"><span class="dl">Restraint energy</span><b>165.2</b><span class="dn">AIR, lower is better</span></div><div class="d"><span class="dl">van der Waals</span><b>-74.98</b></div><div class="d"><span class="dl">DockQ vs 9DWV</span><b>0.182</b><span class="dn">diagnostic only, not ranked on</span></div></div></div>
-      <div class="dgroup"><h4>Upstream evidence</h4><div class="dgrid"><div class="d"><span class="dl">Vina, CRBN pocket</span><b>-9.11 kcal/mol</b><span class="dn">rank #13</span></div><div class="d"><span class="dl">Vina, combined</span><b>-14.92 kcal/mol</b></div><div class="d"><span class="dl">Pose overlap</span><b>0.64</b></div><div class="d"><span class="dl">P(CRBN glue)</span><b>1.0</b><span class="dn">classifier, saturated &mdash; weak signal</span></div></div></div>
+      <div class="dgroup"><h4>Ternary docking</h4><div class="dgrid"><div class="d"><span class="dl">Mean, best 10</span><b>-125.144</b><span class="dn">#11 against the 18 designed &middot; z 0.02</span></div><div class="d"><span class="dl">Best single model</span><b>-132.738</b></div><div class="d"><span class="dl">Spread (sd)</span><b>4.04</b><span class="dn">lower is a tighter funnel</span></div><div class="d"><span class="dl">Models scored</span><b>156</b></div></div></div>
+      <div class="dgroup"><h4>Structure quality</h4><div class="dgrid"><div class="d"><span class="dl">Structure axis</span><b>0.957</b><span class="dn">#2 against the 18 designed</span></div><div class="d"><span class="dl">Buried interface</span><b>1792 &Aring;&sup2;</b></div><div class="d"><span class="dl">Top cluster</span><b>77%</b><span class="dn">of all models</span></div><div class="d"><span class="dl">Restraint energy</span><b>165.2</b><span class="dn">AIR, lower is better</span></div><div class="d"><span class="dl">van der Waals</span><b>-74.98</b></div><div class="d"><span class="dl">DockQ vs 9DWV</span><b>0.182</b><span class="dn">diagnostic only, not ranked on</span></div></div></div>
+      <div class="dgroup"><h4>Upstream evidence</h4><div class="dgrid"><div class="d"><span class="dl">Vina, CRBN pocket</span><b>-9.11 kcal/mol</b><span class="dn">#13 against the 18 designed</span></div><div class="d"><span class="dl">Vina, combined</span><b>-14.92 kcal/mol</b></div><div class="d"><span class="dl">Pose overlap</span><b>0.64</b></div><div class="d"><span class="dl">RF glue-likeness</span><b>1.0</b><span class="dn">vote fraction, uncalibrated &mdash; saturated across the library, weak signal</span></div></div></div>
       <div class="dgroup"><h4>Identity</h4><div class="dgrid"><div class="d"><span class="dl">Formula</span><b>C23H21ClN4O4</b></div><div class="d"><span class="dl">Molecular weight</span><b>452.90</b></div><div class="d"><span class="dl">CAS</span><b>Not a registered substance &mdash; custom synthesis</b></div><div class="d"><span class="dl">Pipeline ID</span><b>cand_445</b><span class="dn">name used in every run directory</span></div></div></div>
     </div>
     <p class="c-smiles"><span class="dl">SMILES</span><code>O=C1CCC(N2C(=O)c3cc(Cl)cc(-c4ccc(N5CCNCC5)cc4)c3C2=O)C(=O)N1</code></p>
@@ -5863,7 +5881,7 @@ L 39.9 53.3
                       xmlns:rdkit='http://www.rdkit.org/xml'
                       xmlns:xlink='http://www.w3.org/1999/xlink'
                   xml:space='preserve'
-width='300px' height='210px' viewBox='0 0 300 210'>
+width='300px' height='210px' viewBox='0 0 300 210'><title>2D structure of RW_779</title>
 <!-- END OF HEADER -->
 <path class='bond-0 atom-0 atom-1' d='M 45.0,19.4 L 49.9,27.8' style='fill:none;fill-rule:evenodd;stroke:#FF0000;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
 <path class='bond-0 atom-0 atom-1' d='M 49.9,27.8 L 54.8,36.3' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
@@ -6159,9 +6177,9 @@ L 39.7 53.3
       <figure class="v3d"><div class="v3d-host" data-structure="RW_779"><p class="v3d-msg">Loading 3D model&hellip;</p></div><noscript><img class="v3d-poster" src="img/RW_779.png" width="620" height="460" alt="Rank-1 ternary model of RW_779: CRBN in teal, PPIL4 in indigo, ligand in ochre at the interface."></noscript><figcaption><b>Rank-1 ternary model.</b> CRBN <span class="sw-c"></span>, PPIL4 <span class="sw-p"></span>, ligand <span class="sw-l"></span>. <span class="v3d-help">Drag to rotate &middot; scroll to zoom &middot; double-click to reset &middot; arrow keys when focused.</span> Every structure is superposed on CRBN, so PPIL4&rsquo;s position is comparable between them.</figcaption></figure>
     </div>
     <div class="c-data">
-      <div class="dgroup"><h4>Ternary docking</h4><div class="dgrid"><div class="d"><span class="dl">Mean, best 10</span><b>-124.444</b><span class="dn">rank #12 &middot; z -0.12</span></div><div class="d"><span class="dl">Best single model</span><b>-132.824</b></div><div class="d"><span class="dl">Spread (sd)</span><b>4.66</b><span class="dn">lower is a tighter funnel</span></div><div class="d"><span class="dl">Models scored</span><b>163</b></div></div></div>
-      <div class="dgroup"><h4>Structure quality</h4><div class="dgrid"><div class="d"><span class="dl">Structure axis</span><b>0.138</b><span class="dn">rank #7</span></div><div class="d"><span class="dl">Buried interface</span><b>1713 &Aring;&sup2;</b></div><div class="d"><span class="dl">Top cluster</span><b>74%</b><span class="dn">of all models</span></div><div class="d"><span class="dl">Restraint energy</span><b>185.5</b><span class="dn">AIR, lower is better</span></div><div class="d"><span class="dl">van der Waals</span><b>-77.81</b></div><div class="d"><span class="dl">DockQ vs 9DWV</span><b>0.249</b><span class="dn">diagnostic only, not ranked on</span></div></div></div>
-      <div class="dgroup"><h4>Upstream evidence</h4><div class="dgrid"><div class="d"><span class="dl">Vina, CRBN pocket</span><b>-8.41 kcal/mol</b><span class="dn">rank #15</span></div><div class="d"><span class="dl">Vina, combined</span><b>-14.05 kcal/mol</b></div><div class="d"><span class="dl">Pose overlap</span><b>0.28</b></div><div class="d"><span class="dl">P(CRBN glue)</span><b>0.995</b><span class="dn">classifier, saturated &mdash; weak signal</span></div></div></div>
+      <div class="dgroup"><h4>Ternary docking</h4><div class="dgrid"><div class="d"><span class="dl">Mean, best 10</span><b>-124.444</b><span class="dn">#12 against the 18 designed &middot; z -0.12</span></div><div class="d"><span class="dl">Best single model</span><b>-132.824</b></div><div class="d"><span class="dl">Spread (sd)</span><b>4.66</b><span class="dn">lower is a tighter funnel</span></div><div class="d"><span class="dl">Models scored</span><b>163</b></div></div></div>
+      <div class="dgroup"><h4>Structure quality</h4><div class="dgrid"><div class="d"><span class="dl">Structure axis</span><b>0.138</b><span class="dn">#7 against the 18 designed</span></div><div class="d"><span class="dl">Buried interface</span><b>1713 &Aring;&sup2;</b></div><div class="d"><span class="dl">Top cluster</span><b>74%</b><span class="dn">of all models</span></div><div class="d"><span class="dl">Restraint energy</span><b>185.5</b><span class="dn">AIR, lower is better</span></div><div class="d"><span class="dl">van der Waals</span><b>-77.81</b></div><div class="d"><span class="dl">DockQ vs 9DWV</span><b>0.249</b><span class="dn">diagnostic only, not ranked on</span></div></div></div>
+      <div class="dgroup"><h4>Upstream evidence</h4><div class="dgrid"><div class="d"><span class="dl">Vina, CRBN pocket</span><b>-8.41 kcal/mol</b><span class="dn">#15 against the 18 designed</span></div><div class="d"><span class="dl">Vina, combined</span><b>-14.05 kcal/mol</b></div><div class="d"><span class="dl">Pose overlap</span><b>0.28</b></div><div class="d"><span class="dl">RF glue-likeness</span><b>0.995</b><span class="dn">vote fraction, uncalibrated &mdash; saturated across the library, weak signal</span></div></div></div>
       <div class="dgroup"><h4>Identity</h4><div class="dgrid"><div class="d"><span class="dl">Formula</span><b>C23H21BrN4O4</b></div><div class="d"><span class="dl">Molecular weight</span><b>497.35</b></div><div class="d"><span class="dl">CAS</span><b>Not a registered substance &mdash; custom synthesis</b></div><div class="d"><span class="dl">Pipeline ID</span><b>cand_779</b><span class="dn">name used in every run directory</span></div></div></div>
     </div>
     <p class="c-smiles"><span class="dl">SMILES</span><code>O=C1CCC(N2C(=O)c3cc(Br)cc(-c4ccc(N5CCNCC5)cc4)c3C2=O)C(=O)N1</code></p>
@@ -6176,7 +6194,7 @@ L 39.7 53.3
     <span class="c-rules mono">2/3</span>
   </summary>
   <div class="c-body">
-    <p class="c-why">The pose extreme: best upstream Vina pose of all 18.</p>
+    <p class="c-why">The pose extreme: best upstream Vina pose of the 18 designed candidates.</p>
     <p class="flagline">Between the noise floor and the &minus;125.6 control bar.</p>
     <div class="c-rulerow"><span class="pill p-ok"><b>&check;</b>Credible CRBN pose</span><span class="pill p-ok"><b>&check;</b>Structure &ge; 0</span><span class="pill p-no"><b>&times;</b>Beats control bar</span></div>
     <div class="c-vis">
@@ -6185,7 +6203,7 @@ L 39.7 53.3
                       xmlns:rdkit='http://www.rdkit.org/xml'
                       xmlns:xlink='http://www.w3.org/1999/xlink'
                   xml:space='preserve'
-width='300px' height='210px' viewBox='0 0 300 210'>
+width='300px' height='210px' viewBox='0 0 300 210'><title>2D structure of RW_381</title>
 <!-- END OF HEADER -->
 <path class='bond-0 atom-0 atom-1' d='M 32.5,22.1 L 37.9,31.6' style='fill:none;fill-rule:evenodd;stroke:#FF0000;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
 <path class='bond-0 atom-0 atom-1' d='M 37.9,31.6 L 43.4,41.1' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
@@ -6441,9 +6459,9 @@ L 26.5 60.2
       <figure class="v3d"><div class="v3d-host" data-structure="RW_381"><p class="v3d-msg">Loading 3D model&hellip;</p></div><noscript><img class="v3d-poster" src="img/RW_381.png" width="620" height="460" alt="Rank-1 ternary model of RW_381: CRBN in teal, PPIL4 in indigo, ligand in ochre at the interface."></noscript><figcaption><b>Rank-1 ternary model.</b> CRBN <span class="sw-c"></span>, PPIL4 <span class="sw-p"></span>, ligand <span class="sw-l"></span>. <span class="v3d-help">Drag to rotate &middot; scroll to zoom &middot; double-click to reset &middot; arrow keys when focused.</span> Every structure is superposed on CRBN, so PPIL4&rsquo;s position is comparable between them.</figcaption></figure>
     </div>
     <div class="c-data">
-      <div class="dgroup"><h4>Ternary docking</h4><div class="dgrid"><div class="d"><span class="dl">Mean, best 10</span><b>-123.876</b><span class="dn">rank #13 &middot; z -0.24</span></div><div class="d"><span class="dl">Best single model</span><b>-134.257</b></div><div class="d"><span class="dl">Spread (sd)</span><b>6.29</b><span class="dn">lower is a tighter funnel</span></div><div class="d"><span class="dl">Models scored</span><b>162</b></div></div></div>
-      <div class="dgroup"><h4>Structure quality</h4><div class="dgrid"><div class="d"><span class="dl">Structure axis</span><b>0.001</b><span class="dn">rank #9</span></div><div class="d"><span class="dl">Buried interface</span><b>1630 &Aring;&sup2;</b></div><div class="d"><span class="dl">Top cluster</span><b>78%</b><span class="dn">of all models</span></div><div class="d"><span class="dl">Restraint energy</span><b>174.1</b><span class="dn">AIR, lower is better</span></div><div class="d"><span class="dl">van der Waals</span><b>-79.65</b></div><div class="d"><span class="dl">DockQ vs 9DWV</span><b>0.044</b><span class="dn">diagnostic only, not ranked on</span></div></div></div>
-      <div class="dgroup"><h4>Upstream evidence</h4><div class="dgrid"><div class="d"><span class="dl">Vina, CRBN pocket</span><b>-10.19 kcal/mol</b><span class="dn">rank #1</span></div><div class="d"><span class="dl">Vina, combined</span><b>-16.12 kcal/mol</b></div><div class="d"><span class="dl">Pose overlap</span><b>0.72</b></div><div class="d"><span class="dl">P(CRBN glue)</span><b>0.985</b><span class="dn">classifier, saturated &mdash; weak signal</span></div></div></div>
+      <div class="dgroup"><h4>Ternary docking</h4><div class="dgrid"><div class="d"><span class="dl">Mean, best 10</span><b>-123.876</b><span class="dn">#13 against the 18 designed &middot; z -0.24</span></div><div class="d"><span class="dl">Best single model</span><b>-134.257</b></div><div class="d"><span class="dl">Spread (sd)</span><b>6.29</b><span class="dn">lower is a tighter funnel</span></div><div class="d"><span class="dl">Models scored</span><b>162</b></div></div></div>
+      <div class="dgroup"><h4>Structure quality</h4><div class="dgrid"><div class="d"><span class="dl">Structure axis</span><b>0.001</b><span class="dn">#9 against the 18 designed</span></div><div class="d"><span class="dl">Buried interface</span><b>1630 &Aring;&sup2;</b></div><div class="d"><span class="dl">Top cluster</span><b>78%</b><span class="dn">of all models</span></div><div class="d"><span class="dl">Restraint energy</span><b>174.1</b><span class="dn">AIR, lower is better</span></div><div class="d"><span class="dl">van der Waals</span><b>-79.65</b></div><div class="d"><span class="dl">DockQ vs 9DWV</span><b>0.044</b><span class="dn">diagnostic only, not ranked on</span></div></div></div>
+      <div class="dgroup"><h4>Upstream evidence</h4><div class="dgrid"><div class="d"><span class="dl">Vina, CRBN pocket</span><b>-10.19 kcal/mol</b><span class="dn">#1 against the 18 designed</span></div><div class="d"><span class="dl">Vina, combined</span><b>-16.12 kcal/mol</b></div><div class="d"><span class="dl">Pose overlap</span><b>0.72</b></div><div class="d"><span class="dl">RF glue-likeness</span><b>0.985</b><span class="dn">vote fraction, uncalibrated &mdash; saturated across the library, weak signal</span></div></div></div>
       <div class="dgroup"><h4>Identity</h4><div class="dgrid"><div class="d"><span class="dl">Formula</span><b>C23H23ClN4O3</b></div><div class="d"><span class="dl">Molecular weight</span><b>438.92</b></div><div class="d"><span class="dl">CAS</span><b>Not a registered substance &mdash; custom synthesis</b></div><div class="d"><span class="dl">Pipeline ID</span><b>cand_381</b><span class="dn">name used in every run directory</span></div></div></div>
     </div>
     <p class="c-smiles"><span class="dl">SMILES</span><code>O=C1CCC(N2Cc3c(Cl)ccc(-c4ccc(N5CCNCC5)cc4)c3C2=O)C(=O)N1</code></p>
@@ -6467,7 +6485,7 @@ L 26.5 60.2
                       xmlns:rdkit='http://www.rdkit.org/xml'
                       xmlns:xlink='http://www.w3.org/1999/xlink'
                   xml:space='preserve'
-width='300px' height='210px' viewBox='0 0 300 210'>
+width='300px' height='210px' viewBox='0 0 300 210'><title>2D structure of RW_1092</title>
 <!-- END OF HEADER -->
 <path class='bond-0 atom-0 atom-1' d='M 45.2,19.4 L 50.1,27.8' style='fill:none;fill-rule:evenodd;stroke:#FF0000;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
 <path class='bond-0 atom-0 atom-1' d='M 50.1,27.8 L 55.0,36.3' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
@@ -6723,9 +6741,9 @@ L 39.9 53.3
       <figure class="v3d"><div class="v3d-host" data-structure="RW_1092"><p class="v3d-msg">Loading 3D model&hellip;</p></div><noscript><img class="v3d-poster" src="img/RW_1092.png" width="620" height="460" alt="Rank-1 ternary model of RW_1092: CRBN in teal, PPIL4 in indigo, ligand in ochre at the interface."></noscript><figcaption><b>Rank-1 ternary model.</b> CRBN <span class="sw-c"></span>, PPIL4 <span class="sw-p"></span>, ligand <span class="sw-l"></span>. <span class="v3d-help">Drag to rotate &middot; scroll to zoom &middot; double-click to reset &middot; arrow keys when focused.</span> Every structure is superposed on CRBN, so PPIL4&rsquo;s position is comparable between them.</figcaption></figure>
     </div>
     <div class="c-data">
-      <div class="dgroup"><h4>Ternary docking</h4><div class="dgrid"><div class="d"><span class="dl">Mean, best 10</span><b>-123.289</b><span class="dn">rank #14 &middot; z -0.36</span></div><div class="d"><span class="dl">Best single model</span><b>-131.596</b></div><div class="d"><span class="dl">Spread (sd)</span><b>4.39</b><span class="dn">lower is a tighter funnel</span></div><div class="d"><span class="dl">Models scored</span><b>172</b></div></div></div>
-      <div class="dgroup"><h4>Structure quality</h4><div class="dgrid"><div class="d"><span class="dl">Structure axis</span><b>0.429</b><span class="dn">rank #6</span></div><div class="d"><span class="dl">Buried interface</span><b>1742 &Aring;&sup2;</b></div><div class="d"><span class="dl">Top cluster</span><b>87%</b><span class="dn">of all models</span></div><div class="d"><span class="dl">Restraint energy</span><b>193.8</b><span class="dn">AIR, lower is better</span></div><div class="d"><span class="dl">van der Waals</span><b>-64.96</b></div><div class="d"><span class="dl">DockQ vs 9DWV</span><b>0.042</b><span class="dn">diagnostic only, not ranked on</span></div></div></div>
-      <div class="dgroup"><h4>Upstream evidence</h4><div class="dgrid"><div class="d"><span class="dl">Vina, CRBN pocket</span><b>-9.93 kcal/mol</b><span class="dn">rank #3</span></div><div class="d"><span class="dl">Vina, combined</span><b>-15.90 kcal/mol</b></div><div class="d"><span class="dl">Pose overlap</span><b>0.58</b></div><div class="d"><span class="dl">P(CRBN glue)</span><b>0.985</b><span class="dn">classifier, saturated &mdash; weak signal</span></div></div></div>
+      <div class="dgroup"><h4>Ternary docking</h4><div class="dgrid"><div class="d"><span class="dl">Mean, best 10</span><b>-123.289</b><span class="dn">#14 against the 18 designed &middot; z -0.36</span></div><div class="d"><span class="dl">Best single model</span><b>-131.596</b></div><div class="d"><span class="dl">Spread (sd)</span><b>4.39</b><span class="dn">lower is a tighter funnel</span></div><div class="d"><span class="dl">Models scored</span><b>172</b></div></div></div>
+      <div class="dgroup"><h4>Structure quality</h4><div class="dgrid"><div class="d"><span class="dl">Structure axis</span><b>0.429</b><span class="dn">#6 against the 18 designed</span></div><div class="d"><span class="dl">Buried interface</span><b>1742 &Aring;&sup2;</b></div><div class="d"><span class="dl">Top cluster</span><b>87%</b><span class="dn">of all models</span></div><div class="d"><span class="dl">Restraint energy</span><b>193.8</b><span class="dn">AIR, lower is better</span></div><div class="d"><span class="dl">van der Waals</span><b>-64.96</b></div><div class="d"><span class="dl">DockQ vs 9DWV</span><b>0.042</b><span class="dn">diagnostic only, not ranked on</span></div></div></div>
+      <div class="dgroup"><h4>Upstream evidence</h4><div class="dgrid"><div class="d"><span class="dl">Vina, CRBN pocket</span><b>-9.93 kcal/mol</b><span class="dn">#3 against the 18 designed</span></div><div class="d"><span class="dl">Vina, combined</span><b>-15.90 kcal/mol</b></div><div class="d"><span class="dl">Pose overlap</span><b>0.58</b></div><div class="d"><span class="dl">RF glue-likeness</span><b>0.985</b><span class="dn">vote fraction, uncalibrated &mdash; saturated across the library, weak signal</span></div></div></div>
       <div class="dgroup"><h4>Identity</h4><div class="dgrid"><div class="d"><span class="dl">Formula</span><b>C23H23ClN4O3</b></div><div class="d"><span class="dl">Molecular weight</span><b>438.92</b></div><div class="d"><span class="dl">CAS</span><b>Not a registered substance &mdash; custom synthesis</b></div><div class="d"><span class="dl">Pipeline ID</span><b>cand_1092</b><span class="dn">name used in every run directory</span></div></div></div>
     </div>
     <p class="c-smiles"><span class="dl">SMILES</span><code>O=C1CCC(N2Cc3cc(Cl)cc(-c4ccc(N5CCNCC5)cc4)c3C2=O)C(=O)N1</code></p>
@@ -6749,7 +6767,7 @@ L 39.9 53.3
                       xmlns:rdkit='http://www.rdkit.org/xml'
                       xmlns:xlink='http://www.w3.org/1999/xlink'
                   xml:space='preserve'
-width='300px' height='210px' viewBox='0 0 300 210'>
+width='300px' height='210px' viewBox='0 0 300 210'><title>2D structure of RW_1078</title>
 <!-- END OF HEADER -->
 <path class='bond-0 atom-0 atom-1' d='M 45.0,19.4 L 49.9,27.8' style='fill:none;fill-rule:evenodd;stroke:#FF0000;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
 <path class='bond-0 atom-0 atom-1' d='M 49.9,27.8 L 54.8,36.3' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
@@ -7017,9 +7035,9 @@ L 39.7 53.3
       <figure class="v3d"><div class="v3d-host" data-structure="RW_1078"><p class="v3d-msg">Loading 3D model&hellip;</p></div><noscript><img class="v3d-poster" src="img/RW_1078.png" width="620" height="460" alt="Rank-1 ternary model of RW_1078: CRBN in teal, PPIL4 in indigo, ligand in ochre at the interface."></noscript><figcaption><b>Rank-1 ternary model.</b> CRBN <span class="sw-c"></span>, PPIL4 <span class="sw-p"></span>, ligand <span class="sw-l"></span>. <span class="v3d-help">Drag to rotate &middot; scroll to zoom &middot; double-click to reset &middot; arrow keys when focused.</span> Every structure is superposed on CRBN, so PPIL4&rsquo;s position is comparable between them.</figcaption></figure>
     </div>
     <div class="c-data">
-      <div class="dgroup"><h4>Ternary docking</h4><div class="dgrid"><div class="d"><span class="dl">Mean, best 10</span><b>-122.632</b><span class="dn">rank #15 &middot; z -0.50</span></div><div class="d"><span class="dl">Best single model</span><b>-130.648</b></div><div class="d"><span class="dl">Spread (sd)</span><b>4.92</b><span class="dn">lower is a tighter funnel</span></div><div class="d"><span class="dl">Models scored</span><b>166</b></div></div></div>
-      <div class="dgroup"><h4>Structure quality</h4><div class="dgrid"><div class="d"><span class="dl">Structure axis</span><b>-0.106</b><span class="dn">rank #10</span></div><div class="d"><span class="dl">Buried interface</span><b>1673 &Aring;&sup2;</b></div><div class="d"><span class="dl">Top cluster</span><b>68%</b><span class="dn">of all models</span></div><div class="d"><span class="dl">Restraint energy</span><b>181.2</b><span class="dn">AIR, lower is better</span></div><div class="d"><span class="dl">van der Waals</span><b>-66.59</b></div><div class="d"><span class="dl">DockQ vs 9DWV</span><b>0.026</b><span class="dn">diagnostic only, not ranked on</span></div></div></div>
-      <div class="dgroup"><h4>Upstream evidence</h4><div class="dgrid"><div class="d"><span class="dl">Vina, CRBN pocket</span><b>-8.34 kcal/mol</b><span class="dn">rank #16</span></div><div class="d"><span class="dl">Vina, combined</span><b>-14.26 kcal/mol</b></div><div class="d"><span class="dl">Pose overlap</span><b>0.79</b></div><div class="d"><span class="dl">P(CRBN glue)</span><b>0.98</b><span class="dn">classifier, saturated &mdash; weak signal</span></div></div></div>
+      <div class="dgroup"><h4>Ternary docking</h4><div class="dgrid"><div class="d"><span class="dl">Mean, best 10</span><b>-122.632</b><span class="dn">#15 against the 18 designed &middot; z -0.50</span></div><div class="d"><span class="dl">Best single model</span><b>-130.648</b></div><div class="d"><span class="dl">Spread (sd)</span><b>4.92</b><span class="dn">lower is a tighter funnel</span></div><div class="d"><span class="dl">Models scored</span><b>166</b></div></div></div>
+      <div class="dgroup"><h4>Structure quality</h4><div class="dgrid"><div class="d"><span class="dl">Structure axis</span><b>-0.106</b><span class="dn">#10 against the 18 designed</span></div><div class="d"><span class="dl">Buried interface</span><b>1673 &Aring;&sup2;</b></div><div class="d"><span class="dl">Top cluster</span><b>68%</b><span class="dn">of all models</span></div><div class="d"><span class="dl">Restraint energy</span><b>181.2</b><span class="dn">AIR, lower is better</span></div><div class="d"><span class="dl">van der Waals</span><b>-66.59</b></div><div class="d"><span class="dl">DockQ vs 9DWV</span><b>0.026</b><span class="dn">diagnostic only, not ranked on</span></div></div></div>
+      <div class="dgroup"><h4>Upstream evidence</h4><div class="dgrid"><div class="d"><span class="dl">Vina, CRBN pocket</span><b>-8.34 kcal/mol</b><span class="dn">#16 against the 18 designed</span></div><div class="d"><span class="dl">Vina, combined</span><b>-14.26 kcal/mol</b></div><div class="d"><span class="dl">Pose overlap</span><b>0.79</b></div><div class="d"><span class="dl">RF glue-likeness</span><b>0.98</b><span class="dn">vote fraction, uncalibrated &mdash; saturated across the library, weak signal</span></div></div></div>
       <div class="dgroup"><h4>Identity</h4><div class="dgrid"><div class="d"><span class="dl">Formula</span><b>C23H21FN4O4</b></div><div class="d"><span class="dl">Molecular weight</span><b>436.44</b></div><div class="d"><span class="dl">CAS</span><b>Not a registered substance &mdash; custom synthesis</b></div><div class="d"><span class="dl">Pipeline ID</span><b>cand_1078</b><span class="dn">name used in every run directory</span></div></div></div>
     </div>
     <p class="c-smiles"><span class="dl">SMILES</span><code>O=C1CCC(N2C(=O)c3cc(F)cc(-c4ccc(N5CCNCC5)cc4)c3C2=O)C(=O)N1</code></p>
@@ -7043,7 +7061,7 @@ L 39.7 53.3
                       xmlns:rdkit='http://www.rdkit.org/xml'
                       xmlns:xlink='http://www.w3.org/1999/xlink'
                   xml:space='preserve'
-width='300px' height='210px' viewBox='0 0 300 210'>
+width='300px' height='210px' viewBox='0 0 300 210'><title>2D structure of RW_80</title>
 <!-- END OF HEADER -->
 <path class='bond-0 atom-0 atom-1' d='M 24.0,124.5 L 32.9,124.5' style='fill:none;fill-rule:evenodd;stroke:#FF0000;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
 <path class='bond-0 atom-0 atom-1' d='M 32.9,124.5 L 41.8,124.5' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
@@ -7311,9 +7329,9 @@ L 49.9 140.6
       <figure class="v3d"><div class="v3d-host" data-structure="RW_80"><p class="v3d-msg">Loading 3D model&hellip;</p></div><noscript><img class="v3d-poster" src="img/RW_80.png" width="620" height="460" alt="Rank-1 ternary model of RW_80: CRBN in teal, PPIL4 in indigo, ligand in ochre at the interface."></noscript><figcaption><b>Rank-1 ternary model.</b> CRBN <span class="sw-c"></span>, PPIL4 <span class="sw-p"></span>, ligand <span class="sw-l"></span>. <span class="v3d-help">Drag to rotate &middot; scroll to zoom &middot; double-click to reset &middot; arrow keys when focused.</span> Every structure is superposed on CRBN, so PPIL4&rsquo;s position is comparable between them.</figcaption></figure>
     </div>
     <div class="c-data">
-      <div class="dgroup"><h4>Ternary docking</h4><div class="dgrid"><div class="d"><span class="dl">Mean, best 10</span><b>-119.991</b><span class="dn">rank #16 &middot; z -1.05</span></div><div class="d"><span class="dl">Best single model</span><b>-140.112</b></div><div class="d"><span class="dl">Spread (sd)</span><b>10.65</b><span class="dn">lower is a tighter funnel</span></div><div class="d"><span class="dl">Models scored</span><b>153</b></div></div></div>
-      <div class="dgroup"><h4>Structure quality</h4><div class="dgrid"><div class="d"><span class="dl">Structure axis</span><b>-0.460</b><span class="dn">rank #15</span></div><div class="d"><span class="dl">Buried interface</span><b>1646 &Aring;&sup2;</b></div><div class="d"><span class="dl">Top cluster</span><b>82%</b><span class="dn">of all models</span></div><div class="d"><span class="dl">Restraint energy</span><b>183.1</b><span class="dn">AIR, lower is better</span></div><div class="d"><span class="dl">van der Waals</span><b>-71.26</b></div><div class="d"><span class="dl">DockQ vs 9DWV</span><b>0.230</b><span class="dn">diagnostic only, not ranked on</span></div></div></div>
-      <div class="dgroup"><h4>Upstream evidence</h4><div class="dgrid"><div class="d"><span class="dl">Vina, CRBN pocket</span><b>-8.20 kcal/mol</b><span class="dn">rank #18</span></div><div class="d"><span class="dl">Vina, combined</span><b>-14.79 kcal/mol</b></div><div class="d"><span class="dl">Pose overlap</span><b>0.81</b></div><div class="d"><span class="dl">P(CRBN glue)</span><b>0.95</b><span class="dn">classifier, saturated &mdash; weak signal</span></div></div></div>
+      <div class="dgroup"><h4>Ternary docking</h4><div class="dgrid"><div class="d"><span class="dl">Mean, best 10</span><b>-119.991</b><span class="dn">#16 against the 18 designed &middot; z -1.05</span></div><div class="d"><span class="dl">Best single model</span><b>-140.112</b></div><div class="d"><span class="dl">Spread (sd)</span><b>10.65</b><span class="dn">lower is a tighter funnel</span></div><div class="d"><span class="dl">Models scored</span><b>153</b></div></div></div>
+      <div class="dgroup"><h4>Structure quality</h4><div class="dgrid"><div class="d"><span class="dl">Structure axis</span><b>-0.460</b><span class="dn">#15 against the 18 designed</span></div><div class="d"><span class="dl">Buried interface</span><b>1646 &Aring;&sup2;</b></div><div class="d"><span class="dl">Top cluster</span><b>82%</b><span class="dn">of all models</span></div><div class="d"><span class="dl">Restraint energy</span><b>183.1</b><span class="dn">AIR, lower is better</span></div><div class="d"><span class="dl">van der Waals</span><b>-71.26</b></div><div class="d"><span class="dl">DockQ vs 9DWV</span><b>0.230</b><span class="dn">diagnostic only, not ranked on</span></div></div></div>
+      <div class="dgroup"><h4>Upstream evidence</h4><div class="dgrid"><div class="d"><span class="dl">Vina, CRBN pocket</span><b>-8.20 kcal/mol</b><span class="dn">#18 against the 18 designed</span></div><div class="d"><span class="dl">Vina, combined</span><b>-14.79 kcal/mol</b></div><div class="d"><span class="dl">Pose overlap</span><b>0.81</b></div><div class="d"><span class="dl">RF glue-likeness</span><b>0.95</b><span class="dn">vote fraction, uncalibrated &mdash; saturated across the library, weak signal</span></div></div></div>
       <div class="dgroup"><h4>Identity</h4><div class="dgrid"><div class="d"><span class="dl">Formula</span><b>C23H21FN4O4</b></div><div class="d"><span class="dl">Molecular weight</span><b>436.44</b></div><div class="d"><span class="dl">CAS</span><b>Not a registered substance &mdash; custom synthesis</b></div><div class="d"><span class="dl">Pipeline ID</span><b>cand_80</b><span class="dn">name used in every run directory</span></div></div></div>
     </div>
     <p class="c-smiles"><span class="dl">SMILES</span><code>O=C1CCC(N2C(=O)c3cc(F)c(-c4ccc(N5CCNCC5)cc4)cc3C2=O)C(=O)N1</code></p>
@@ -7337,7 +7355,7 @@ L 49.9 140.6
                       xmlns:rdkit='http://www.rdkit.org/xml'
                       xmlns:xlink='http://www.w3.org/1999/xlink'
                   xml:space='preserve'
-width='300px' height='210px' viewBox='0 0 300 210'>
+width='300px' height='210px' viewBox='0 0 300 210'><title>2D structure of RW_72</title>
 <!-- END OF HEADER -->
 <path class='bond-0 atom-0 atom-1' d='M 32.5,24.2 L 37.9,33.7' style='fill:none;fill-rule:evenodd;stroke:#FF0000;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
 <path class='bond-0 atom-0 atom-1' d='M 37.9,33.7 L 43.4,43.1' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
@@ -7569,9 +7587,9 @@ L 26.5 62.2
       <figure class="v3d"><div class="v3d-host" data-structure="RW_72"><p class="v3d-msg">Loading 3D model&hellip;</p></div><noscript><img class="v3d-poster" src="img/RW_72.png" width="620" height="460" alt="Rank-1 ternary model of RW_72: CRBN in teal, PPIL4 in indigo, ligand in ochre at the interface."></noscript><figcaption><b>Rank-1 ternary model.</b> CRBN <span class="sw-c"></span>, PPIL4 <span class="sw-p"></span>, ligand <span class="sw-l"></span>. <span class="v3d-help">Drag to rotate &middot; scroll to zoom &middot; double-click to reset &middot; arrow keys when focused.</span> Every structure is superposed on CRBN, so PPIL4&rsquo;s position is comparable between them.</figcaption></figure>
     </div>
     <div class="c-data">
-      <div class="dgroup"><h4>Ternary docking</h4><div class="dgrid"><div class="d"><span class="dl">Mean, best 10</span><b>-118.805</b><span class="dn">rank #17 &middot; z -1.30</span></div><div class="d"><span class="dl">Best single model</span><b>-126.820</b></div><div class="d"><span class="dl">Spread (sd)</span><b>6.09</b><span class="dn">lower is a tighter funnel</span></div><div class="d"><span class="dl">Models scored</span><b>146</b></div></div></div>
-      <div class="dgroup"><h4>Structure quality</h4><div class="dgrid"><div class="d"><span class="dl">Structure axis</span><b>-0.706</b><span class="dn">rank #17</span></div><div class="d"><span class="dl">Buried interface</span><b>1727 &Aring;&sup2;</b></div><div class="d"><span class="dl">Top cluster</span><b>65%</b><span class="dn">of all models</span></div><div class="d"><span class="dl">Restraint energy</span><b>212.0</b><span class="dn">AIR, lower is better</span></div><div class="d"><span class="dl">van der Waals</span><b>-72.88</b></div><div class="d"><span class="dl">DockQ vs 9DWV</span><b>0.044</b><span class="dn">diagnostic only, not ranked on</span></div></div></div>
-      <div class="dgroup"><h4>Upstream evidence</h4><div class="dgrid"><div class="d"><span class="dl">Vina, CRBN pocket</span><b>-8.33 kcal/mol</b><span class="dn">rank #17</span></div><div class="d"><span class="dl">Vina, combined</span><b>-14.79 kcal/mol</b></div><div class="d"><span class="dl">Pose overlap</span><b>0.78</b></div><div class="d"><span class="dl">P(CRBN glue)</span><b>0.98</b><span class="dn">classifier, saturated &mdash; weak signal</span></div></div></div>
+      <div class="dgroup"><h4>Ternary docking</h4><div class="dgrid"><div class="d"><span class="dl">Mean, best 10</span><b>-118.805</b><span class="dn">#17 against the 18 designed &middot; z -1.30</span></div><div class="d"><span class="dl">Best single model</span><b>-126.820</b></div><div class="d"><span class="dl">Spread (sd)</span><b>6.09</b><span class="dn">lower is a tighter funnel</span></div><div class="d"><span class="dl">Models scored</span><b>146</b></div></div></div>
+      <div class="dgroup"><h4>Structure quality</h4><div class="dgrid"><div class="d"><span class="dl">Structure axis</span><b>-0.706</b><span class="dn">#17 against the 18 designed</span></div><div class="d"><span class="dl">Buried interface</span><b>1727 &Aring;&sup2;</b></div><div class="d"><span class="dl">Top cluster</span><b>65%</b><span class="dn">of all models</span></div><div class="d"><span class="dl">Restraint energy</span><b>212.0</b><span class="dn">AIR, lower is better</span></div><div class="d"><span class="dl">van der Waals</span><b>-72.88</b></div><div class="d"><span class="dl">DockQ vs 9DWV</span><b>0.044</b><span class="dn">diagnostic only, not ranked on</span></div></div></div>
+      <div class="dgroup"><h4>Upstream evidence</h4><div class="dgrid"><div class="d"><span class="dl">Vina, CRBN pocket</span><b>-8.33 kcal/mol</b><span class="dn">#17 against the 18 designed</span></div><div class="d"><span class="dl">Vina, combined</span><b>-14.79 kcal/mol</b></div><div class="d"><span class="dl">Pose overlap</span><b>0.78</b></div><div class="d"><span class="dl">RF glue-likeness</span><b>0.98</b><span class="dn">vote fraction, uncalibrated &mdash; saturated across the library, weak signal</span></div></div></div>
       <div class="dgroup"><h4>Identity</h4><div class="dgrid"><div class="d"><span class="dl">Formula</span><b>C23H24N4O3</b></div><div class="d"><span class="dl">Molecular weight</span><b>404.47</b></div><div class="d"><span class="dl">CAS</span><b>Not a registered substance &mdash; custom synthesis</b></div><div class="d"><span class="dl">Pipeline ID</span><b>cand_72</b><span class="dn">name used in every run directory</span></div></div></div>
     </div>
     <p class="c-smiles"><span class="dl">SMILES</span><code>O=C1CCC(N2Cc3cccc(-c4ccc(N5CCNCC5)cc4)c3C2=O)C(=O)N1</code></p>
@@ -7586,8 +7604,8 @@ L 26.5 62.2
     <span class="c-rules mono">0/3</span>
   </summary>
   <div class="c-body">
-    <p class="c-why">Weakest of the 18; above the noise floor.</p>
-    <p class="flagline">Above the &minus;112.2 noise floor &mdash; this score is not distinguishable from a degron-dead negative control.</p>
+    <p class="c-why">Weakest of the 18; does not clear the noise floor.</p>
+    <p class="flagline">Does not clear the &minus;112.20 noise floor &mdash; this score is not distinguishable from a degron-dead negative control.</p>
     <div class="c-rulerow"><span class="pill p-no"><b>&times;</b>Credible CRBN pose</span><span class="pill p-no"><b>&times;</b>Structure &ge; 0</span><span class="pill p-no"><b>&times;</b>Beats control bar</span></div>
     <div class="c-vis">
       <figure class="v2d"><svg class="mol2d" role="img" version='1.1' baseProfile='full'
@@ -7595,7 +7613,7 @@ L 26.5 62.2
                       xmlns:rdkit='http://www.rdkit.org/xml'
                       xmlns:xlink='http://www.w3.org/1999/xlink'
                   xml:space='preserve'
-width='300px' height='210px' viewBox='0 0 300 210'>
+width='300px' height='210px' viewBox='0 0 300 210'><title>2D structure of RW_672</title>
 <!-- END OF HEADER -->
 <path class='bond-0 atom-0 atom-1' d='M 186.1,146.5 L 168.5,136.3' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
 <path class='bond-1 atom-1 atom-2' d='M 168.5,136.3 L 150.9,146.5' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
@@ -7827,9 +7845,9 @@ Q 80.8 163.7, 81.7 163.7
       <figure class="v3d"><div class="v3d-host" data-structure="RW_672"><p class="v3d-msg">Loading 3D model&hellip;</p></div><noscript><img class="v3d-poster" src="img/RW_672.png" width="620" height="460" alt="Rank-1 ternary model of RW_672: CRBN in teal, PPIL4 in indigo, ligand in ochre at the interface."></noscript><figcaption><b>Rank-1 ternary model.</b> CRBN <span class="sw-c"></span>, PPIL4 <span class="sw-p"></span>, ligand <span class="sw-l"></span>. <span class="v3d-help">Drag to rotate &middot; scroll to zoom &middot; double-click to reset &middot; arrow keys when focused.</span> Every structure is superposed on CRBN, so PPIL4&rsquo;s position is comparable between them.</figcaption></figure>
     </div>
     <div class="c-data">
-      <div class="dgroup"><h4>Ternary docking</h4><div class="dgrid"><div class="d"><span class="dl">Mean, best 10</span><b>-112.108</b><span class="dn">rank #18 &middot; z -2.69</span></div><div class="d"><span class="dl">Best single model</span><b>-120.765</b></div><div class="d"><span class="dl">Spread (sd)</span><b>5.06</b><span class="dn">lower is a tighter funnel</span></div><div class="d"><span class="dl">Models scored</span><b>157</b></div></div></div>
-      <div class="dgroup"><h4>Structure quality</h4><div class="dgrid"><div class="d"><span class="dl">Structure axis</span><b>-0.161</b><span class="dn">rank #11</span></div><div class="d"><span class="dl">Buried interface</span><b>1535 &Aring;&sup2;</b></div><div class="d"><span class="dl">Top cluster</span><b>72%</b><span class="dn">of all models</span></div><div class="d"><span class="dl">Restraint energy</span><b>162.5</b><span class="dn">AIR, lower is better</span></div><div class="d"><span class="dl">van der Waals</span><b>-77.70</b></div><div class="d"><span class="dl">DockQ vs 9DWV</span><b>0.023</b><span class="dn">diagnostic only, not ranked on</span></div></div></div>
-      <div class="dgroup"><h4>Upstream evidence</h4><div class="dgrid"><div class="d"><span class="dl">Vina, CRBN pocket</span><b>-9.16 kcal/mol</b><span class="dn">rank #12</span></div><div class="d"><span class="dl">Vina, combined</span><b>-16.37 kcal/mol</b></div><div class="d"><span class="dl">Pose overlap</span><b>0.61</b></div><div class="d"><span class="dl">P(CRBN glue)</span><b>0.99</b><span class="dn">classifier, saturated &mdash; weak signal</span></div></div></div>
+      <div class="dgroup"><h4>Ternary docking</h4><div class="dgrid"><div class="d"><span class="dl">Mean, best 10</span><b>-112.108</b><span class="dn">#18 against the 18 designed &middot; z -2.69</span></div><div class="d"><span class="dl">Best single model</span><b>-120.765</b></div><div class="d"><span class="dl">Spread (sd)</span><b>5.06</b><span class="dn">lower is a tighter funnel</span></div><div class="d"><span class="dl">Models scored</span><b>157</b></div></div></div>
+      <div class="dgroup"><h4>Structure quality</h4><div class="dgrid"><div class="d"><span class="dl">Structure axis</span><b>-0.161</b><span class="dn">#11 against the 18 designed</span></div><div class="d"><span class="dl">Buried interface</span><b>1535 &Aring;&sup2;</b></div><div class="d"><span class="dl">Top cluster</span><b>72%</b><span class="dn">of all models</span></div><div class="d"><span class="dl">Restraint energy</span><b>162.5</b><span class="dn">AIR, lower is better</span></div><div class="d"><span class="dl">van der Waals</span><b>-77.70</b></div><div class="d"><span class="dl">DockQ vs 9DWV</span><b>0.023</b><span class="dn">diagnostic only, not ranked on</span></div></div></div>
+      <div class="dgroup"><h4>Upstream evidence</h4><div class="dgrid"><div class="d"><span class="dl">Vina, CRBN pocket</span><b>-9.16 kcal/mol</b><span class="dn">#12 against the 18 designed</span></div><div class="d"><span class="dl">Vina, combined</span><b>-16.37 kcal/mol</b></div><div class="d"><span class="dl">Pose overlap</span><b>0.61</b></div><div class="d"><span class="dl">RF glue-likeness</span><b>0.99</b><span class="dn">vote fraction, uncalibrated &mdash; saturated across the library, weak signal</span></div></div></div>
       <div class="dgroup"><h4>Identity</h4><div class="dgrid"><div class="d"><span class="dl">Formula</span><b>C24H26N4O3</b></div><div class="d"><span class="dl">Molecular weight</span><b>418.50</b></div><div class="d"><span class="dl">CAS</span><b>Not a registered substance &mdash; custom synthesis</b></div><div class="d"><span class="dl">Pipeline ID</span><b>cand_672</b><span class="dn">name used in every run directory</span></div></div></div>
     </div>
     <p class="c-smiles"><span class="dl">SMILES</span><code>Cc1cc2c(cc1-c1ccc(N3CCNCC3)cc1)C(=O)N(C1CCC(=O)NC1=O)C2</code></p>
@@ -7844,8 +7862,8 @@ Q 80.8 163.7, 81.7 163.7
     <span class="c-rules mono">1/3</span>
   </summary>
   <div class="c-body">
-    <p class="c-why">From the second screen. Below the noise floor.</p>
-    <p class="flagline">Above the &minus;112.2 noise floor &mdash; this score is not distinguishable from a degron-dead negative control.</p>
+    <p class="c-why">From the second screen. Does not clear the noise floor.</p>
+    <p class="flagline">Does not clear the &minus;112.20 noise floor &mdash; this score is not distinguishable from a degron-dead negative control.</p>
     <div class="c-rulerow"><span class="pill p-ok"><b>&check;</b>Credible CRBN pose</span><span class="pill p-no"><b>&times;</b>Structure &ge; 0</span><span class="pill p-no"><b>&times;</b>Beats control bar</span></div>
     <div class="c-vis">
       <figure class="v2d"><svg class="mol2d" role="img" version='1.1' baseProfile='full'
@@ -7853,7 +7871,7 @@ Q 80.8 163.7, 81.7 163.7
                       xmlns:rdkit='http://www.rdkit.org/xml'
                       xmlns:xlink='http://www.w3.org/1999/xlink'
                   xml:space='preserve'
-width='300px' height='210px' viewBox='0 0 300 210'>
+width='300px' height='210px' viewBox='0 0 300 210'><title>2D structure of TZ_6</title>
 <!-- END OF HEADER -->
 <path class='bond-0 atom-0 atom-1' d='M 18.0,183.1 L 48.9,165.3' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
 <path class='bond-1 atom-1 atom-2' d='M 48.9,165.3 L 48.9,129.6' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
@@ -8035,9 +8053,9 @@ Q 123.2 35.3, 124.7 35.3
       <figure class="v3d"><div class="v3d-host" data-structure="TZ_6"><p class="v3d-msg">Loading 3D model&hellip;</p></div><noscript><img class="v3d-poster" src="img/TZ_6.png" width="620" height="460" alt="Rank-1 ternary model of TZ_6: CRBN in teal, PPIL4 in indigo, ligand in ochre at the interface."></noscript><figcaption><b>Rank-1 ternary model.</b> CRBN <span class="sw-c"></span>, PPIL4 <span class="sw-p"></span>, ligand <span class="sw-l"></span>. <span class="v3d-help">Drag to rotate &middot; scroll to zoom &middot; double-click to reset &middot; arrow keys when focused.</span> Every structure is superposed on CRBN, so PPIL4&rsquo;s position is comparable between them.</figcaption></figure>
     </div>
     <div class="c-data">
-      <div class="dgroup"><h4>Ternary docking</h4><div class="dgrid"><div class="d"><span class="dl">Mean, best 10</span><b>-108.564</b><span class="dn">rank #19 &middot; z -3.43</span></div><div class="d"><span class="dl">Best single model</span><b>-112.633</b></div><div class="d"><span class="dl">Spread (sd)</span><b>3.59</b><span class="dn">lower is a tighter funnel</span></div><div class="d"><span class="dl">Models scored</span><b>165</b></div></div></div>
-      <div class="dgroup"><h4>Structure quality</h4><div class="dgrid"><div class="d"><span class="dl">Structure axis</span><b>-0.546</b><span class="dn">rank #17</span></div><div class="d"><span class="dl">Buried interface</span><b>1583 &Aring;&sup2;</b></div><div class="d"><span class="dl">Top cluster</span><b>53%</b><span class="dn">of all models</span></div><div class="d"><span class="dl">Restraint energy</span><b>174.4</b><span class="dn">AIR, lower is better</span></div><div class="d"><span class="dl">van der Waals</span><b>-74.60</b></div><div class="d"><span class="dl">DockQ vs 9DWV</span><b>0.188</b><span class="dn">diagnostic only, not ranked on</span></div></div></div>
-      <div class="dgroup"><h4>Upstream evidence</h4><div class="dgrid"><div class="d"><span class="dl">Vina, CRBN pocket</span><b>-9.67 kcal/mol</b><span class="dn">rank #7</span></div><div class="d"><span class="dl">Vina, combined</span><b>-14.95 kcal/mol</b></div><div class="d"><span class="dl">Pose overlap</span><b>0.95</b></div><div class="d"><span class="dl">P(CRBN glue)</span><b>0.965</b><span class="dn">classifier, saturated &mdash; weak signal</span></div></div></div>
+      <div class="dgroup"><h4>Ternary docking</h4><div class="dgrid"><div class="d"><span class="dl">Mean, best 10</span><b>-108.564</b><span class="dn">#19 against the 18 designed &middot; z -3.43</span></div><div class="d"><span class="dl">Best single model</span><b>-112.633</b></div><div class="d"><span class="dl">Spread (sd)</span><b>3.59</b><span class="dn">lower is a tighter funnel</span></div><div class="d"><span class="dl">Models scored</span><b>165</b></div></div></div>
+      <div class="dgroup"><h4>Structure quality</h4><div class="dgrid"><div class="d"><span class="dl">Structure axis</span><b>-0.546</b><span class="dn">#17 against the 18 designed</span></div><div class="d"><span class="dl">Buried interface</span><b>1583 &Aring;&sup2;</b></div><div class="d"><span class="dl">Top cluster</span><b>53%</b><span class="dn">of all models</span></div><div class="d"><span class="dl">Restraint energy</span><b>174.4</b><span class="dn">AIR, lower is better</span></div><div class="d"><span class="dl">van der Waals</span><b>-74.60</b></div><div class="d"><span class="dl">DockQ vs 9DWV</span><b>0.188</b><span class="dn">diagnostic only, not ranked on</span></div></div></div>
+      <div class="dgroup"><h4>Upstream evidence</h4><div class="dgrid"><div class="d"><span class="dl">Vina, CRBN pocket</span><b>-9.67 kcal/mol</b><span class="dn">#7 against the 18 designed</span></div><div class="d"><span class="dl">Vina, combined</span><b>-14.95 kcal/mol</b></div><div class="d"><span class="dl">Pose overlap</span><b>0.95</b></div><div class="d"><span class="dl">RF glue-likeness</span><b>0.965</b><span class="dn">vote fraction, uncalibrated &mdash; saturated across the library, weak signal</span></div></div></div>
       <div class="dgroup"><h4>Identity</h4><div class="dgrid"><div class="d"><span class="dl">Formula</span><b>C15H14N2O4</b></div><div class="d"><span class="dl">Molecular weight</span><b>286.29</b></div><div class="d"><span class="dl">CAS</span><b>244057-33-8</b></div><div class="d"><span class="dl">Pipeline ID</span><b>tyrone_6</b><span class="dn">name used in every run directory</span></div></div></div>
     </div>
     <p class="c-smiles"><span class="dl">SMILES</span><code>CCc1cccc2c1C(=O)N(C1CCC(=O)NC1=O)C2=O</code></p>
@@ -8052,8 +8070,8 @@ Q 123.2 35.3, 124.7 35.3
     <span class="c-rules mono">1/3</span>
   </summary>
   <div class="c-body">
-    <p class="c-why">From the second screen. Lowest structure score of all 21.</p>
-    <p class="flagline">Above the &minus;112.2 noise floor &mdash; this score is not distinguishable from a degron-dead negative control.</p>
+    <p class="c-why">From the second screen. Lowest structure score of all 20 scored molecules.</p>
+    <p class="flagline">Does not clear the &minus;112.20 noise floor &mdash; this score is not distinguishable from a degron-dead negative control.</p>
     <div class="c-rulerow"><span class="pill p-ok"><b>&check;</b>Credible CRBN pose</span><span class="pill p-no"><b>&times;</b>Structure &ge; 0</span><span class="pill p-no"><b>&times;</b>Beats control bar</span></div>
     <div class="c-vis">
       <figure class="v2d"><svg class="mol2d" role="img" version='1.1' baseProfile='full'
@@ -8061,7 +8079,7 @@ Q 123.2 35.3, 124.7 35.3
                       xmlns:rdkit='http://www.rdkit.org/xml'
                       xmlns:xlink='http://www.w3.org/1999/xlink'
                   xml:space='preserve'
-width='300px' height='210px' viewBox='0 0 300 210'>
+width='300px' height='210px' viewBox='0 0 300 210'><title>2D structure of TZ_118</title>
 <!-- END OF HEADER -->
 <path class='bond-0 atom-0 atom-1' d='M 18.0,101.2 L 28.2,107.0' style='fill:none;fill-rule:evenodd;stroke:currentColor;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
 <path class='bond-0 atom-0 atom-1' d='M 28.2,107.0 L 38.3,112.9' style='fill:none;fill-rule:evenodd;stroke:#FF0000;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
@@ -8286,9 +8304,9 @@ Q 153.3 39.2, 154.6 39.2
       <figure class="v3d"><div class="v3d-host" data-structure="TZ_118"><p class="v3d-msg">Loading 3D model&hellip;</p></div><noscript><img class="v3d-poster" src="img/TZ_118.png" width="620" height="460" alt="Rank-1 ternary model of TZ_118: CRBN in teal, PPIL4 in indigo, ligand in ochre at the interface."></noscript><figcaption><b>Rank-1 ternary model.</b> CRBN <span class="sw-c"></span>, PPIL4 <span class="sw-p"></span>, ligand <span class="sw-l"></span>. <span class="v3d-help">Drag to rotate &middot; scroll to zoom &middot; double-click to reset &middot; arrow keys when focused.</span> Every structure is superposed on CRBN, so PPIL4&rsquo;s position is comparable between them.</figcaption></figure>
     </div>
     <div class="c-data">
-      <div class="dgroup"><h4>Ternary docking</h4><div class="dgrid"><div class="d"><span class="dl">Mean, best 10</span><b>-104.011</b><span class="dn">rank #19 &middot; z -4.38</span></div><div class="d"><span class="dl">Best single model</span><b>-111.448</b></div><div class="d"><span class="dl">Spread (sd)</span><b>3.30</b><span class="dn">lower is a tighter funnel</span></div><div class="d"><span class="dl">Models scored</span><b>161</b></div></div></div>
-      <div class="dgroup"><h4>Structure quality</h4><div class="dgrid"><div class="d"><span class="dl">Structure axis</span><b>-1.212</b><span class="dn">rank #19</span></div><div class="d"><span class="dl">Buried interface</span><b>1624 &Aring;&sup2;</b></div><div class="d"><span class="dl">Top cluster</span><b>33%</b><span class="dn">of all models</span></div><div class="d"><span class="dl">Restraint energy</span><b>191.0</b><span class="dn">AIR, lower is better</span></div><div class="d"><span class="dl">van der Waals</span><b>-67.17</b></div><div class="d"><span class="dl">DockQ vs 9DWV</span><b>0.281</b><span class="dn">diagnostic only, not ranked on</span></div></div></div>
-      <div class="dgroup"><h4>Upstream evidence</h4><div class="dgrid"><div class="d"><span class="dl">Vina, CRBN pocket</span><b>-9.68 kcal/mol</b><span class="dn">rank #7</span></div><div class="d"><span class="dl">Vina, combined</span><b>-15.00 kcal/mol</b></div><div class="d"><span class="dl">Pose overlap</span><b>0.83</b></div><div class="d"><span class="dl">P(CRBN glue)</span><b>0.955</b><span class="dn">classifier, saturated &mdash; weak signal</span></div></div></div>
+      <div class="dgroup"><h4>Ternary docking</h4><div class="dgrid"><div class="d"><span class="dl">Mean, best 10</span><b>-104.011</b><span class="dn">#19 against the 18 designed &middot; z -4.38</span></div><div class="d"><span class="dl">Best single model</span><b>-111.448</b></div><div class="d"><span class="dl">Spread (sd)</span><b>3.30</b><span class="dn">lower is a tighter funnel</span></div><div class="d"><span class="dl">Models scored</span><b>161</b></div></div></div>
+      <div class="dgroup"><h4>Structure quality</h4><div class="dgrid"><div class="d"><span class="dl">Structure axis</span><b>-1.212</b><span class="dn">#19 against the 18 designed</span></div><div class="d"><span class="dl">Buried interface</span><b>1624 &Aring;&sup2;</b></div><div class="d"><span class="dl">Top cluster</span><b>33%</b><span class="dn">of all models</span></div><div class="d"><span class="dl">Restraint energy</span><b>191.0</b><span class="dn">AIR, lower is better</span></div><div class="d"><span class="dl">van der Waals</span><b>-67.17</b></div><div class="d"><span class="dl">DockQ vs 9DWV</span><b>0.281</b><span class="dn">diagnostic only, not ranked on</span></div></div></div>
+      <div class="dgroup"><h4>Upstream evidence</h4><div class="dgrid"><div class="d"><span class="dl">Vina, CRBN pocket</span><b>-9.68 kcal/mol</b><span class="dn">#7 against the 18 designed</span></div><div class="d"><span class="dl">Vina, combined</span><b>-15.00 kcal/mol</b></div><div class="d"><span class="dl">Pose overlap</span><b>0.83</b></div><div class="d"><span class="dl">RF glue-likeness</span><b>0.955</b><span class="dn">vote fraction, uncalibrated &mdash; saturated across the library, weak signal</span></div></div></div>
       <div class="dgroup"><h4>Identity</h4><div class="dgrid"><div class="d"><span class="dl">Formula</span><b>C15H11N3O5</b></div><div class="d"><span class="dl">Molecular weight</span><b>313.27</b></div><div class="d"><span class="dl">CAS</span><b>Not a registered substance &mdash; custom synthesis</b></div><div class="d"><span class="dl">Pipeline ID</span><b>tyrone_118</b><span class="dn">name used in every run directory</span></div></div></div>
     </div>
     <p class="c-smiles"><span class="dl">SMILES</span><code>COc1ccc2c(c1C#N)C(=O)N(C1CCC(=O)NC1=O)C2=O</code></p>
@@ -8304,8 +8322,8 @@ Q 153.3 39.2, 154.6 39.2
           <p>
             Because the rules are independent. The two best-scoring molecules both fail on structure
             quality: RW_708 has the widest spread across its top ten models of anything docked
-            (sd 12.0) and ranks last of all 21 on the structure axis, so its leading mean is not backed
-            by a convergent funnel; RW_491 also falls below that line. Passing on score alone was judged
+            (sd 12.0) and ranks last of the 18 designed candidates on the structure axis, so its leading
+            mean is not backed by a convergent funnel; RW_491 also falls below that line. Passing on score alone was judged
             insufficient. The remaining rows are retained to cover the extremes of each axis, which is
             what a triage list is for.
           </p>
@@ -8314,7 +8332,7 @@ Q 153.3 39.2, 154.6 39.2
           <summary>Are these compounds purchasable?</summary>
           <p>
             Mostly no. Exact-structure lookup against PubChem returns a registry entry for only 3 of the
-            25 molecules on the list; the rest are novel designs with no CAS number, so acquiring them
+            25 compounds on the order sheet; the rest are novel designs with no CAS number, so acquiring them
             means custom synthesis. The list also contains five pairs of constitutional isomers, which
             is why every row is pinned by InChIKey rather than by name or formula.
           </p>
@@ -8326,8 +8344,8 @@ Q 153.3 39.2, 154.6 39.2
         <h2 class="serif">What this does not show</h2>
       </div>
       <div class="col stack">
-        <p><strong>No experimental validation.</strong> PPIL4 has no public CRBN-glue activity data. Every number here is a structural proxy.</p>
-        <p><strong>The score is size- and interface-biased.</strong> Larger molecules with more surface to bury score better regardless of merit, which is exactly why the control set, rather than an absolute number, defines the bar.</p>
+        <p><strong>No experimental validation of these designs.</strong> None of the 20 candidates ranked here has been made or tested &mdash; every number on this page is a structural proxy. PPIL4 itself is <em>not</em> an unvalidated target: FPFT-2216 and Z6466608628 are published CRBN glues that act on it, and the ternary complex is solved (PDB 9DWV). What has not been reported is a <em>selective</em> PPIL4 degrader &mdash; which is the gap this project is aimed at.</p>
+        <p><strong>The score is size- and interface-biased.</strong> Larger molecules with more surface to bury score better regardless of merit, and the control set does <em>not</em> remove that &mdash; it only makes the numbers comparable across runs. One piece of luck: the bar itself, Z6466608628 at 30 heavy atoms, is size-matched to the candidates (30&ndash;34), so clearing it is not purely a size effect. The noise floor is <em>not</em> size-matched &mdash; the degron-dead negative has 23 heavy atoms and FPFT-2216 only 20 &mdash; so part of why they sit low is simply that they are small.</p>
         <p><strong>The positive control is partly circular.</strong> The PPIL4 restraints derive from 9DWV's own contacts. A neutral-restraint control, testing whether the protocol finds the interface unaided, has not been run.</p>
         <p><strong>The biological hypothesis is unproven.</strong> PPIL4 is broadly common-essential and is not shown to be selectively required in RAS-driven cancers. Any tumour selectivity would have to come from partial-degradation dosing, which remains to be tested.</p>
       </div>
