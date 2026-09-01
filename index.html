@@ -108,8 +108,30 @@
   .sec-head{display:flex; flex-direction:column; gap:9px; max-width:var(--measure)}
   .sec-head::before{content:""; width:26px; height:2px; background:var(--accent)}
 
-  /* ---------- overview ---------- */
+  /* ---------- overview / hero ---------- */
   #overview{padding-top:64px}
+  .hero{display:grid; grid-template-columns:minmax(0,1fr) minmax(300px,42%); gap:34px; align-items:start}
+  .hero-copy{display:flex; flex-direction:column; gap:22px; min-width:0}
+  .hero-fig{margin:0; display:flex; flex-direction:column; gap:10px; position:relative}
+  /* A soft ground behind the model so a cartoon on a transparent canvas does not
+     look like it is floating on nothing. Purely a backdrop -- no pointer events,
+     so it never intercepts a drag meant for the model. */
+  .hero-fig::before{
+    content:""; position:absolute; inset:-6% -4% 24% -4%; pointer-events:none; z-index:0;
+    background:radial-gradient(60% 60% at 50% 45%, var(--accent-soft), transparent 70%);
+  }
+  .hero-fig .v3d-host{background:transparent; border-color:var(--hair); position:relative; z-index:1}
+  .hero-cap{font-size:.76rem; color:var(--faint); line-height:1.5; position:relative; z-index:1}
+  .hero-cap b{color:var(--muted); font-weight:650}
+  .hero-key{display:flex; flex-wrap:wrap; gap:6px 16px; padding-bottom:2px}
+  .hero-key span{display:inline-flex; align-items:center; gap:6px; font-size:.74rem; color:var(--muted)}
+  @media (max-width:900px){ .hero{grid-template-columns:minmax(0,1fr); gap:26px} }
+
+  /* Section numbers, mirroring the sidebar, so a reader who jumps mid-page can
+     place themselves against the nav rather than guessing. */
+  .sec-head .eyebrow::before{
+    content:attr(data-n) " / "; color:var(--accent); font-weight:700; letter-spacing:.1em;
+  }
   .lede{font-size:1.13rem; line-height:1.55; color:var(--body); max-width:60ch}
   .boundary{border-left:2px solid var(--accent); padding:12px 0 12px 18px; max-width:62ch; font-size:.94rem; color:var(--muted)}
   .facts{display:grid; gap:12px; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); padding-top:6px}
@@ -447,8 +469,10 @@
   <div class="inner">
 
     <section id="overview">
+      <div class="hero">
+        <div class="hero-copy">
       <div class="sec-head">
-        <p class="eyebrow">Overview</p>
+        <p class="eyebrow" data-n="01">Overview</p>
         <h1 class="serif">Can a molecular glue be built to degrade PPIL4?</h1>
       </div>
       <p class="lede">
@@ -470,11 +494,30 @@
         <div class="fact"><b>0.376</b><span>DockQ of the FPFT-2216 reproduction &mdash; method check against 9DWV, not a candidate score</span></div>
         <div class="fact"><b>4</b><span>of the 20 shortlisted clear all three rules</span></div>
       </div>
+        </div>
+
+        <figure class="hero-fig">
+          <div class="hero-key" aria-hidden="true">
+            <span><span class="sw-c"></span>CRBN</span>
+            <span><span class="sw-p"></span>PPIL4</span>
+            <span><span class="sw-l"></span>the glue</span>
+          </div>
+          <div class="v3d-host" data-structure="9DWV_reference" data-autorotate data-persist>
+            <p class="v3d-msg">Loading the ternary complex&hellip;</p>
+          </div>
+          <figcaption class="hero-cap">
+            <b>The complex this project is about.</b> PDB 9DWV: cereblon, the drug FPFT-2216, and
+            PPIL4 held together as one assembly &mdash; solved experimentally, not predicted. The
+            drug sits between the two proteins, touching both; neither protein binds the other
+            directly. Drag to turn it, scroll to zoom.
+          </figcaption>
+        </figure>
+      </div>
     </section>
 
     <section id="background">
       <div class="sec-head">
-        <p class="eyebrow">Background</p>
+        <p class="eyebrow" data-n="02">Background</p>
         <h2 class="serif">The mechanism, and why PPIL4</h2>
         <p class="caption">
           A molecular glue <em>degrader</em> does not inhibit its target &mdash; it destroys it, by forcing a
@@ -2268,7 +2311,7 @@ L 75.2 51.5
 
     <section id="dry-lab">
       <div class="sec-head">
-        <p class="eyebrow">Dry lab pipeline</p>
+        <p class="eyebrow" data-n="03">Dry lab pipeline</p>
         <h2 class="serif">From 2,500 designs to 20 ranked molecules</h2>
         <p class="caption">
           Each stage narrows the pool and feeds the next. Stage 08 is where the ranking is actually
@@ -2482,7 +2525,7 @@ L 75.2 51.5
 
     <section id="wet-lab">
       <div class="sec-head">
-        <p class="eyebrow">Wet lab pipeline</p>
+        <p class="eyebrow" data-n="04">Wet lab pipeline</p>
         <h2 class="serif">Experimental validation</h2>
       </div>
       <div class="pending-box">
@@ -2497,7 +2540,7 @@ L 75.2 51.5
 
     <section id="results">
       <div class="sec-head">
-        <p class="eyebrow">Results &amp; discussion</p>
+        <p class="eyebrow" data-n="05">Results &amp; discussion</p>
         <h2 class="serif">Every molecule on one axis, against two bars it has to clear</h2>
         <p class="caption">
           HADDOCK score over the 10 best models of each run (further left is better). Candidates are
@@ -8513,7 +8556,7 @@ Q 153.3 39.2, 154.6 39.2
 
     <section id="team">
       <div class="sec-head">
-        <p class="eyebrow">Team</p>
+        <p class="eyebrow" data-n="06">Team</p>
         <h2 class="serif">Why we took this on</h2>
       </div>
       <div class="motive">
@@ -8592,7 +8635,7 @@ Q 153.3 39.2, 154.6 39.2
 
     <section id="references">
       <div class="sec-head">
-        <p class="eyebrow">References</p>
+        <p class="eyebrow" data-n="07">References</p>
         <h2 class="serif">Sources and tools</h2>
         <p class="caption">
           What this project is built on: the findings that motivated the target, the structure
@@ -8781,7 +8824,8 @@ Q 153.3 39.2, 154.6 39.2
   })();
 </script>
 
-<script src="viewer.js?v=94b070d78b" data-structures="structures.json?v=662956584c" data-lib="lib" data-libv="4487982e97" defer></script>
+<script src="viewer.js?v=7e29d96cb8" data-structures="structures.json?v=662956584c" data-lib="lib" data-libv="4487982e97" defer></script>
+<script src="glossary.js?v=64a8a6ed21" defer></script>
 <script src="glossary.js?v=64a8a6ed21" defer></script>
 <script src="glossary.js?v=64a8a6ed21" defer></script>
 <script src="glossary.js?v=64a8a6ed21" defer></script>

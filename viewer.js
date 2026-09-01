@@ -104,7 +104,16 @@
     host.dataset.mounted = '';
   }
 
-  function trim() { while (live.length > MAX_LIVE) release(live[0].host); }
+  function trim() {
+    // Evict the oldest NON-pinned viewer. The hero is pinned: it is on screen the
+    // whole time, so letting the LRU reclaim it would blank the top of the page
+    // as soon as a few records were opened.
+    while (live.filter(function (r) { return !r.pinned; }).length > MAX_LIVE) {
+      for (var i = 0; i < live.length; i++) {
+        if (!live[i].pinned) { release(live[i].host); break; }
+      }
+    }
+  }
 
   function build(host, url) {
     var THREE = window.THREE;
@@ -165,6 +174,14 @@
 
       var controls = new THREE.OrbitControls(camera, renderer.domElement);
       controls.target.copy(centre);
+      // A slow drift makes the hero read as a live model rather than a picture.
+      // It stops for good the moment the reader takes hold of it -- fighting a
+      // spin you are trying to steer is worse than no spin at all.
+      if (host.hasAttribute('data-autorotate')) {
+        controls.autoRotate = true;
+        controls.autoRotateSpeed = 0.55;
+        controls.addEventListener('start', function () { controls.autoRotate = false; });
+      }
       controls.enableDamping = true;
       controls.dampingFactor = 0.12;
       controls.rotateSpeed = 0.9;
@@ -200,6 +217,7 @@
 
       live.push({
         host: host, renderer: renderer, scene: scene, controls: controls,
+        pinned: host.hasAttribute('data-persist'),
         stop: function () { running = false; if (ro) ro.disconnect(); }
       });
       trim();
@@ -229,4 +247,15 @@
       if (el.open) mount(hosts[i]); else release(hosts[i]);
     }
   }, true);
+
+  // Viewers that are not inside a <details> -- the hero -- have no toggle to
+  // wait for, so they mount once the page is ready.
+  function mountStandalone() {
+    var hosts = document.querySelectorAll('[data-structure]');
+    for (var i = 0; i < hosts.length; i++) {
+      if (!hosts[i].closest('details')) mount(hosts[i]);
+    }
+  }
+  if (document.readyState !== 'loading') mountStandalone();
+  else document.addEventListener('DOMContentLoaded', mountStandalone);
 })();
