@@ -315,6 +315,38 @@
   }
   .mv + .mv{margin-top:7px}
 
+  /* ---------- glossary marks and popup ---------- */
+  .gl{
+    border-bottom:1px dashed var(--accent); cursor:help; color:inherit;
+    text-underline-offset:2px;
+  }
+  .gl:hover{background:var(--accent-soft)}
+  .gl:focus-visible{outline:2px solid var(--accent); outline-offset:2px; border-radius:2px}
+  .gl-pop{
+    position:absolute; z-index:60; max-width:340px; width:max-content;
+    background:var(--panel); color:var(--body);
+    border:1px solid var(--rule); border-radius:4px;
+    padding:13px 15px; box-shadow:0 6px 24px rgba(0,0,0,.14);
+    font-size:.83rem; line-height:1.5; pointer-events:none;
+  }
+  :root:not([data-theme="light"]) .gl-pop{box-shadow:0 6px 24px rgba(0,0,0,.45)}
+  .gl-pop::after{
+    content:""; position:absolute; left:50%; margin-left:-7px;
+    border:7px solid transparent; border-top-color:var(--rule); bottom:-14px;
+  }
+  .gl-pop.below::after{bottom:auto; top:-14px; border-top-color:transparent; border-bottom-color:var(--rule)}
+  .gl-term{
+    display:block; color:var(--ink); font-size:.79rem; font-weight:700;
+    letter-spacing:.04em; text-transform:uppercase; padding-bottom:5px;
+  }
+  .gl-def{margin:0}
+  .gl-ana{margin:9px 0 0; color:var(--muted); border-top:1px solid var(--hair); padding-top:8px}
+  .gl-ana span{
+    color:var(--accent); font-weight:650; font-size:.72rem;
+    text-transform:uppercase; letter-spacing:.06em; margin-right:5px;
+  }
+  @media (max-width:640px){ .gl-pop{max-width:min(320px,86vw)} }
+
   footer{padding:28px 0 60px; font-size:.79rem; color:var(--faint)}
   footer p{max-width:70ch}
 
@@ -8442,6 +8474,8 @@ Q 153.3 39.2, 154.6 39.2
 </script>
 
 <script src="viewer.js?v=94b070d78b" data-structures="structures.json?v=662956584c" data-lib="lib" data-libv="4487982e97" defer></script>
+<script src="glossary.js?v=64a8a6ed21" defer></script>
+<script src="glossary.js?v=adea9a2b86" defer></script>
 
 </body>
 </html>
