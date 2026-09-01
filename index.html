@@ -217,6 +217,17 @@
   .person b{font-size:1rem; color:var(--ink); font-weight:640; letter-spacing:-0.01em}
   .person .role{font-size:.72rem; text-transform:uppercase; letter-spacing:.1em; color:var(--accent); font-weight:650}
   .person p{font-size:.85rem; color:var(--muted); padding-top:3px}
+  .motive{display:flex; flex-direction:column; gap:15px; max-width:var(--measure)}
+  .motive p{font-size:.95rem; line-height:1.62}
+  .personal{
+    border-left:2px solid var(--gl); background:var(--sunk);
+    padding:15px 18px; border-radius:0 3px 3px 0; display:flex; flex-direction:column; gap:7px;
+  }
+  .personal .who{
+    font-size:.7rem; text-transform:uppercase; letter-spacing:.1em;
+    color:var(--gl); font-weight:700;
+  }
+  .personal p{font-size:.92rem; color:var(--body); margin:0}
   .repo{
     display:inline-flex; align-items:center; gap:9px; align-self:flex-start;
     border:1px solid var(--rule); border-radius:3px; background:var(--panel);
@@ -8377,7 +8388,7 @@ Q 153.3 39.2, 154.6 39.2
         <h2 class="serif">What this does not show</h2>
       </div>
       <div class="col stack">
-        <p><strong>No experimental validation of these designs.</strong> None of the 20 candidates ranked here has been made or tested &mdash; every number on this page is a structural proxy. PPIL4 itself is <em>not</em> an unvalidated target: FPFT-2216 and Z6466608628 are published CRBN glues that act on it, and the ternary complex is solved (PDB 9DWV). What has not been reported is a <em>selective</em> PPIL4 degrader &mdash; which is the gap this project is aimed at.</p>
+        <p><strong>No experimental validation of these designs.</strong> None of the 20 candidates ranked here has been made or tested &mdash; every number on this page is a structural proxy. PPIL4 itself is <em>not</em> an unvalidated target: FPFT-2216 and Z6466608628 are published CRBN glues that act on it, and the ternary complex is solved (PDB 9DWV). A PPIL4-selective glue has also been reported &mdash; Z6466608628, one of the controls on this page &mdash; but it degrades PPIL4 only modestly and its authors present it as a lead for optimisation. That, rather than the absence of any selective compound, is the gap this project is aimed at.</p>
         <p><strong>The score is size- and interface-biased.</strong> Larger molecules with more surface to bury score better regardless of merit, and the control set does <em>not</em> remove that &mdash; it only makes the numbers comparable across runs. One piece of luck: the bar itself, Z6466608628 at 30 heavy atoms, is size-matched to the candidates (30&ndash;34), so clearing it is not purely a size effect. The noise floor is <em>not</em> size-matched &mdash; the degron-dead negative has 23 heavy atoms and FPFT-2216 only 20 &mdash; so part of why they sit low is simply that they are small.</p>
         <p><strong>The positive control is partly circular.</strong> The PPIL4 restraints derive from 9DWV's own contacts. A neutral-restraint control, testing whether the protocol finds the interface unaided, has not been run.</p>
         <p><strong>The biological hypothesis is unproven.</strong> PPIL4 is broadly common-essential and is not shown to be selectively required in RAS-driven cancers. Any tumour selectivity would have to come from partial-degradation dosing, which remains to be tested.</p>
@@ -8387,12 +8398,57 @@ Q 153.3 39.2, 154.6 39.2
     <section id="team">
       <div class="sec-head">
         <p class="eyebrow">Team</p>
+        <h2 class="serif">Why we took this on</h2>
+      </div>
+      <div class="motive">
+        <p>
+          Cereblon molecular glue degraders are still a young field. A handful of important examples
+          are known, but the chemical space around them and the set of proteins they could reach are
+          both largely unmapped, and most proposed compounds have never been made or tested. That gap
+          is what made this feel like something we could actually contribute to rather than only read
+          about &mdash; the bottleneck is candidate molecules that someone has bothered to evaluate.
+        </p>
+        <p>
+          What draws us to degraders specifically is that they remove a protein instead of blocking
+          it. An inhibitor has to find a pocket and occupy it, which leaves out the many proteins that
+          have no good pocket, and it silences only the site it covers. Degrading the protein takes
+          away everything it does at once &mdash; its scaffolding and binding roles as well as any
+          enzymatic one. Glues reach that outcome with an ordinary small molecule rather than the
+          bulkier two-headed designs that also achieve degradation, which is what makes them appealing
+          as drugs.
+        </p>
+        <p>
+          <strong>PPIL4 came from the map, not from us.</strong> Petzold, Gainza and colleagues mined
+          the CRBN target space computationally and then confirmed compound-dependent recruitment of
+          a set of previously uncharacterised neosubstrates &mdash; PPIL4 among them
+          (<em>Science</em>, 2025). That is what pointed us at this protein. Since then a
+          PPIL4-selective glue has been reported: <strong>Z6466608628</strong>, which recruits PPIL4
+          selectively at EC<sub>50</sub> 0.34&nbsp;&micro;M but produces only modest degradation and
+          is presented by its authors as a starting point for optimisation. It sits on this page as
+          the control every candidate is measured against &mdash; and the honest statement of the gap
+          is not that nothing selective exists, but that what exists is a lead worth improving on.
+        </p>
+        <div class="personal">
+          <span class="who">Keyuan (Ryan) Wang &middot; personal note</span>
+          <p>
+            What keeps me interested is the ceiling rather than the current state of the art. If a
+            glue could be designed to order, the same mechanism would in principle reach almost any
+            protein &mdash; including the ones no inhibitor can touch &mdash; and that would matter
+            far beyond cancer. We are nowhere near that: which proteins can be recruited at all is
+            still set by whether they present the right surface, and this project ranks structures
+            rather than demonstrating degradation. But it is the reason the field seemed worth
+            entering.
+          </p>
+        </div>
+      </div>
+
+      <div class="sec-head" style="padding-top:14px">
         <h2 class="serif">Who built this</h2>
       </div>
       <div class="people">
         <div class="person">
           <span class="role">Design &amp; docking pipeline</span>
-          <b>Keyuan Wang</b>
+          <b>Keyuan (Ryan) Wang</b>
           <p>
             Analog design, CRBN-binder classifiers, Vina and HADDOCK3 ternary docking, the locked
             protocol and its controls, and the final ranked list.
@@ -8400,7 +8456,7 @@ Q 153.3 39.2, 154.6 39.2
         </div>
         <div class="person">
           <span class="role">Independent guided screen</span>
-          <b>Zhentai Zong</b>
+          <b>Zhentai (Tyrone) Zong</b>
           <p>
             A parallel 9DWV-guided HADDOCK screen, run as an independent cross-check on the
             structure-based ranking.
@@ -8475,6 +8531,7 @@ Q 153.3 39.2, 154.6 39.2
 </script>
 
 <script src="viewer.js?v=94b070d78b" data-structures="structures.json?v=662956584c" data-lib="lib" data-libv="4487982e97" defer></script>
+<script src="glossary.js?v=64a8a6ed21" defer></script>
 <script src="glossary.js?v=64a8a6ed21" defer></script>
 <script src="glossary.js?v=64a8a6ed21" defer></script>
 <script src="glossary.js?v=adea9a2b86" defer></script>
