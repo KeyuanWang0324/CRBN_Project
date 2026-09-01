@@ -110,24 +110,6 @@
 
   /* ---------- overview / hero ---------- */
   #overview{padding-top:64px}
-  .hero{display:grid; grid-template-columns:minmax(0,1fr) minmax(240px,33%); gap:32px; align-items:start}
-  .hero-copy{display:flex; flex-direction:column; gap:22px; min-width:0}
-  .hero-fig{margin:0; display:flex; flex-direction:column; gap:10px; position:relative}
-  /* A soft ground behind the model so a cartoon on a transparent canvas does not
-     look like it is floating on nothing. Purely a backdrop -- no pointer events,
-     so it never intercepts a drag meant for the model. */
-  .hero-fig::before{
-    content:""; position:absolute; inset:-6% -4% 24% -4%; pointer-events:none; z-index:0;
-    background:radial-gradient(60% 60% at 50% 45%, var(--accent-soft), transparent 70%);
-  }
-  .hero-fig .v3d-host{background:transparent; border-color:var(--hair); position:relative; z-index:1; min-height:0}
-  .hero-fig .v3d-canvas{max-height:300px; object-fit:contain}
-  .hero-cap{font-size:.76rem; color:var(--faint); line-height:1.5; position:relative; z-index:1}
-  .hero-cap b{color:var(--muted); font-weight:650}
-  .hero-key{display:flex; flex-wrap:wrap; gap:6px 16px; padding-bottom:2px}
-  .hero-key span{display:inline-flex; align-items:center; gap:6px; font-size:.74rem; color:var(--muted)}
-  @media (max-width:900px){ .hero{grid-template-columns:minmax(0,1fr); gap:26px} }
-
   /* Section numbers, mirroring the sidebar, so a reader who jumps mid-page can
      place themselves against the nav rather than guessing. */
   .sec-head .eyebrow::before{
@@ -470,8 +452,6 @@
   <div class="inner">
 
     <section id="overview">
-      <div class="hero">
-        <div class="hero-copy">
       <div class="sec-head">
         <p class="eyebrow" data-n="01">Overview</p>
         <h1 class="serif">Can a molecular glue be built to degrade PPIL4?</h1>
@@ -494,25 +474,6 @@
         <div class="fact"><b>27</b><span>molecules docked under the locked protocol (18 designed + 3 cross-check + 6 controls)</span></div>
         <div class="fact"><b>0.376</b><span>DockQ of the FPFT-2216 reproduction &mdash; method check against 9DWV, not a candidate score</span></div>
         <div class="fact"><b>4</b><span>of the 20 shortlisted clear all three rules</span></div>
-      </div>
-        </div>
-
-        <figure class="hero-fig">
-          <div class="hero-key" aria-hidden="true">
-            <span><span class="sw-c"></span>CRBN</span>
-            <span><span class="sw-p"></span>PPIL4</span>
-            <span><span class="sw-l"></span>the glue</span>
-          </div>
-          <div class="v3d-host" data-structure="9DWV_reference" data-radius="46" data-autorotate data-persist>
-            <p class="v3d-msg">Loading the ternary complex&hellip;</p>
-          </div>
-          <figcaption class="hero-cap">
-            <b>The complex this project is about.</b> PDB 9DWV: cereblon, the drug FPFT-2216, and
-            PPIL4 held together as one assembly &mdash; solved experimentally, not predicted. The
-            drug sits between the two proteins, touching both; neither protein binds the other
-            directly. Drag to turn it, scroll to zoom.
-          </figcaption>
-        </figure>
       </div>
     </section>
 
@@ -8826,6 +8787,7 @@ Q 153.3 39.2, 154.6 39.2
 </script>
 
 <script src="viewer.js?v=c65726b50a" data-structures="structures.json?v=b57d0eab96" data-lib="lib" data-libv="4487982e97" defer></script>
+<script src="glossary.js?v=64a8a6ed21" defer></script>
 <script src="glossary.js?v=64a8a6ed21" defer></script>
 <script src="glossary.js?v=64a8a6ed21" defer></script>
 <script src="glossary.js?v=64a8a6ed21" defer></script>
