@@ -110,7 +110,7 @@
 
   /* ---------- overview / hero ---------- */
   #overview{padding-top:64px}
-  .hero{display:grid; grid-template-columns:minmax(0,1fr) minmax(300px,42%); gap:34px; align-items:start}
+  .hero{display:grid; grid-template-columns:minmax(0,1fr) minmax(240px,33%); gap:32px; align-items:start}
   .hero-copy{display:flex; flex-direction:column; gap:22px; min-width:0}
   .hero-fig{margin:0; display:flex; flex-direction:column; gap:10px; position:relative}
   /* A soft ground behind the model so a cartoon on a transparent canvas does not
@@ -120,7 +120,8 @@
     content:""; position:absolute; inset:-6% -4% 24% -4%; pointer-events:none; z-index:0;
     background:radial-gradient(60% 60% at 50% 45%, var(--accent-soft), transparent 70%);
   }
-  .hero-fig .v3d-host{background:transparent; border-color:var(--hair); position:relative; z-index:1}
+  .hero-fig .v3d-host{background:transparent; border-color:var(--hair); position:relative; z-index:1; min-height:0}
+  .hero-fig .v3d-canvas{max-height:300px; object-fit:contain}
   .hero-cap{font-size:.76rem; color:var(--faint); line-height:1.5; position:relative; z-index:1}
   .hero-cap b{color:var(--muted); font-weight:650}
   .hero-key{display:flex; flex-wrap:wrap; gap:6px 16px; padding-bottom:2px}
@@ -502,7 +503,7 @@
             <span><span class="sw-p"></span>PPIL4</span>
             <span><span class="sw-l"></span>the glue</span>
           </div>
-          <div class="v3d-host" data-structure="9DWV_reference" data-autorotate data-persist>
+          <div class="v3d-host" data-structure="9DWV_reference" data-radius="46" data-autorotate data-persist>
             <p class="v3d-msg">Loading the ternary complex&hellip;</p>
           </div>
           <figcaption class="hero-cap">
@@ -8824,7 +8825,8 @@ Q 153.3 39.2, 154.6 39.2
   })();
 </script>
 
-<script src="viewer.js?v=7e29d96cb8" data-structures="structures.json?v=662956584c" data-lib="lib" data-libv="4487982e97" defer></script>
+<script src="viewer.js?v=c65726b50a" data-structures="structures.json?v=b57d0eab96" data-lib="lib" data-libv="4487982e97" defer></script>
+<script src="glossary.js?v=64a8a6ed21" defer></script>
 <script src="glossary.js?v=64a8a6ed21" defer></script>
 <script src="glossary.js?v=64a8a6ed21" defer></script>
 <script src="glossary.js?v=64a8a6ed21" defer></script>

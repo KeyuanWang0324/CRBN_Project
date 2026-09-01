@@ -115,10 +115,10 @@
     }
   }
 
-  function build(host, url) {
+  function build(host, entry) {
     var THREE = window.THREE;
     return new Promise(function (resolve, reject) {
-      new THREE.GLTFLoader().load(url, resolve, null, function () {
+      new THREE.GLTFLoader().load(entry.mesh, resolve, null, function () {
         reject(new Error('could not load the model'));
       });
     }).then(function (gltf) {
@@ -150,17 +150,25 @@
       });
       scene.add(root);
 
-      // The ligand sits at the origin: 16 shifts every structure by one shared
-      // translation before export, so the molecule is the centre of rotation
-      // here. Framing on the mesh's bounding box instead would centre on the
-      // midpoint of a sprawling AlphaFold model and push the ligand -- the
-      // subject -- off to one side, and would frame each structure differently
-      // depending on where its disordered tails happened to land.
-      var centre = new THREE.Vector3(0, 0, 0);
-      var radius = 34;
+      // Orbit the drug. 16 records each structure's own ligand centre, so this
+      // is exact for every one of them rather than approximately right: the one
+      // shared translation puts only the REFERENCE structure's ligand on the
+      // origin, leaving the others a few angstrom off and 9DWV's -- a different
+      // molecule -- off again. Framing on the mesh's bounding box instead would
+      // centre on the midpoint of a sprawling AlphaFold model and push the
+      // ligand, the subject, off to one side.
+      var c = entry.centre || [0, 0, 0];
+      var centre = new THREE.Vector3(c[0], c[1], c[2]);
+      // Larger radius = the complex sits smaller in frame. The hero asks for a
+      // wider framing than the records, via data-radius.
+      var radius = parseFloat(host.getAttribute('data-radius')) || 34;
 
+      function home() {
+        return new THREE.Vector3(centre.x + radius * 1.1, centre.y + radius * 0.55,
+                                 centre.z + radius * 1.9);
+      }
       var camera = new THREE.PerspectiveCamera(35, width / height, radius * 0.02, radius * 60);
-      camera.position.set(radius * 1.1, radius * 0.55, radius * 1.9);
+      camera.position.copy(home());
       camera.lookAt(centre);
 
       scene.add(new THREE.AmbientLight(0xffffff, 0.46));
@@ -210,7 +218,7 @@
       if (ro) ro.observe(host); else window.addEventListener('resize', onResize);
 
       renderer.domElement.addEventListener('dblclick', function () {
-        camera.position.set(radius * 1.1, radius * 0.55, radius * 1.9);
+        camera.position.copy(home());
         controls.target.copy(centre);
         controls.update();
       });
@@ -231,7 +239,7 @@
     Promise.all([loadIndex(), loadLib()]).then(function (both) {
       var entry = both[0][host.dataset.structure];
       if (!entry || !entry.mesh) throw new Error('no mesh for ' + host.dataset.structure);
-      return build(host, entry.mesh);
+      return build(host, entry);
     }).catch(function (err) {
       host.dataset.mounted = '';
       host.innerHTML = '<p class="v3d-msg">Could not load the 3D model (' + err.message +
