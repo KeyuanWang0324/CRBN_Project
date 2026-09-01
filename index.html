@@ -312,6 +312,36 @@
   }
   :target.cand{box-shadow:0 0 0 2px var(--accent-soft)}
 
+  /* ---------- decision rules ---------- */
+  .rules{display:grid; gap:14px; grid-template-columns:repeat(auto-fit,minmax(230px,1fr))}
+  .rule{
+    background:var(--panel); border:1px solid var(--rule); border-radius:3px;
+    padding:17px 18px; display:flex; flex-direction:column; gap:8px;
+  }
+  .rule .tagline{
+    font-size:.7rem; letter-spacing:.1em; text-transform:uppercase;
+    color:var(--accent); font-weight:700;
+  }
+  .rule h3{font-size:.95rem}
+  .rule p{font-size:.85rem; color:var(--muted); line-height:1.55}
+  .rule .thr{
+    font-size:.76rem; color:var(--ink); background:var(--sunk);
+    padding:5px 9px; border-radius:2px; align-self:flex-start;
+    font-family:ui-monospace,SFMono-Regular,"SF Mono",Menlo,Consolas,monospace;
+  }
+
+  /* ---------- references ---------- */
+  .refs{display:flex; flex-direction:column; gap:0; border-top:1px solid var(--hair)}
+  .ref{display:grid; grid-template-columns:132px minmax(0,1fr); gap:0 20px; padding:13px 0; border-bottom:1px solid var(--hair)}
+  .ref-kind{
+    font-size:.72rem; color:var(--faint); letter-spacing:.02em; line-height:1.5;
+    font-family:ui-monospace,SFMono-Regular,"SF Mono",Menlo,Consolas,monospace;
+  }
+  .ref-body{font-size:.86rem; line-height:1.55; color:var(--muted)}
+  .ref-body cite{color:var(--ink); font-style:normal; font-weight:600}
+  .ref-body .note{display:block; padding-top:3px; font-size:.79rem; color:var(--faint)}
+  @media (max-width:640px){ .ref{grid-template-columns:minmax(0,1fr); gap:4px} }
+
   /* ---------- method detail ---------- */
   .method{display:flex; flex-direction:column; gap:0; border-top:1px solid var(--hair)}
   .mrow{display:grid; grid-template-columns:150px minmax(0,1fr); gap:0 20px; padding:15px 0; border-bottom:1px solid var(--hair)}
@@ -403,6 +433,7 @@
       <a href="#wet-lab" class="pending"><span class="idx">04</span>Wet lab pipeline</a>
       <a href="#results"><span class="idx">05</span>Results</a>
       <a href="#team"><span class="idx">06</span>Team</a>
+      <a href="#references"><span class="idx">07</span>References</a>
     </nav>
 
     <div class="side-foot mono">
@@ -2363,17 +2394,6 @@ L 75.2 51.5
           </div>
         </div>
         <div class="mrow">
-          <div class="mk">Decision rules</div>
-          <div>
-            <p class="mv">Three independent gates, deliberately measuring different things:
-            <strong>(A)</strong> the upstream Vina pose is credible &mdash; top-half pocket affinity and
-            a non-overlapping pose pair; <strong>(B)</strong> the composite structure score is at or above
-            the pool mean; <strong>(C)</strong> the docking score beats the strongest positive control at
-            &minus;125.6. A molecule can top one axis and fail the other two, which is exactly what the
-            shortlist shows.</p>
-          </div>
-        </div>
-        <div class="mrow">
           <div class="mk">Reproducibility</div>
           <div>
             <p class="mv">Seed pinned (<code>iniseed = 42</code>). Note that the parameter is
@@ -2411,6 +2431,54 @@ L 75.2 51.5
         </p>
       </div>
     </section>
+
+      <div class="sec-head" style="padding-top:14px">
+        <h2 class="serif">The three rules a candidate is judged on</h2>
+        <p class="caption">
+          Everything above produces numbers; these are the three gates applied to them. They are
+          deliberately independent &mdash; each asks a different question, so a molecule can top one
+          and fail the other two. Results shows how rarely all three agree.
+        </p>
+      </div>
+      <div class="rules">
+        <div class="rule">
+          <span class="tagline">Rule A &middot; upstream</span>
+          <h3>Is the starting pose credible?</h3>
+          <p>
+            Before any ternary docking, the molecule has to sit plausibly in CRBN&rsquo;s pocket on its
+            own. This asks whether its Vina pose ranks in the top half of the designed set and whether
+            the CRBN and PPIL4 poses use different faces of the molecule rather than the same one.
+          </p>
+          <span class="thr">top-half pocket affinity &amp; pose overlap &ge; 0.70</span>
+        </div>
+        <div class="rule">
+          <span class="tagline">Rule B &middot; structure</span>
+          <h3>Is the predicted complex well-formed?</h3>
+          <p>
+            A good score means little if the models disagree with each other. This combines buried
+            interface area, how much of the sampling converged on one binding mode, restraint-violation
+            energy and the spread across the ten best models, into one value scored against the
+            candidate pool.
+          </p>
+          <span class="thr">structure axis &ge; 0 (at or above the pool mean)</span>
+        </div>
+        <div class="rule">
+          <span class="tagline">Rule C &middot; the bar</span>
+          <h3>Does it beat the best real glue?</h3>
+          <p>
+            The docking score has to be better than Z6466608628, the strongest positive control and the
+            best published PPIL4-selective glue. It is also the only reference here size-matched to the
+            candidates, so clearing it is not simply a size effect.
+          </p>
+          <span class="thr">mean of best 10 &lt; &minus;125.61</span>
+        </div>
+      </div>
+      <p class="caption">
+        Rules B and C are computed directly from the pipeline&rsquo;s own outputs. Rule A is a
+        reconstruction: the original selection was made by hand and its exact thresholds were not
+        recorded, so the definition above was fitted to reproduce the earlier decisions and should be
+        read as a description of them rather than the rule as first written.
+      </p>
 
     <section id="wet-lab">
       <div class="sec-head">
@@ -8521,6 +8589,141 @@ Q 153.3 39.2, 154.6 39.2
       </p>
     </section>
 
+
+    <section id="references">
+      <div class="sec-head">
+        <p class="eyebrow">References</p>
+        <h2 class="serif">Sources and tools</h2>
+        <p class="caption">
+          What this project is built on: the findings that motivated the target, the structure
+          everything is measured against, the software that produced every number, and the databases
+          the compounds and training data came from.
+        </p>
+      </div>
+
+      <div class="refs">
+        <div class="ref">
+          <div class="ref-kind">Target</div>
+          <div class="ref-body">
+            <cite>Mining the CRBN target space redefines rules for molecular glue&ndash;induced
+            neosubstrate recognition.</cite> Petzold, Gainza et&nbsp;al., <em>Science</em>, 2025.
+            <a href="https://www.science.org/doi/10.1126/science.adt6736">10.1126/science.adt6736</a>
+            <span class="note">Mined the CRBN target space computationally and confirmed
+            compound-dependent recruitment of previously uncharacterised neosubstrates, PPIL4 among
+            them. This is where the target came from.</span>
+          </div>
+        </div>
+        <div class="ref">
+          <div class="ref-kind">Prior art</div>
+          <div class="ref-body">
+            <cite>Unveiling the hidden interactome of CRBN molecular glues with chemoproteomics.</cite>
+            <em>Nature Communications</em>, 2025.
+            <a href="https://www.nature.com/articles/s41467-025-62099-w">s41467-025-62099-w</a>
+            <span class="note">Reports Z6466608628, which recruits PPIL4 selectively at
+            EC<sub>50</sub> 0.34&nbsp;&micro;M but degrades it only modestly. Used here as the
+            positive control and the bar in Rule C.</span>
+          </div>
+        </div>
+        <div class="ref">
+          <div class="ref-kind">Structure</div>
+          <div class="ref-body">
+            <cite>PDB 9DWV</cite> &mdash; the experimental CRBN&ndash;FPFT-2216&ndash;PPIL4 ternary
+            complex. <a href="https://www.rcsb.org/structure/9DWV">rcsb.org/structure/9DWV</a>
+            <span class="note">Every model on this page is scored against it, and the PPIL4-side
+            restraints derive from its contact residues &mdash; which is why the DockQ column is not
+            independent evidence.</span>
+          </div>
+        </div>
+        <div class="ref">
+          <div class="ref-kind">Rationale</div>
+          <div class="ref-body">
+            <cite>The spliceosome is a therapeutic vulnerability in MYC-driven cancer.</cite>
+            Hsu et&nbsp;al., <em>Nature</em> 525:384&ndash;388, 2015.
+            <a href="https://www.nature.com/articles/nature14985">nature14985</a>
+            <span class="note">The established case of spliceosome addiction. The RAS argument on this
+            page is an analogy to it, not a result of the same standing.</span>
+          </div>
+        </div>
+        <div class="ref">
+          <div class="ref-kind">Docking</div>
+          <div class="ref-body">
+            <cite>HADDOCK</cite> &mdash; information-driven biomolecular docking; version 2026.7.0 was
+            used for every ternary run. Dominguez, Boelens &amp; Bonvin,
+            <em>J. Am. Chem. Soc.</em> 125:1731&ndash;1737, 2003;
+            <a href="https://www.bonvinlab.org/haddock3/">bonvinlab.org/haddock3</a>
+          </div>
+        </div>
+        <div class="ref">
+          <div class="ref-kind">Docking</div>
+          <div class="ref-body">
+            <cite>AutoDock Vina</cite> &mdash; used for the CRBN and PPIL4 starting poses.
+            Trott &amp; Olson, <em>J. Comput. Chem.</em> 31:455&ndash;461, 2010; Eberhardt, Santos-Martins,
+            Tillack &amp; Forli, <em>J. Chem. Inf. Model.</em> 61:3891&ndash;3898, 2021.
+          </div>
+        </div>
+        <div class="ref">
+          <div class="ref-kind">Scoring</div>
+          <div class="ref-body">
+            <cite>DockQ: a quality measure for protein&ndash;protein docking models.</cite>
+            Basu &amp; Wallner, <em>PLoS ONE</em> 11(8):e0161879, 2016.
+            <span class="note">Source of the 0&ndash;1 scale and the CAPRI &ldquo;acceptable&rdquo;
+            threshold of 0.23 used on this page.</span>
+          </div>
+        </div>
+        <div class="ref">
+          <div class="ref-kind">Ligand setup</div>
+          <div class="ref-body">
+            <cite>PRODRG</cite> &mdash; ligand topology and force-field parameters for the CNS engine.
+            Sch&uuml;ttelkopf &amp; van Aalten, <em>Acta Crystallogr. D</em> 60:1355&ndash;1363, 2004.
+          </div>
+        </div>
+        <div class="ref">
+          <div class="ref-kind">Structure model</div>
+          <div class="ref-body">
+            <cite>AlphaFold</cite> &mdash; source of the PPIL4 model used as the docking partner.
+            Jumper et&nbsp;al., <em>Nature</em> 596:583&ndash;589, 2021.
+            <span class="note">Its low-confidence loops are the sprawling tails visible in the 3D
+            views; they are not trimmed.</span>
+          </div>
+        </div>
+        <div class="ref">
+          <div class="ref-kind">Cheminformatics</div>
+          <div class="ref-body">
+            <cite>RDKit</cite> &mdash; analog enumeration, descriptors, 2D depictions and the SDF.
+            <a href="https://www.rdkit.org/">rdkit.org</a> &middot;
+            <cite>PyMOL</cite> (Schr&ouml;dinger, LLC) &mdash; every 3D render and the glTF geometry on
+            this page. &middot; <cite>three.js</cite> &mdash; the in-browser viewer.
+          </div>
+        </div>
+        <div class="ref">
+          <div class="ref-kind">Databases</div>
+          <div class="ref-body">
+            <cite>ChEMBL</cite> &mdash; training actives for the CRBN-binder classifiers.
+            <a href="https://www.ebi.ac.uk/chembl/">ebi.ac.uk/chembl</a> &middot;
+            <cite>PubChem</cite> &mdash; exact-structure registry lookup behind the CAS numbers.
+            <a href="https://pubchem.ncbi.nlm.nih.gov/">pubchem.ncbi.nlm.nih.gov</a> &middot;
+            <cite>DepMap</cite> &mdash; the co-dependency and common-essentiality analysis.
+            <a href="https://depmap.org/">depmap.org</a>
+          </div>
+        </div>
+        <div class="ref">
+          <div class="ref-kind">Compounds</div>
+          <div class="ref-body">
+            <cite>MedChemExpress</cite> &mdash; catalogue source for Z6466608628 (HY-175599,
+            CAS 2869183-63-9), the one shortlisted compound available off the shelf.
+            <a href="https://www.medchemexpress.com/">medchemexpress.com</a>
+            <span class="note">The other 22 compounds on the order list are novel and have no registry
+            entry, so they can only be made to order.</span>
+          </div>
+        </div>
+      </div>
+
+      <p class="caption">
+        Software versions and the exact protocol are pinned in the repository rather than described
+        here, so a run can be reproduced from the committed files rather than from this page.
+      </p>
+    </section>
+
     <footer>
       <p>
         Structural-plausibility triage for CRBN&ndash;PPIL4 molecular glue degraders. Docking performed
@@ -8579,6 +8782,7 @@ Q 153.3 39.2, 154.6 39.2
 </script>
 
 <script src="viewer.js?v=94b070d78b" data-structures="structures.json?v=662956584c" data-lib="lib" data-libv="4487982e97" defer></script>
+<script src="glossary.js?v=64a8a6ed21" defer></script>
 <script src="glossary.js?v=64a8a6ed21" defer></script>
 <script src="glossary.js?v=64a8a6ed21" defer></script>
 <script src="glossary.js?v=64a8a6ed21" defer></script>
