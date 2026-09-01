@@ -1047,7 +1047,7 @@ L 26.5 62.2
     <span class="c-rules mono"></span>
   </summary>
   <div class="c-body">
-    <p class="c-why"><strong>The noise floor.</strong> The glutarimide degron is deleted, so this molecule physically cannot engage CRBN. It nonetheless outscores FPFT-2216 &mdash; which is why anything above roughly &minus;112 is not distinguishable from an inert molecule, and why &ldquo;beats the real drug&rdquo; is a meaningless claim.</p>
+    <p class="c-why"><strong>The noise floor.</strong> The glutarimide CRBN-binding handle is deleted, so this molecule is <em>designed</em> not to engage the degron pocket. That is the intent of the control rather than a certainty &mdash; CRBN binders without a glutarimide are known, and docking scores geometry, not binding. Either way it outscores FPFT-2216 here, which is why anything above roughly &minus;112 cannot be told apart from a molecule expected to be inert, and why &ldquo;beats the real drug&rdquo; is a meaningless claim.</p>
     <div class="c-vis">
       <figure class="v2d"><svg class="mol2d" role="img" version='1.1' baseProfile='full'
               xmlns='http://www.w3.org/2000/svg'
@@ -2499,15 +2499,74 @@ L 75.2 51.5
 
       <div class="col stack">
         <p>
-          The controls are the whole point of this chart. A degron-dead negative &mdash; a molecule with
-          the CRBN-binding handle deliberately removed, which <em>cannot</em> work &mdash; scores
-          <strong>&minus;112.2</strong>, marginally better than FPFT-2216, the real drug this complex was
+          The controls are the whole point of this chart. A negative control designed to be inert &mdash; the
+          glutarimide CRBN-binding handle deleted, so it should not engage the degron pocket the
+          way a glue does &mdash; scores <strong>&minus;112.20</strong>, marginally better than FPFT-2216, the real drug this complex was
           solved with. So anything scoring above roughly &minus;112 is indistinguishable from a molecule
           known to be inert, and <em>&ldquo;beats FPFT-2216&rdquo; is a meaningless claim.</em>
         </p>
         <p>
           That is why the bar used here is <strong>Z6466608628 at &minus;125.61</strong>, the strongest
           control in the set. Seven of the twenty candidates clear it.
+        </p>
+      </div>
+
+      <div class="sec-head" style="padding-top:14px">
+        <h2 class="serif">What the ranking actually says</h2>
+        <p class="caption">
+          Four things the numbers support, and the limits on each. Correlations below are Spearman
+          rank correlations, computed over the molecules named in each case.
+        </p>
+      </div>
+      <div class="col stack">
+        <p>
+          <strong>1. The ranking axis is substantially a size axis.</strong> Across all 26 molecules
+          plotted above, the docking score tracks heavy-atom count at <strong>&rho;&nbsp;=&nbsp;&minus;0.58</strong>
+          &mdash; bigger molecules score better. It is not purely size: TM-04-064-02 is the largest
+          thing here at 43 heavy atoms and still sits near the bottom, so shape and fit do carry
+          weight. But the effect survives even inside the candidate set, where every molecule falls in
+          a narrow 30&ndash;34 atom band and the correlation is still
+          <strong>&rho;&nbsp;=&nbsp;&minus;0.39</strong>. A candidate that ranks well has partly
+          earned it by being large.
+        </p>
+        <p>
+          <strong>2. Which is why the Z6466608628 comparison is the one worth making.</strong> That
+          control has 30 heavy atoms against the candidates&rsquo; 30&ndash;34, so it is the one
+          reference on this page that is size-matched to what it is being compared against. Beating it
+          is therefore not automatically a size artifact, in the way that beating FPFT-2216 (20 heavy
+          atoms) or the stripped negatives (12&ndash;23) would be. Seven of the twenty clear it. It
+          also happens to be the strongest published PPIL4-selective glue, so the bar is a real one
+          rather than an arbitrary internal threshold.
+        </p>
+        <p>
+          <strong>3. The three criteria are close to independent, which is why so few molecules
+          satisfy all of them.</strong> Docking score and the structure axis correlate at
+          <strong>&rho;&nbsp;=&nbsp;&minus;0.08</strong> across the eighteen designed candidates
+          &mdash; essentially unrelated. Individually the criteria are not especially harsh (6, 9 and
+          7 of 18 pass each), but because they are near-orthogonal their intersection is small: five
+          candidates satisfy none, eight satisfy one, one satisfies two, and four satisfy all three.
+          The scarcity is a property of asking three unrelated questions at once, not evidence that
+          the four survivors are exceptional.
+        </p>
+        <p>
+          <strong>4. Score and funnel quality disagree at the very top.</strong> The two
+          highest-scoring molecules, RW_708 and RW_491, both fail the structure criterion. RW_708 has
+          the widest spread across its ten best models of anything docked (sd 12.0) and ranks last of
+          the eighteen on the structure axis: a strong average pulled up by scattered models rather
+          than one well-determined binding mode. Cluster convergence and score in fact run slightly
+          <em>against</em> each other across the set (&rho;&nbsp;=&nbsp;+0.20). If only the score were
+          used, these two would head the list.
+        </p>
+        <p class="caption">
+          <strong>One pattern that is suggestive but not established.</strong> All four molecules
+          satisfying every criterion share the same mono-oxo isoindolinone core and the same
+          phenylpiperazine arm, differing only in a single benzo substituent &mdash; dimethylamino,
+          hydroxy, bromo, trifluoromethyl. None of the six di-oxo phthalimides satisfies all three.
+          That reads like a preference for the mono-oxo core, but at this sample size it is 4 of 12
+          against 0 of 6, which a Fisher exact test puts at <strong>p&nbsp;=&nbsp;0.25</strong>. It is
+          a hypothesis to test with more molecules, not a result. Note also that the di-oxo compounds
+          score <em>better</em> on average (&minus;126.1 vs &minus;124.5); what separates them is the
+          structure axis, not the score.
         </p>
       </div>
 
@@ -8362,17 +8421,6 @@ Q 153.3 39.2, 154.6 39.2
 
       <div class="col">
         <details>
-          <summary>Why only four &ldquo;Buy&rdquo; calls out of twenty?</summary>
-          <p>
-            Because the rules are independent. The two best-scoring molecules both fail on structure
-            quality: RW_708 has the widest spread across its top ten models of anything docked
-            (sd 12.0) and ranks last of the 18 designed candidates on the structure axis, so its leading
-            mean is not backed by a convergent funnel; RW_491 also falls below that line. Passing on score alone was judged
-            insufficient. The remaining rows are retained to cover the extremes of each axis, which is
-            what a triage list is for.
-          </p>
-        </details>
-        <details>
           <summary>Are these compounds purchasable?</summary>
           <p>
             Mostly no. Exact-structure lookup against PubChem returns a registry entry for only 3 of the
@@ -8531,6 +8579,7 @@ Q 153.3 39.2, 154.6 39.2
 </script>
 
 <script src="viewer.js?v=94b070d78b" data-structures="structures.json?v=662956584c" data-lib="lib" data-libv="4487982e97" defer></script>
+<script src="glossary.js?v=64a8a6ed21" defer></script>
 <script src="glossary.js?v=64a8a6ed21" defer></script>
 <script src="glossary.js?v=64a8a6ed21" defer></script>
 <script src="glossary.js?v=64a8a6ed21" defer></script>
