@@ -336,17 +336,23 @@
   }
 
   /* ---------- references ---------- */
-  .refs{display:flex; flex-direction:column; gap:0; border-top:1px solid var(--hair)}
-  .ref{display:grid; grid-template-columns:132px minmax(0,1fr); gap:0 20px; padding:13px 0; border-bottom:1px solid var(--hair)}
-  .ref-kind{
-    font-size:.72rem; color:var(--faint); letter-spacing:.02em; line-height:1.5;
-    font-family:ui-monospace,SFMono-Regular,"SF Mono",Menlo,Consolas,monospace;
+  .ref-group{padding-top:20px}
+  .ref-group h3{
+    font-size:.72rem; text-transform:uppercase; letter-spacing:.1em;
+    color:var(--faint); font-weight:600; padding-bottom:10px;
+    border-bottom:1px solid var(--hair); margin-bottom:4px;
   }
-  .ref-body{font-size:.86rem; line-height:1.55; color:var(--muted)}
-  .ref-body cite{color:var(--ink); font-style:normal; font-weight:600}
-  .ref-body .note{display:block; padding-top:3px; font-size:.79rem; color:var(--faint)}
-  @media (max-width:640px){ .ref{grid-template-columns:minmax(0,1fr); gap:4px} }
-
+  .ref-list{display:flex; flex-direction:column; gap:14px; padding-top:12px}
+  .ref-item{
+    font-size:.86rem; line-height:1.6; color:var(--body);
+    padding-left:2.1em; text-indent:-2.1em;      /* hanging indent */
+  }
+  .ref-item em{font-style:italic}
+  .ref-item a{word-break:break-word}
+  .ref-item .used{
+    display:block; padding-left:0; text-indent:0; padding-top:4px;
+    font-size:.79rem; color:var(--faint); line-height:1.5;
+  }
   /* ---------- method detail ---------- */
   .method{display:flex; flex-direction:column; gap:0; border-top:1px solid var(--hair)}
   .mrow{display:grid; grid-template-columns:150px minmax(0,1fr); gap:0 20px; padding:15px 0; border-bottom:1px solid var(--hair)}
@@ -8606,120 +8612,154 @@ Q 153.3 39.2, 154.6 39.2
         </p>
       </div>
 
-      <div class="refs">
-        <div class="ref">
-          <div class="ref-kind">Target</div>
-          <div class="ref-body">
-            <cite>Mining the CRBN target space redefines rules for molecular glue&ndash;induced
-            neosubstrate recognition.</cite> Petzold, Gainza et&nbsp;al., <em>Science</em>, 2025.
-            <a href="https://www.science.org/doi/10.1126/science.adt6736">10.1126/science.adt6736</a>
-            <span class="note">Mined the CRBN target space computationally and confirmed
+      <div class="ref-group">
+        <h3>Target, prior art and rationale</h3>
+        <div class="ref-list">
+          <p class="ref-item">
+            Baek, K., Metivier, R.J., Roy Burman, S.S., Bushman, J.W., Yoon, H., Lumpkin, R.J.,
+            Abeja, D.M., Lakshminarayan, M., Yue, H., Ojeda, S., Verano, A.L., Gray, N.S.,
+            Donovan, K.A. and Fischer, E.S. (2025) &lsquo;Unveiling the hidden interactome of CRBN
+            molecular glues&rsquo;, <em>Nature Communications</em>, 16, 6831.
+            doi:&nbsp;<a href="https://doi.org/10.1038/s41467-025-62099-w">10.1038/s41467-025-62099-w</a>.
+            <span class="used">Reports Z6466608628, which recruits PPIL4 selectively at
+            EC<sub>50</sub>&nbsp;0.34&nbsp;&micro;M with modest degradation &mdash; the positive
+            control here and the bar in Rule&nbsp;C &mdash; and the CRBN&ndash;FPFT-2216&ndash;PPIL4
+            structure this project scores against.</span>
+          </p>
+          <p class="ref-item">
+            Hsu, T.Y. et&nbsp;al. (2015) &lsquo;The spliceosome is a therapeutic vulnerability in
+            MYC-driven cancer&rsquo;, <em>Nature</em>, 525(7569), pp.&nbsp;384&ndash;388.
+            doi:&nbsp;<a href="https://doi.org/10.1038/nature14985">10.1038/nature14985</a>.
+            <span class="used">The established case of spliceosome addiction. The RAS argument on
+            this page is an analogy to it, not a result of equal standing.</span>
+          </p>
+          <p class="ref-item">
+            Petzold, G., Gainza, P. et&nbsp;al. (2025) &lsquo;Mining the CRBN target space redefines
+            rules for molecular glue&ndash;induced neosubstrate recognition&rsquo;, <em>Science</em>,
+            389(6755).
+            doi:&nbsp;<a href="https://doi.org/10.1126/science.adt6736">10.1126/science.adt6736</a>.
+            <span class="used">Mined the CRBN target space computationally and confirmed
             compound-dependent recruitment of previously uncharacterised neosubstrates, PPIL4 among
             them. This is where the target came from.</span>
-          </div>
-        </div>
-        <div class="ref">
-          <div class="ref-kind">Prior art</div>
-          <div class="ref-body">
-            <cite>Unveiling the hidden interactome of CRBN molecular glues with chemoproteomics.</cite>
-            <em>Nature Communications</em>, 2025.
-            <a href="https://www.nature.com/articles/s41467-025-62099-w">s41467-025-62099-w</a>
-            <span class="note">Reports Z6466608628, which recruits PPIL4 selectively at
-            EC<sub>50</sub> 0.34&nbsp;&micro;M but degrades it only modestly. Used here as the
-            positive control and the bar in Rule C.</span>
-          </div>
-        </div>
-        <div class="ref">
-          <div class="ref-kind">Structure</div>
-          <div class="ref-body">
-            <cite>PDB 9DWV</cite> &mdash; the experimental CRBN&ndash;FPFT-2216&ndash;PPIL4 ternary
-            complex. <a href="https://www.rcsb.org/structure/9DWV">rcsb.org/structure/9DWV</a>
-            <span class="note">Every model on this page is scored against it, and the PPIL4-side
+          </p>
+          <p class="ref-item">
+            RCSB Protein Data Bank (2025) <em>Entry 9DWV: cereblon&ndash;FPFT-2216&ndash;PPIL4 ternary
+            complex</em>. Available at:
+            <a href="https://www.rcsb.org/structure/9DWV">https://www.rcsb.org/structure/9DWV</a>
+            (Accessed: 2 September 2026).
+            <span class="used">Every model on this page is scored against it, and the PPIL4-side
             restraints derive from its contact residues &mdash; which is why the DockQ column is not
             independent evidence.</span>
-          </div>
+          </p>
         </div>
-        <div class="ref">
-          <div class="ref-kind">Rationale</div>
-          <div class="ref-body">
-            <cite>The spliceosome is a therapeutic vulnerability in MYC-driven cancer.</cite>
-            Hsu et&nbsp;al., <em>Nature</em> 525:384&ndash;388, 2015.
-            <a href="https://www.nature.com/articles/nature14985">nature14985</a>
-            <span class="note">The established case of spliceosome addiction. The RAS argument on this
-            page is an analogy to it, not a result of the same standing.</span>
-          </div>
+      </div>
+
+      <div class="ref-group">
+        <h3>Methods and software</h3>
+        <div class="ref-list">
+          <p class="ref-item">
+            Basu, S. and Wallner, B. (2016) &lsquo;DockQ: a quality measure for protein&ndash;protein
+            docking models&rsquo;, <em>PLOS ONE</em>, 11(8), e0161879.
+            doi:&nbsp;<a href="https://doi.org/10.1371/journal.pone.0161879">10.1371/journal.pone.0161879</a>.
+            <span class="used">Source of the 0&ndash;1 scale and the CAPRI &ldquo;acceptable&rdquo;
+            threshold of 0.23.</span>
+          </p>
+          <p class="ref-item">
+            Dominguez, C., Boelens, R. and Bonvin, A.M.J.J. (2003) &lsquo;HADDOCK: a
+            protein&ndash;protein docking approach based on biochemical or biophysical
+            information&rsquo;, <em>Journal of the American Chemical Society</em>, 125(7),
+            pp.&nbsp;1731&ndash;1737.
+            doi:&nbsp;<a href="https://doi.org/10.1021/ja026939x">10.1021/ja026939x</a>.
+            <span class="used">The docking approach behind every ternary run; version 2026.7.0 was
+            used.</span>
+          </p>
+          <p class="ref-item">
+            Eberhardt, J., Santos-Martins, D., Tillack, A.F. and Forli, S. (2021) &lsquo;AutoDock
+            Vina 1.2.0: new docking methods, expanded force field, and Python bindings&rsquo;,
+            <em>Journal of Chemical Information and Modeling</em>, 61(8), pp.&nbsp;3891&ndash;3898.
+            doi:&nbsp;<a href="https://doi.org/10.1021/acs.jcim.1c00203">10.1021/acs.jcim.1c00203</a>.
+          </p>
+          <p class="ref-item">
+            Jumper, J. et&nbsp;al. (2021) &lsquo;Highly accurate protein structure prediction with
+            AlphaFold&rsquo;, <em>Nature</em>, 596(7873), pp.&nbsp;583&ndash;589.
+            doi:&nbsp;<a href="https://doi.org/10.1038/s41586-021-03819-2">10.1038/s41586-021-03819-2</a>.
+            <span class="used">Source of the PPIL4 model used as the docking partner. Its
+            low-confidence loops are the sprawling tails visible in the 3D views; they are not
+            trimmed.</span>
+          </p>
+          <p class="ref-item">
+            Pedregosa, F. et&nbsp;al. (2011) &lsquo;Scikit-learn: machine learning in Python&rsquo;,
+            <em>Journal of Machine Learning Research</em>, 12, pp.&nbsp;2825&ndash;2830.
+            <span class="used">The random-forest classifiers used to filter chemotypes before
+            docking.</span>
+          </p>
+          <p class="ref-item">
+            RDKit (2026) <em>RDKit: open-source cheminformatics</em>. Available at:
+            <a href="https://www.rdkit.org/">https://www.rdkit.org/</a> (Accessed: 2 September 2026).
+            <span class="used">Analog enumeration, descriptors, 2D depictions and the order
+            SDF.</span>
+          </p>
+          <p class="ref-item">
+            Schr&ouml;dinger, LLC (2026) <em>The PyMOL molecular graphics system</em>, version 3.1.6.
+            Available at: <a href="https://pymol.org/">https://pymol.org/</a> (Accessed: 2 September 2026).
+            <span class="used">Every 3D render, the secondary-structure assignment, and the glTF
+            geometry shown on this page.</span>
+          </p>
+          <p class="ref-item">
+            Sch&uuml;ttelkopf, A.W. and van Aalten, D.M.F. (2004) &lsquo;PRODRG: a tool for
+            high-throughput crystallography of protein&ndash;ligand complexes&rsquo;,
+            <em>Acta Crystallographica Section D</em>, 60(8), pp.&nbsp;1355&ndash;1363.
+            doi:&nbsp;<a href="https://doi.org/10.1107/S0907444904011679">10.1107/S0907444904011679</a>.
+            <span class="used">Ligand topology and force-field parameters for the CNS engine.</span>
+          </p>
+          <p class="ref-item">
+            three.js (2026) <em>three.js JavaScript 3D library</em>, r140. Available at:
+            <a href="https://threejs.org/">https://threejs.org/</a> (Accessed: 2 September 2026).
+            <span class="used">Renders the interactive models in the browser.</span>
+          </p>
+          <p class="ref-item">
+            Trott, O. and Olson, A.J. (2010) &lsquo;AutoDock Vina: improving the speed and accuracy
+            of docking with a new scoring function, efficient optimization, and multithreading&rsquo;,
+            <em>Journal of Computational Chemistry</em>, 31(2), pp.&nbsp;455&ndash;461.
+            doi:&nbsp;<a href="https://doi.org/10.1002/jcc.21334">10.1002/jcc.21334</a>.
+            <span class="used">Produced the CRBN and PPIL4 starting poses.</span>
+          </p>
+          <p class="ref-item">
+            van Zundert, G.C.P. et&nbsp;al. (2016) &lsquo;The HADDOCK2.2 web server: user-friendly
+            integrative modeling of biomolecular complexes&rsquo;, <em>Journal of Molecular
+            Biology</em>, 428(4), pp.&nbsp;720&ndash;725.
+            doi:&nbsp;<a href="https://doi.org/10.1016/j.jmb.2015.09.014">10.1016/j.jmb.2015.09.014</a>.
+          </p>
         </div>
-        <div class="ref">
-          <div class="ref-kind">Docking</div>
-          <div class="ref-body">
-            <cite>HADDOCK</cite> &mdash; information-driven biomolecular docking; version 2026.7.0 was
-            used for every ternary run. Dominguez, Boelens &amp; Bonvin,
-            <em>J. Am. Chem. Soc.</em> 125:1731&ndash;1737, 2003;
-            <a href="https://www.bonvinlab.org/haddock3/">bonvinlab.org/haddock3</a>
-          </div>
-        </div>
-        <div class="ref">
-          <div class="ref-kind">Docking</div>
-          <div class="ref-body">
-            <cite>AutoDock Vina</cite> &mdash; used for the CRBN and PPIL4 starting poses.
-            Trott &amp; Olson, <em>J. Comput. Chem.</em> 31:455&ndash;461, 2010; Eberhardt, Santos-Martins,
-            Tillack &amp; Forli, <em>J. Chem. Inf. Model.</em> 61:3891&ndash;3898, 2021.
-          </div>
-        </div>
-        <div class="ref">
-          <div class="ref-kind">Scoring</div>
-          <div class="ref-body">
-            <cite>DockQ: a quality measure for protein&ndash;protein docking models.</cite>
-            Basu &amp; Wallner, <em>PLoS ONE</em> 11(8):e0161879, 2016.
-            <span class="note">Source of the 0&ndash;1 scale and the CAPRI &ldquo;acceptable&rdquo;
-            threshold of 0.23 used on this page.</span>
-          </div>
-        </div>
-        <div class="ref">
-          <div class="ref-kind">Ligand setup</div>
-          <div class="ref-body">
-            <cite>PRODRG</cite> &mdash; ligand topology and force-field parameters for the CNS engine.
-            Sch&uuml;ttelkopf &amp; van Aalten, <em>Acta Crystallogr. D</em> 60:1355&ndash;1363, 2004.
-          </div>
-        </div>
-        <div class="ref">
-          <div class="ref-kind">Structure model</div>
-          <div class="ref-body">
-            <cite>AlphaFold</cite> &mdash; source of the PPIL4 model used as the docking partner.
-            Jumper et&nbsp;al., <em>Nature</em> 596:583&ndash;589, 2021.
-            <span class="note">Its low-confidence loops are the sprawling tails visible in the 3D
-            views; they are not trimmed.</span>
-          </div>
-        </div>
-        <div class="ref">
-          <div class="ref-kind">Cheminformatics</div>
-          <div class="ref-body">
-            <cite>RDKit</cite> &mdash; analog enumeration, descriptors, 2D depictions and the SDF.
-            <a href="https://www.rdkit.org/">rdkit.org</a> &middot;
-            <cite>PyMOL</cite> (Schr&ouml;dinger, LLC) &mdash; every 3D render and the glTF geometry on
-            this page. &middot; <cite>three.js</cite> &mdash; the in-browser viewer.
-          </div>
-        </div>
-        <div class="ref">
-          <div class="ref-kind">Databases</div>
-          <div class="ref-body">
-            <cite>ChEMBL</cite> &mdash; training actives for the CRBN-binder classifiers.
-            <a href="https://www.ebi.ac.uk/chembl/">ebi.ac.uk/chembl</a> &middot;
-            <cite>PubChem</cite> &mdash; exact-structure registry lookup behind the CAS numbers.
-            <a href="https://pubchem.ncbi.nlm.nih.gov/">pubchem.ncbi.nlm.nih.gov</a> &middot;
-            <cite>DepMap</cite> &mdash; the co-dependency and common-essentiality analysis.
-            <a href="https://depmap.org/">depmap.org</a>
-          </div>
-        </div>
-        <div class="ref">
-          <div class="ref-kind">Compounds</div>
-          <div class="ref-body">
-            <cite>MedChemExpress</cite> &mdash; catalogue source for Z6466608628 (HY-175599,
-            CAS 2869183-63-9), the one shortlisted compound available off the shelf.
-            <a href="https://www.medchemexpress.com/">medchemexpress.com</a>
-            <span class="note">The other 22 compounds on the order list are novel and have no registry
-            entry, so they can only be made to order.</span>
-          </div>
+      </div>
+
+      <div class="ref-group">
+        <h3>Databases and compound sources</h3>
+        <div class="ref-list">
+          <p class="ref-item">
+            Broad Institute (2026) <em>DepMap portal</em>. Available at:
+            <a href="https://depmap.org/">https://depmap.org/</a> (Accessed: 2 September 2026).
+            <span class="used">The co-dependency and common-essentiality analysis.</span>
+          </p>
+          <p class="ref-item">
+            European Bioinformatics Institute (2026) <em>ChEMBL database</em>. Available at:
+            <a href="https://www.ebi.ac.uk/chembl/">https://www.ebi.ac.uk/chembl/</a> (Accessed: 2 September 2026).
+            <span class="used">Training actives for the CRBN-binder classifiers.</span>
+          </p>
+          <p class="ref-item">
+            MedChemExpress (2026) <em>Z6466608628 (HY-175599)</em>. Available at:
+            <a href="https://www.medchemexpress.com/">https://www.medchemexpress.com/</a>
+            (Accessed: 2 September 2026).
+            <span class="used">Catalogue source for the one shortlisted compound available off the
+            shelf; the other 22 are novel and can only be made to order.</span>
+          </p>
+          <p class="ref-item">
+            National Center for Biotechnology Information (2026) <em>PubChem</em>. Available at:
+            <a href="https://pubchem.ncbi.nlm.nih.gov/">https://pubchem.ncbi.nlm.nih.gov/</a>
+            (Accessed: 2 September 2026).
+            <span class="used">Exact-structure registry lookup behind the CAS numbers on the order
+            sheet.</span>
+          </p>
         </div>
       </div>
 
@@ -8787,6 +8827,8 @@ Q 153.3 39.2, 154.6 39.2
 </script>
 
 <script src="viewer.js?v=c65726b50a" data-structures="structures.json?v=b57d0eab96" data-lib="lib" data-libv="4487982e97" defer></script>
+<script src="glossary.js?v=64a8a6ed21" defer></script>
+<script src="glossary.js?v=64a8a6ed21" defer></script>
 <script src="glossary.js?v=64a8a6ed21" defer></script>
 <script src="glossary.js?v=64a8a6ed21" defer></script>
 <script src="glossary.js?v=64a8a6ed21" defer></script>
